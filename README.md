@@ -37,3 +37,8 @@ Nucers社区建设平台文档
 前端项目
 
 ## 项目开发规范
+
+## 项目及合作联系
+
+- Zenith <liubingxing@nucosc.com>
+- Herbert <herberthe@nucosc.com>
