@@ -1,0 +1,4 @@
+# 全局Git忽略规则
+
+# 忽略默认的mddir生成的目录树文件上传
+directoryList.md
