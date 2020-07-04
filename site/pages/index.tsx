@@ -3,7 +3,7 @@ import Head from "next/head"
 export default function Home() {
     return (
         <div>
-            <Head children>
+            <Head>
                 <title>Nucers</title>
             </Head>
             Hello, Nucers
