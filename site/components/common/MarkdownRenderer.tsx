@@ -1,5 +1,6 @@
 import React from "react"
-const Vditor = require("vditor")
+import Vditor from "vditor"
+import "vditor/dist/index.css"
 
 interface IMdRendererProps {
     content: string
@@ -17,6 +18,7 @@ export default class MarkdownRenderer extends React.Component<
     private nucersMdRenderer = React.createRef<HTMLDivElement>()
     componentDidMount() {
         const { content } = this.props
+        // 需要自定义写渲染器
         Vditor.preview(this.nucersMdRenderer.current, content)
     }
     render() {
