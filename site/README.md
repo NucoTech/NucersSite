@@ -2,13 +2,17 @@
 
 > 本项目依赖`yarn`进行包管理，可以使用`yrm`切换软件源，`yrm use taobao`可以使用淘宝源
 
+## 开发须知
+
+- 支持别名引入模块，例如`@components/`代表`site/components`这个目录
+
 ## Getting Started
 
 开发环境启动
 
 ```bash
-npm run dev
-# or
+yarn
+
 yarn dev
 ```
 
@@ -20,7 +24,7 @@ yarn dev
 
 ## 前端文档
 
-- [更新日志](docs/UPDATE.md)
+- [更新日志](docs/CHANGELOG.md)
 
 ## 参考文档
 
