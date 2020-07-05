@@ -15,13 +15,13 @@ export default class MarkdownRenderer extends React.Component<
     constructor(props: IMdRendererProps) {
         super(props)
     }
-    private nucersMdRenderer = React.createRef<HTMLDivElement>()
+    private $nucersMdRenderer = React.createRef<HTMLDivElement>()
     componentDidMount() {
         const { content } = this.props
         // 需要自定义写渲染器
-        Vditor.preview(this.nucersMdRenderer.current, content)
+        Vditor.preview(this.$nucersMdRenderer.current, content)
     }
     render() {
-        return <div id="nucers-md-renderer" ref={this.nucersMdRenderer}></div>
+        return <div id="nucers-md-renderer" ref={this.$nucersMdRenderer}></div>
     }
 }
