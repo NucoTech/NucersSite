@@ -3,6 +3,7 @@ import dynamic from "next/dynamic"
 
 import NavBar, { INav } from "@components/common/NavBar"
 import HeatCalendar from "@components/charts/HeatCalendar"
+import ActsRadar from "@components/charts/ActsRadar"
 
 const MarkdownRenderer = dynamic(
     import("@components/common/MarkdownRenderer"),
@@ -37,6 +38,7 @@ export default function Home() {
             <NavBar navs={navs}></NavBar>
             <MarkdownRenderer content="# Hello" />
             <HeatCalendar range="2020" datas={datas} />
+            <ActsRadar datas={[4464, 5555, 6666, 7666, 3243]} />
             Hello, Nucers
         </div>
     )
