@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    z-index: 999999;
 }
 
 .navbarLeft {
@@ -28,6 +29,11 @@
 }
 
 /* 搜索栏 */
+.navbarSearchBox {
+    position: relative;
+    margin-right: 15px;
+}
+
 .navbarSearch {
     height: 30px;
     width: 200px;
@@ -35,7 +41,6 @@
     outline: none;
     padding-left: 10px;
     border: 1px solid grey;
-    margin-right: 15px;
     transition: width 0.2s ease-in;
     background-color: #4b4b4b;
     color: white;
@@ -44,6 +49,48 @@
 .navbarSearch:focus {
     width: 250px;
     background-color: #6b6b6b;
+    border-radius: 10px 10px 0 0;
+}
+
+/* 搜索提示建议 */
+.navbarSearchTips {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #6b6b6b;
+    height: 0;
+    color: white;
+    overflow: hidden;
+    transition: height 0.2s ease-in;
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+}
+
+.navbarSearchTips > li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 20px);
+    height: 17px;
+}
+
+.navbarSearchTips > li > a {
+    color: white;
+}
+
+.navbarSearchBox:hover ul {
+    height: 74px;
+}
+
+/* 设置元素可见 */
+.navbarSearch:focus + ul {
+    opacity: 1;
 }
 
 /* 新增帖子 */
