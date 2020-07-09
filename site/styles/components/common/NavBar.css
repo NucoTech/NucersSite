@@ -225,3 +225,49 @@
     color: white;
     text-decoration: none;
 }
+
+/* 子导航 */
+.navbarSubNavs {
+    position: relative;
+    display: inline-block;
+}
+
+.navbarSubNavs > a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 子导航容器 */
+.navbarSubNavsBox {
+    position: absolute;
+    top: 40px;
+    left: -20px;
+    padding: 10px;
+    background-color: var(--theme-bg-color);
+    display: none;
+    min-width: 300px;
+}
+
+.navbarNavs > li:hover .navbarSubNavsBox {
+    display: block;
+}
+
+/* 子导航组样式 */
+.navbarSubGroup {
+    margin: 10px 0;
+}
+
+.navbarSubGroup > ul {
+    color: white;
+}
+
+.navbarSubGroup > ul > li > a {
+    color: white;
+    font-size: small;
+    text-decoration: none;
+}
+
+.navbarSubGroupTitle {
+    color: grey;
+    font-size: smaller;
+}

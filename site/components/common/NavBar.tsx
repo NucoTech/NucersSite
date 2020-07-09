@@ -4,10 +4,27 @@ import IconFont from "./IconFont"
 
 const navBarStyle = require("@styles/components/common/NavBar.css")
 
-export interface INav {
+/**
+ * @param {string} url 链接
+ * @param {title} title 标题
+ */
+export interface MyNav {
     url?: string
     title: string
-    children?: Array<INav>
+}
+
+export interface SubNav {
+    group: string
+    children?: Array<MyNav>
+}
+
+/**
+ * @param {string} url 链接
+ * @param {title} title 标题
+ * @param {Array<SubNav>} children 子导航
+ */
+export interface INav extends MyNav {
+    children?: Array<SubNav>
 }
 
 interface INavProps {
@@ -16,11 +33,6 @@ interface INavProps {
 
 interface INavStates {
     search: string
-}
-
-interface SearchType {
-    type: string
-    content: string | Array<string>
 }
 
 /**
@@ -85,8 +97,54 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 <li key={item.title}>
                                     {item.children &&
                                     item.children.length !== 0 ? (
-                                        // 这里有子项目的项目
-                                        <></>
+                                        // 这里有子导航的项目，直接禁掉url的跳转
+                                        <div
+                                            className={
+                                                navBarStyle.navbarSubNavs
+                                            }
+                                        >
+                                            <a>{item.title}</a>
+                                            <div
+                                                className={
+                                                    navBarStyle.navbarSubNavsBox
+                                                }
+                                            >
+                                                {/* 遍历子导航 */}
+                                                {item.children.map(
+                                                    (subGroup: SubNav) => (
+                                                        <div
+                                                            key={`subnav-group-${subGroup.group}`}
+                                                            className={navBarStyle.navbarSubGroup}
+                                                        >
+                                                            <span className={navBarStyle.navbarSubGroupTitle}>
+                                                                {subGroup.group}
+                                                            </span>
+                                                            <ul>
+                                                                {subGroup.children.map(
+                                                                    (
+                                                                        subItem: MyNav
+                                                                    ) => (
+                                                                        <li
+                                                                            key={`subnav-${subItem.title}`}
+                                                                        >
+                                                                            <a
+                                                                                href={
+                                                                                    subItem.url
+                                                                                }
+                                                                            >
+                                                                                {
+                                                                                    subItem.title
+                                                                                }
+                                                                            </a>
+                                                                        </li>
+                                                                    )
+                                                                )}
+                                                            </ul>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
                                     ) : (
                                         // 这里是无子项目
                                         <a href={item.url}>{item.title}</a>
@@ -107,7 +165,9 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                         />
                         <ul className={navBarStyle.navbarSearchTips}>
                             <li onClick={() => this.search4Result()}>
-                                搜索{search ? `"${search}"` : ""}
+                                {search
+                                    ? `搜索"${search}"`
+                                    : "请输入搜索内容..."}
                             </li>
                             <li>
                                 <a href="/posts/syntax">

@@ -15,7 +15,28 @@ const MarkdownRenderer = dynamic(
 export default function Home() {
     const navs: Array<INav> = [
         { title: "广场", url: "/" },
-        { title: "组织", url: "/groups" },
+        {
+            title: "组织",
+            url: "/groups",
+            children: [
+                {
+                    group: "社团组织",
+                    children: [
+                        {
+                            title: "大数据协会",
+                            url: "/groups/bigdata",
+                        },
+                        {
+                            title: "信息对抗协会",
+                            url: "/groups",
+                        },
+                    ],
+                }, {
+                    group: "校级组织",
+                    children: []
+                }
+            ],
+        },
         { title: "趋势", url: "/trends" },
     ]
 
