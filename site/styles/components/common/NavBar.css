@@ -259,6 +259,11 @@
 
 .navbarSubGroup > ul {
     color: white;
+    padding-left: 30px;
+}
+
+.navbarSubGroup > ul > li {
+    padding: 2px 0;
 }
 
 .navbarSubGroup > ul > li > a {

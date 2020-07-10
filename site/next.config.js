@@ -10,6 +10,10 @@ module.exports = withCss({
     },
     // 自定义webpack
     webpack(config, options) {
+        config.module.rules.push({
+            test: /\.md$/,
+            use: "raw-loader"
+        })
         return config
     },
 })

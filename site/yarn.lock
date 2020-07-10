@@ -2366,7 +2366,7 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-diff-match-patch@^1.0.4:
+diff-match-patch@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/diff-match-patch/download/diff-match-patch-1.0.5.tgz#abb584d5f10cd1196dfc55aa03701592ae3f7b37"
   integrity sha1-q7WE1fEM0Rlt/FWqA3AVkq4/ezc=
@@ -4724,6 +4724,14 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
+raw-loader@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npm.taobao.org/raw-loader/download/raw-loader-4.0.1.tgz#14e1f726a359b68437e183d5a5b7d33a3eba6933"
+  integrity sha1-FOH3JqNZtoQ34YPVpbfTOj66aTM=
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^2.6.5"
+
 rc-util@^5.0.1:
   version "5.0.5"
   resolved "https://registry.npm.taobao.org/rc-util/download/rc-util-5.0.5.tgz?cache=0&sync_timestamp=1593791490282&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-util%2Fdownload%2Frc-util-5.0.5.tgz#d29d626edc931fbf8b45b4aa48fb9e44ce2300bd"
@@ -5021,7 +5029,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.6.1, schema-utils@^2.6.6:
+schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6:
   version "2.7.0"
   resolved "https://registry.npm.taobao.org/schema-utils/download/schema-utils-2.7.0.tgz#17151f76d8eae67fbbf77960c33c676ad9f4efc7"
   integrity sha1-FxUfdtjq5n+793lgwzxnatn078c=
@@ -5699,12 +5707,12 @@ util@^0.11.0:
   dependencies:
     inherits "2.0.3"
 
-vditor@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.npm.taobao.org/vditor/download/vditor-3.3.3.tgz#fbab16bf259e060a9502aa8a146943a70cd757f1"
-  integrity sha1-+6sWvyWeBgqVAqqKFGlDpwzXV/E=
+vditor@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.npm.taobao.org/vditor/download/vditor-3.3.5.tgz#906661efe961cb8a9cea0a90a2644c93d05030aa"
+  integrity sha1-kGZh7+lhy4qc6gqQomRMk9BQMKo=
   dependencies:
-    diff-match-patch "^1.0.4"
+    diff-match-patch "^1.0.5"
 
 vendors@^1.0.0:
   version "1.0.4"

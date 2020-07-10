@@ -1,6 +1,6 @@
 import React from "react"
-import Vditor from "vditor"
-import "vditor/dist/index.css"
+import Vditor from "vditor/dist/method.min"
+import { isNightNow } from "@utils/utils"
 
 interface IMdRendererProps {
     content: string
@@ -19,9 +19,19 @@ export default class MarkdownRenderer extends React.Component<
     componentDidMount() {
         const { content } = this.props
         // 需要自定义写渲染器
-        Vditor.preview(this.$nucersMdRenderer.current, content)
+        Vditor.preview(this.$nucersMdRenderer.current, content, {
+            anchor: 2,
+            theme: {
+                current: !isNightNow() ? "light" : "dark"
+            }
+        })
     }
     render() {
-        return <div id="nucers-md-renderer" ref={this.$nucersMdRenderer}></div>
+        return (
+            <div
+                id="nucers-md-renderer"
+                ref={this.$nucersMdRenderer}
+            ></div>
+        )
     }
 }

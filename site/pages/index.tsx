@@ -56,8 +56,7 @@ export default function Home() {
             <Head>
                 <title>Nucers社区 | 技术因分享而升华</title>
             </Head>
-            <NavBar navs={navs}></NavBar>
-            <MarkdownRenderer content="# Hello" />
+            <NavBar />
             <HeatCalendar range="2020" datas={datas} />
             <ActsRadar datas={[4464, 5555, 6666, 7666, 3243]} />
             Hello, Nucers

@@ -1,5 +1,4 @@
 import React from "react"
-import "@styles/index.css"
 import IconFont from "./IconFont"
 
 const navBarStyle = require("@styles/components/common/NavBar.css")
@@ -36,7 +35,7 @@ interface INavStates {
 }
 
 /**
- * 导航栏组件
+ * 导航栏组件，需要设置默认值
  */
 export default class NavBar extends React.Component<INavProps, INavStates> {
     constructor(props: INavProps) {
@@ -44,6 +43,37 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
         this.state = {
             search: "",
         }
+    }
+
+    // 默认props
+    static defaultProps: INavProps = {
+        navs: [
+            { title: "广场", url: "/" },
+            {
+                title: "组织",
+                url: "/groups",
+                children: [
+                    {
+                        group: "社团组织",
+                        children: [
+                            {
+                                title: "大数据协会",
+                                url: "/groups/bigdata",
+                            },
+                            {
+                                title: "信息对抗协会",
+                                url: "/groups",
+                            },
+                        ],
+                    },
+                    {
+                        group: "校级组织",
+                        children: [],
+                    },
+                ],
+            },
+            { title: "趋势", url: "/trends" },
+        ],
     }
 
     changeSearch = (e: any) => {
@@ -69,11 +99,15 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
         searchArray.forEach((item: string) => {
             const ans: Array<string> = item.match(searchRegExp)
             // 为null匹配的时候  不合法搜索头的时候 出现title搜索头的时候
-            if (!ans || !validHead.includes(ans[1]) || ans[1] === "title") {
+            if (
+                !ans ||
+                !validHead.includes(ans[1].toLowerCase()) ||
+                ans[1].toLowerCase() === "title"
+            ) {
                 searchNodes.set("title", item.trim())
             } else {
                 searchNodes.set(
-                    ans[1],
+                    ans[1].toLowerCase(),
                     ans[2].split("|").map((item: string) => item.trim())
                 )
             }
@@ -114,9 +148,15 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                                     (subGroup: SubNav) => (
                                                         <div
                                                             key={`subnav-group-${subGroup.group}`}
-                                                            className={navBarStyle.navbarSubGroup}
+                                                            className={
+                                                                navBarStyle.navbarSubGroup
+                                                            }
                                                         >
-                                                            <span className={navBarStyle.navbarSubGroupTitle}>
+                                                            <span
+                                                                className={
+                                                                    navBarStyle.navbarSubGroupTitle
+                                                                }
+                                                            >
                                                                 {subGroup.group}
                                                             </span>
                                                             <ul>
@@ -164,7 +204,10 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                             autoComplete="off"
                         />
                         <ul className={navBarStyle.navbarSearchTips}>
-                            <li onClick={() => this.search4Result()}>
+                            <li
+                                title={search ? `搜索"${search}"` : ""}
+                                onClick={() => this.search4Result()}
+                            >
                                 {search
                                     ? `搜索"${search}"`
                                     : "请输入搜索内容..."}
