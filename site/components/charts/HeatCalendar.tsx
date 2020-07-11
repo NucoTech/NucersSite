@@ -3,8 +3,11 @@ import { chooseEchartsTheme } from "./themes/themeChooser"
 
 const echarts = require("echarts")
 
+/**
+ * datas类型需要 [string, number]结构
+ */
 export interface HeatCalendarProps {
-    range: number | Array<string> | string
+    range?: number | Array<string> | string
     datas: Array<any>
     maxs?: number
 }
@@ -24,19 +27,25 @@ export default class HeatCalendar extends React.Component<HeatCalendarProps> {
             chooseEchartsTheme()
         )
         const { range, datas, maxs } = this.props
+        // 遍历得到最大值若没有传参
+        const maxActs: number = Math.max(
+            ...datas.map((item) => {
+                return item[1]
+            })
+        )
         const options = {
             tooltip: {},
             visualMap: {
                 show: false,
                 min: 0,
-                max: maxs || 10000,
+                max: maxs || maxActs,
             },
             calendar: {
                 top: 22,
                 bottom: 2,
                 left: 60,
                 right: 10,
-                range: range,
+                range: range || new Date().getFullYear(),
                 cellSize: "auto",
             },
             series: {
@@ -51,7 +60,7 @@ export default class HeatCalendar extends React.Component<HeatCalendarProps> {
         return (
             <div
                 ref={this.$heatCalendarMap}
-                style={{ height: "150px", width: "752px" }}
+                style={{ height: "150px", width: "100%" }}
             ></div>
         )
     }

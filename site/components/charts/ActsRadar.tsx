@@ -55,6 +55,6 @@ export default class ActsRadar extends React.Component<ActsRadarProps> {
         actsRadarChart.setOption(option)
     }
     render() {
-        return <div ref={this.$actsRadar} style={{ height: "250px", width: "100%" }}></div>
+        return <div ref={this.$actsRadar} style={{ height: "270px", width: "270px" }}></div>
     }
 }

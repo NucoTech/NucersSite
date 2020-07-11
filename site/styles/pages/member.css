@@ -1,6 +1,48 @@
-.memberPage {
+charts.memberPage {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+.memberPage > main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 100px;
+    width: calc(100% - 200px);
+}
+
+.mainLeft {
+    flex: 1;
+    /* background-color: white; */
+    margin-right: 20px;
+}
+
+.mainRight {
+    /* flex: 1; */
+}
+
+.charts,
+.module {
+    border-radius: 10px;
+    box-shadow: 0 0 2px grey;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: var(--theme-nav-bg-color);
+}
+
+.charts > span,
+.module > span {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: var(--theme-post-add);
+}
+
+@media screen and (max-width: 1023px) {
+    .charts {
+        display: none;
+    }
 }

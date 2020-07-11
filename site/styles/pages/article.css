@@ -1,14 +1,19 @@
 .articlePage {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 150px;
+    width: calc(100% - 300px);
 }
 
 .articleLeft {
-
+    margin-right: 130px;
 }
 
 .articleRight {
-
+    flex: 1;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
 }

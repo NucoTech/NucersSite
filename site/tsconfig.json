@@ -22,7 +22,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@mocks/*": ["mocks/*"]
     }
   },
   "exclude": [

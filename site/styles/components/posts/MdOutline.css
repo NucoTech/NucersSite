@@ -1,0 +1,20 @@
+.outline {
+    margin: 0;
+    padding-left: 10px;
+    list-style: circle;
+    list-style-position: inside;
+    overflow-y: scroll;
+    transition: height 0.2s ease-in-out;
+}
+
+/* 大纲字符越界检查 */
+.outline > li {
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.outline > li > a {
+    text-decoration: none;
+}

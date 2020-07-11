@@ -1,5 +1,5 @@
 .navbar {
-    background-color: var(--theme-bg-color);
+    background-color: var(--theme-nav-bg-color);
     width: 100vw;
     height: 70px;
     position: fixed;
@@ -243,7 +243,7 @@
     top: 40px;
     left: -20px;
     padding: 10px;
-    background-color: var(--theme-bg-color);
+    background-color: var(--theme-nav-bg-color);
     display: none;
     min-width: 300px;
 }

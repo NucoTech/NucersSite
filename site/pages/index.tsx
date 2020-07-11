@@ -14,18 +14,6 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
 export default function Home() {
     welcome2Nucers()
 
-    const datas: Array<any> = [
-        ["2020-01-01", 40043],
-        ["2020-01-05", 4340],
-        ["2020-01-06", 430],
-        ["2020-01-07", 40],
-        ["2020-02-08", 50],
-        ["2020-04-08", 450],
-        ["2020-06-08", 432450],
-        ["2020-07-08", 45230],
-        ["2020-08-08", 4530],
-    ]
-
     const datass: Array<IWordCloud> = [
         { text: "测试", value: 70 },
         { text: "前端", value: 50 },
@@ -43,8 +31,7 @@ export default function Home() {
                 <title>Nucers社区 | 技术因分享而升华</title>
             </Head>
             <NavBar />
-            <HeatCalendar range="2020" datas={datas} />
-            <ActsRadar datas={[4464, 5555, 6666, 7666, 3243]} />
+
             <WordCloud words={datass} />
             Hello, Nucers
         </div>

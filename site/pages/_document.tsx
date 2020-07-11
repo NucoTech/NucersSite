@@ -16,7 +16,7 @@ class MyDocument extends Document {
                 <body
                     style={{
                         backgroundColor: !isNightNow()
-                            ? ""
+                            ? "var(--theme-bg-color)"
                             : "var(--theme-bg-color-night)",
                     }}
                 >
