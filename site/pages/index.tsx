@@ -4,41 +4,15 @@ import dynamic from "next/dynamic"
 import NavBar, { INav } from "@components/common/NavBar"
 import HeatCalendar from "@components/charts/HeatCalendar"
 import ActsRadar from "@components/charts/ActsRadar"
+import { welcome2Nucers } from "@utils/utils"
+import { IWordCloud } from "@components/charts/WordCloud"
 
-const MarkdownRenderer = dynamic(
-    import("@components/common/MarkdownRenderer"),
-    {
-        ssr: false,
-    }
-)
+const WordCloud = dynamic(import("@components/charts/WordCloud"), {
+    ssr: false,
+})
 
 export default function Home() {
-    const navs: Array<INav> = [
-        { title: "广场", url: "/" },
-        {
-            title: "组织",
-            url: "/groups",
-            children: [
-                {
-                    group: "社团组织",
-                    children: [
-                        {
-                            title: "大数据协会",
-                            url: "/groups/bigdata",
-                        },
-                        {
-                            title: "信息对抗协会",
-                            url: "/groups",
-                        },
-                    ],
-                }, {
-                    group: "校级组织",
-                    children: []
-                }
-            ],
-        },
-        { title: "趋势", url: "/trends" },
-    ]
+    welcome2Nucers()
 
     const datas: Array<any> = [
         ["2020-01-01", 40043],
@@ -51,6 +25,18 @@ export default function Home() {
         ["2020-07-08", 45230],
         ["2020-08-08", 4530],
     ]
+
+    const datass: Array<IWordCloud> = [
+        { text: "测试", value: 70 },
+        { text: "前端", value: 50 },
+        { text: "开发", value: 90 },
+        { text: "Nucers", value: 90 },
+        { text: "话题", value: 90 },
+        { text: "React", value: 90 },
+        { text: "Vue", value: 90 },
+        { text: "娱乐", value: 100 },
+    ]
+
     return (
         <div>
             <Head>
@@ -59,6 +45,7 @@ export default function Home() {
             <NavBar />
             <HeatCalendar range="2020" datas={datas} />
             <ActsRadar datas={[4464, 5555, 6666, 7666, 3243]} />
+            <WordCloud words={datass} />
             Hello, Nucers
         </div>
     )

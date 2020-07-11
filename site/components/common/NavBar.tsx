@@ -1,5 +1,6 @@
 import React from "react"
 import IconFont from "./IconFont"
+import { searchEngineLexer } from "@utils/utils"
 
 const navBarStyle = require("@styles/components/common/NavBar.css")
 
@@ -86,32 +87,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
         const { search } = this.state
         // 判断search是否为空
         if (!search) return
-        // 正则表达式语法解析
-        const searchArray: Array<string> = search.split("&&")
-        const searchRegExp: RegExp = /[\s]+([\S]+):[\s]+([\s\S]+)/
-        // 合法搜索头
-        const validHead: Array<string> = ["title", "groups", "tags"]
-        // 搜索内容节点
-        let searchNodes: Map<string, string | Array<string>> = new Map<
-            string,
-            string | Array<string>
-        >()
-        searchArray.forEach((item: string) => {
-            const ans: Array<string> = item.match(searchRegExp)
-            // 为null匹配的时候  不合法搜索头的时候 出现title搜索头的时候
-            if (
-                !ans ||
-                !validHead.includes(ans[1].toLowerCase()) ||
-                ans[1].toLowerCase() === "title"
-            ) {
-                searchNodes.set("title", item.trim())
-            } else {
-                searchNodes.set(
-                    ans[1].toLowerCase(),
-                    ans[2].split("|").map((item: string) => item.trim())
-                )
-            }
-        })
+        const searchNodes =  searchEngineLexer(search)
         console.log(searchNodes)
         // 跳转搜索答案页
     }
