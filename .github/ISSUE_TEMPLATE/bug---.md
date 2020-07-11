@@ -3,7 +3,7 @@ name: Bug 反馈
 about: 帮助我们发现bug，提高体验
 title: "[BUG]"
 labels: bug
-assignees: mxwbq, HerbertHe, xu752860160, ZenithNUC, LuisAn-liu
+assignees: ''
 
 ---
 
