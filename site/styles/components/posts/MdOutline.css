@@ -7,8 +7,6 @@
     transition: height 0.2s ease-in-out;
 }
 
-/* 大纲字体大小需要区别化 */
-
 /* 大纲字符越界检查 */
 .outline > li {
     height: 25px;

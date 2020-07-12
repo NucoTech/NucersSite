@@ -1,0 +1,54 @@
+/* 大纲移动端 */
+.outlineMb {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 230px;
+    transform: translateX(-230px);
+    transition: all 0.2s ease-in-out;
+}
+
+.floatBtn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -40px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 0 2px grey;
+    border-radius: 0 5px 5px 0;
+}
+
+.outline {
+    width: calc(100% - 10px);
+    height: calc(100vh - 100px);
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    list-style: circle;
+    list-style-position: inside;
+    overflow-y: scroll;
+    box-shadow: 0 0 2px grey;
+}
+
+/* 大纲字符越界检查 */
+.outline > li {
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+    font-size: small;
+}
+
+.outline > li > a {
+    text-decoration: none;
+}
+
+@media screen and (min-width: 1023px) {
+    .outlineMb {
+        display: none;
+    }
+}

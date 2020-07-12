@@ -18,13 +18,11 @@ export default class MarkdownRenderer extends React.Component<
     private $nucersMdRenderer = React.createRef<HTMLDivElement>()
     componentDidMount() {
         const { content } = this.props
-        // 需要自定义写渲染器
-        // 需要自定义渲染风格
         Vditor.preview(this.$nucersMdRenderer.current, content, {
             anchor: 2,
             theme: {
                 current: !isNightNow() ? "light" : "dark",
-                // 下面是自定义主题的地址
+                // 下面是自定义主题的地址，上线需要修改
                 path: "http://localhost:3000/css"
             },
             hljs: {

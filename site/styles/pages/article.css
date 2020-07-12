@@ -9,6 +9,7 @@
 
 .articleLeft {
     margin-right: 80px;
+    max-width: calc(100% - 280px);
 }
 
 .articleRight {
@@ -16,4 +17,19 @@
     position: sticky;
     position: -webkit-sticky;
     top: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .articlePage {
+        padding: 20px 5px;
+        width: calc(100% - 10px);
+    }
+    .articleLeft {
+        width: 100%;
+        margin-right: 0;
+        max-width: calc(100% - 10px);
+    }
+    .articleRight {
+        display: none;
+    }
 }

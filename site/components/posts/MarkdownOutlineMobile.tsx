@@ -4,7 +4,7 @@ import marked from "marked"
 import { isNightNow } from "@utils/utils"
 import IconFont from "@components/common/IconFont"
 
-const mdOutlineStyle = require("@styles/components/posts/MdOutline.css")
+const mdOutlineMbStyle = require("@styles/components/posts/MdOutlineMobile.css")
 
 interface HeadingContent {
     depth: number
@@ -22,9 +22,9 @@ interface IMdOutlineStates {
 }
 
 /**
- * 大纲生成组件
+ * 大纲移动端组件
  */
-export default class MarkdownOutline extends React.Component<
+export default class MarkdownOutlineMobile extends React.Component<
     IMdOutlineProps,
     IMdOutlineStates
 > {
@@ -61,44 +61,40 @@ export default class MarkdownOutline extends React.Component<
     render() {
         const { isOpen, headingArray } = this.state
         return (
-            // 大纲组件新增适配移动端的版本
             <div
+                className={mdOutlineMbStyle.outlineMb}
                 style={{
-                    color: isNightNow() ? "white" : "black",
-                    backgroundColor: isNightNow() ? "transparent" : "white",
-                    padding: "5px",
-                    boxShadow: "0 0 1px grey",
+                    transform: isOpen ? "translateX(0px)" : "",
+                    backgroundColor: isNightNow() ? "black" : "white",
                 }}
             >
                 <div
-                    onClick={() => {
+                    className={mdOutlineMbStyle.floatBtn}
+                    onClick={() =>
                         this.setState({
                             isOpen: !isOpen,
                         })
-                    }}
+                    }
                     style={{
-                        userSelect: "none",
-                        msUserSelect: "none",
-                        WebkitUserSelect: "none",
-                        MozUserSelect: "none",
-                        cursor: "pointer",
-                        padding: "10px",
+                        backgroundColor: isNightNow() ? "black" : "white",
                     }}
                 >
                     <IconFont
                         type="nucers-arrow"
                         style={{
                             color: "var(--theme-post-add)",
-                            transform: isOpen ? "rotate(90deg)" : "",
+                            transform: isOpen ? "rotate(180deg)" : "rotate(0)",
+                            fontSize: "30px",
+                            width: "30px",
+                            height: "30px",
                         }}
-                    />{" "}
-                    大纲
+                    />
                 </div>
-                {/* 控制大纲的伸展 */}
                 <ul
-                    className={mdOutlineStyle.outline}
+                    className={mdOutlineMbStyle.outline}
                     style={{
-                        height: isOpen ? "300px" : "0",
+                        backgroundColor: isNightNow() ? "black" : "white",
+                        color: isNightNow() ? "white" : "black",
                     }}
                 >
                     {headingArray.map((item: HeadingContent) => (

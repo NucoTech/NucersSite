@@ -9,25 +9,24 @@ const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
 import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
-import AdsSide from "@components/common/AdsSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
-const syntaxMd = require("../../docs/syntax.md")
+const advancedMd = require("../../docs/advancedmd.md")
 
 export default () => {
     return (
         <div className={articleStyle.articlePage}>
             <Head>
-                <title>Nucers社区 | 搜索语法设计</title>
+                <title>Nucers社区 | Markdown高级语法</title>
             </Head>
             <NavBar />
             <div className={articleStyle.articleLeft}>
-                <MarkdownRenderer content={syntaxMd.default} />
+                <MarkdownRenderer content={advancedMd.default} />
             </div>
             <div className={articleStyle.articleRight}>
-                <MarkdownOutline content={syntaxMd.default} />
+                <MarkdownOutline content={advancedMd.default} />
                 <CopyrightSide />
             </div>
-            <MarkdownOutlineMobile content={syntaxMd.default} />
+            <MarkdownOutlineMobile content={advancedMd.default} />
         </div>
     )
 }
