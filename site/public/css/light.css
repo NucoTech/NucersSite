@@ -48,6 +48,7 @@
 .vditor-reset p {
     margin: 10px 0;
     font-size: 14px;
+    font-weight: 400;
 }
 
 /* 列表渲染 */
@@ -69,6 +70,7 @@
 .vditor-reset pre code {
     padding: 10px;
     background-color: #fefbec;
+    border-radius: 5px;
 }
 
 /* 文字处理 */
@@ -87,7 +89,16 @@
 }
 
 /* 折叠块 */
+.vditor-reset details {
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+}
+
 .vditor-reset details summary {
+    font-size: medium;
+    margin-bottom: 5px;
     outline: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -132,5 +143,5 @@
 .vditor-reset code:not(.hljs):not(.highlight-chroma).language-math,
 .vditor-reset code:not(.hljs):not(.highlight-chroma).language-mermaid,
 .vditor-reset .language-abc {
-    background-color: rgba(27, 31, 35, .02);
+    background-color: rgba(27, 31, 35, 0.02);
 }

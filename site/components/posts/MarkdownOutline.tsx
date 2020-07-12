@@ -57,7 +57,6 @@ export default class MarkdownOutline extends React.Component<
         this.setState({
             headingArray,
         })
-        console.log(headingArray)
     }
     render() {
         const { isOpen, headingArray } = this.state

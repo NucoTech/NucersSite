@@ -1,7 +1,7 @@
 /* 夜晚主题 */
 
 .vditor-reset {
-    color: #d1d5da;
+    color: rgb(189, 189, 189);
     padding: 50px;
     background-color: transparent;
     box-shadow: 0 0 1px grey;
@@ -16,16 +16,17 @@
 /* 引用块 */
 .vditor-reset blockquote {
     color: #6a737d;
-    border-left: 0.25em solid #eaecef;
+    border-left: 0.25em solid #0366d6;
     padding-left: 10px;
     margin: 10px 0;
 }
 
 .vditor-reset code:not(.hljs):not(.highlight-chroma) {
-    background-color: rgba(27, 31, 35, 0.05);
+    background-color: grey;
     padding: 5px;
     margin: 0 3px;
     border-radius: 2px;
+    color: white;
 }
 
 /* 表格渲染 */
@@ -36,7 +37,7 @@
 }
 
 .vditor-reset table thead {
-    background-color: #eee;
+    background-color: black;
 }
 
 .vditor-reset table td,
@@ -49,6 +50,7 @@
 .vditor-reset p {
     margin: 10px 0;
     font-size: 14px;
+    font-weight: 400;
 }
 
 /* 列表渲染 */
@@ -69,7 +71,8 @@
 
 .vditor-reset pre code {
     padding: 10px;
-    background-color: #fefbec;
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 /* 文字处理 */
@@ -88,7 +91,16 @@
 }
 
 /* 折叠块 */
+.vditor-reset details {
+    background-color: transparent;
+    box-shadow: 0 0 1px grey;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+}
 .vditor-reset details summary {
+    font-size: medium;
+    margin-bottom: 5px;
     outline: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -119,7 +131,8 @@
 
 /* 脚注 */
 .vditor-reset .footnotes-defs-div {
-    background-color: var(--theme-bg-color);
+    background-color: var(--theme-bg-color-night);
+    box-shadow: 0 0 1px grey;
 }
 
 .vditor-reset .footnotes-defs-ol {

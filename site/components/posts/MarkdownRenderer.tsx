@@ -23,13 +23,13 @@ export default class MarkdownRenderer extends React.Component<
         Vditor.preview(this.$nucersMdRenderer.current, content, {
             anchor: 2,
             theme: {
-                current: "light",
+                current: !isNightNow() ? "light" : "dark",
                 // 下面是自定义主题的地址
                 path: "http://localhost:3000/css"
             },
             hljs: {
                 enable: true,
-                style: "monokailight",
+                style: !isNightNow() ? "igor" : "monokai",
                 lineNumber: true
             }
         })
