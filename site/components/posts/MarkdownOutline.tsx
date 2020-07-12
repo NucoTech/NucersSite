@@ -9,6 +9,7 @@ const mdOutlineStyle = require("@styles/components/posts/MdOutline.css")
 interface HeadingContent {
     depth: number
     text: string
+    href?: string
 }
 
 interface IMdOutlineProps {
@@ -46,12 +47,17 @@ export default class MarkdownOutline extends React.Component<
         )
         const headingArray: Array<HeadingContent> = headingToken.map(
             (item: any) => {
-                return { depth: item.depth, text: item.text }
+                return {
+                    depth: item.depth,
+                    text: item.tokens[0].text,
+                    href: item.tokens[0].href,
+                }
             }
         )
         this.setState({
             headingArray,
         })
+        console.log(headingArray)
     }
     render() {
         const { isOpen, headingArray } = this.state
@@ -76,7 +82,7 @@ export default class MarkdownOutline extends React.Component<
                         WebkitUserSelect: "none",
                         MozUserSelect: "none",
                         cursor: "pointer",
-                        padding: "10px"
+                        padding: "10px",
                     }}
                 >
                     <IconFont
@@ -97,11 +103,13 @@ export default class MarkdownOutline extends React.Component<
                 >
                     {headingArray.map((item: HeadingContent) => (
                         <li
-                            key={`heading--${item.depth}-${Math.random() * 100}`}
+                            key={`heading--${item.depth}-${
+                                Math.random() * 100
+                            }`}
                             style={{ marginLeft: `${item.depth * 7}px` }}
                         >
                             <a
-                                href={`#${item.text}`}
+                                href={item.href ? item.href : `#${item.text}`}
                                 style={{
                                     color: isNightNow() ? "white" : "black",
                                 }}

@@ -3,16 +3,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px 150px;
-    width: calc(100% - 300px);
+    padding: 20px 100px;
+    width: calc(100% - 200px);
 }
 
 .articleLeft {
-    margin-right: 130px;
+    margin-right: 80px;
 }
 
 .articleRight {
-    flex: 1;
+    width: 500px;
     position: sticky;
     position: -webkit-sticky;
     top: 100px;

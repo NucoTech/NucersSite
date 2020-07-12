@@ -9,8 +9,7 @@ const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
 import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
-import AdsSide from "@components/common/AdsSide"
-const syntaxMd = require("../../docs/syntax.md")
+const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
     return (
@@ -20,10 +19,10 @@ export default () => {
             </Head>
             <NavBar />
             <div className={articleStyle.articleLeft}>
-                <MarkdownRenderer content={syntaxMd.default} />
+                <MarkdownRenderer content={markdownMd.default} />
             </div>
             <div className={articleStyle.articleRight}>
-                <MarkdownOutline content={syntaxMd.default} />
+                <MarkdownOutline content={markdownMd.default} />
                 <CopyrightSide />
             </div>
         </div>
