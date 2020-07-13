@@ -18,4 +18,19 @@ const HeatDataMocks: Array<any> = [
  */
 const ActsRadarMocks: Array<number> = [4464, 5555, 6666, 7666, 3243]
 
-export { HeatDataMocks, ActsRadarMocks }
+/**
+ * 热门标签模拟数据
+ */
+import { IWordCloud } from "@components/charts/WordCloud"
+const HotTagsMocks: Array<IWordCloud> = [
+    { text: "测试", value: 70 },
+    { text: "前端", value: 50 },
+    { text: "开发", value: 90 },
+    { text: "Nucers", value: 90 },
+    { text: "话题", value: 90 },
+    { text: "React", value: 90 },
+    { text: "Vue", value: 90 },
+    { text: "娱乐", value: 100 },
+]
+
+export { HeatDataMocks, ActsRadarMocks, HotTagsMocks }

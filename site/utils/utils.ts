@@ -17,7 +17,7 @@ export function welcome2Nucers(): void {
     console.log(
         [
             "欢迎来到有趣好玩的Nucers社区👌ヾ(•ω•`)o\n",
-            "技术支持: https://www.nucosc.com",
+            "技术支持: \nhttps://www.nucosc.com\nhttps://nucosc.gitee.io\n",
             "GitHub: https://github.com/NUCOSC",
             "Gitee: https://gitee.com/NUCOSC",
         ].join("\n")
@@ -30,6 +30,25 @@ export function welcome2Nucers(): void {
 export function isNightNow(): boolean {
     const hours = new Date().getHours()
     return hours > 19 || hours < 6
+}
+
+/**
+ * 纪念日检查
+ */
+export function isMemorizedDays(): any {
+    const days: Array<string> = ["7-7", "9-18", "12-13"]
+    const today: Date = new Date()
+    const date: string = `${today.getMonth() + 1}-${today.getDate()}`
+    if (days.includes(date)) {
+        return {
+            is: true,
+            date: date,
+        }
+    }
+    return {
+        is: false,
+        date: date,
+    }
 }
 
 /**

@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
-import { isNightNow } from "@utils/utils"
+import { isNightNow, isMemorizedDays } from "@utils/utils"
 
 class MyDocument extends Document {
     static async getInitialProps(context) {
@@ -18,6 +18,8 @@ class MyDocument extends Document {
                         backgroundColor: !isNightNow()
                             ? "var(--theme-bg-color)"
                             : "var(--theme-bg-color-night)",
+                        filter: isMemorizedDays().is ? "grayscale(1)" : "",
+                        WebkitFilter: isMemorizedDays().is ? "grayscale(1)" : "",
                     }}
                 >
                     <Main />
