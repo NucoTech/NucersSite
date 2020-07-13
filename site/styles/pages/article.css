@@ -1,19 +1,19 @@
 .articlePage {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 20px 100px;
     width: calc(100% - 200px);
 }
 
 .articleLeft {
+    flex: 1;
     margin-right: 80px;
-    max-width: calc(100% - 280px);
 }
 
 .articleRight {
-    width: 500px;
+    width: 200px;
     position: sticky;
     position: -webkit-sticky;
     top: 100px;
@@ -27,7 +27,6 @@
     .articleLeft {
         width: 100%;
         margin-right: 0;
-        max-width: calc(100% - 10px);
     }
     .articleRight {
         display: none;

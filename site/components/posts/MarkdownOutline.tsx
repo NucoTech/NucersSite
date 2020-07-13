@@ -61,7 +61,6 @@ export default class MarkdownOutline extends React.Component<
     render() {
         const { isOpen, headingArray } = this.state
         return (
-            // 大纲组件新增适配移动端的版本
             <div
                 style={{
                     color: isNightNow() ? "white" : "black",

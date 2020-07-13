@@ -9,7 +9,6 @@ const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
 import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
-import AdsSide from "@components/common/AdsSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 const syntaxMd = require("../../docs/syntax.md")
 
