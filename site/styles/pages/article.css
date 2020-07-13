@@ -10,6 +10,7 @@
 .articleLeft {
     flex: 1;
     margin-right: 80px;
+    max-width: calc(100vw - 480px);
 }
 
 .articleRight {
@@ -22,11 +23,13 @@
 @media screen and (max-width: 1024px) {
     .articlePage {
         padding: 20px 5px;
-        width: calc(100% - 10px);
+        width: calc(100vw - 10px);
+        max-width: calc(100vw - 10px);
     }
     .articleLeft {
-        width: 100%;
+        width: calc(100vw - 10px);
         margin-right: 0;
+        max-width: calc(100vw - 10px);
     }
     .articleRight {
         display: none;
