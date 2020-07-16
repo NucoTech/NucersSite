@@ -1,6 +1,6 @@
 import Head from "next/head"
 import dynamic from "next/dynamic"
-const articleStyle = require("@styles/pages/article.css")
+const articleStyle = require("@styles/pages/article.module.css")
 
 const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
     ssr: false,

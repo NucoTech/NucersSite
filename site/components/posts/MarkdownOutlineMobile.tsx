@@ -4,7 +4,7 @@ import marked from "marked"
 import { isNightNow } from "@utils/utils"
 import IconFont from "@components/common/IconFont"
 
-const mdOutlineMbStyle = require("@styles/components/posts/MdOutlineMobile.css")
+const mdOutlineMbStyle = require("@styles/components/posts/MdOutlineMobile.module.css")
 
 interface HeadingContent {
     depth: number

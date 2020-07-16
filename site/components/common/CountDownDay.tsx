@@ -1,6 +1,6 @@
 import React from "react"
 
-const countDownDayStyle = require("@styles/components/common/CountDownDay.css")
+const countDownDayStyle = require("@styles/components/common/CountDownDay.module.css")
 
 /**
  * @param {string} target // 目标日

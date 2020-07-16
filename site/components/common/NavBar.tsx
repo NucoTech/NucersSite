@@ -2,7 +2,7 @@ import React from "react"
 import IconFont from "./IconFont"
 import { searchEngineLexer } from "@utils/utils"
 
-const navBarStyle = require("@styles/components/common/NavBar.css")
+const navBarStyle = require("@styles/components/common/NavBar.module.css")
 
 /**
  * @param {string} url 链接

@@ -5,7 +5,7 @@ import HeatCalendar from "@components/charts/HeatCalendar"
 import { HeatDataMocks, ActsRadarMocks } from "@mocks/datas"
 import ActsRadar from "@components/charts/ActsRadar"
 
-const memberStyle = require("@styles/pages/member.css")
+const memberStyle = require("@styles/pages/member.module.css")
 
 const memberProfile = ({ stars }) => {
     return (

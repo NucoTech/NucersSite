@@ -1,7 +1,7 @@
 import React from "react"
 import IconFont from "@components/common/IconFont"
 
-const memberHead = require("@styles/components/members/MemberHead.css")
+const memberHead = require("@styles/components/members/MemberHead.module.css")
 
 interface IMemberHeadProps {
     avatar: string
