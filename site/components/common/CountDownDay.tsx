@@ -34,7 +34,7 @@ export default class CountDownDay extends React.Component<
             minutes: "00",
             seconds: "00",
             msg: "距离还有",
-            over: false,
+            over: true,
         }
     }
     // 默认props
@@ -94,6 +94,7 @@ export default class CountDownDay extends React.Component<
                     minutes,
                     seconds,
                     over,
+                    msg
                 })
             }, 1000)
         } else {
@@ -111,7 +112,6 @@ export default class CountDownDay extends React.Component<
                     over = false
                 } else {
                     over = true
-                    return
                 }
                 days = days.length === 1 ? `0${days}` : days
                 hours = hours.length === 1 ? `0${hours}` : hours
@@ -123,6 +123,7 @@ export default class CountDownDay extends React.Component<
                     minutes,
                     seconds,
                     over,
+                    msg,
                 })
             }, 1000)
         }

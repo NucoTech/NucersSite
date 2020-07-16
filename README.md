@@ -38,6 +38,9 @@ Nucers社区建设平台文档
 
 ## 项目开发规范
 
+- 帖子为了后续可拓展的用户体验，使用`po号`类似于bilibili的`AV号`，使用大写的`PO号`可以自动生成链接！例如`PO123123`链接到`/p/po123123`
+- 开启tags和topics的模式，topics使用`#话题#`这类格式，同样可以为链接做好准备
+
 ## 项目及合作联系
 
 - Zenith <liubingxing@nucosc.com>
