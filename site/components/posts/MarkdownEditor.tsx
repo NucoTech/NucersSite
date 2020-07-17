@@ -13,7 +13,7 @@ export default class MarkdownEditor extends React.Component {
         // 可以考虑新增增图的内容插入
         const vditor = new Vditor("nucers-vditor-editor", {
             minHeight: 500,
-            outline: true,
+            outline: false,
             width: "100%",
             placeholder: "写点什么吧...",
             theme: isNightNow() ? "dark" : "classic",

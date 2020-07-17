@@ -29,7 +29,7 @@ export function welcome2Nucers(): void {
  */
 export function isNightNow(): boolean {
     const hours = new Date().getHours()
-    return hours > 19 || hours < 6
+    return hours >= 19 || hours <= 6
 }
 
 /**
