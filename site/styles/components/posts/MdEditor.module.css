@@ -1,0 +1,23 @@
+.content {
+    width: 100%;
+}
+
+.helper {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+
+    box-shadow: 1px 0 1px grey;
+}
+
+.helper > li {
+    padding: 5px;
+    cursor: pointer;
+}
