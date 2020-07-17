@@ -10,11 +10,11 @@
 .articleLeft {
     flex: 1;
     margin-right: 80px;
-    max-width: calc(100vw - 480px);
+    max-width: calc(100vw - 550px);
 }
 
 .articleRight {
-    width: 200px;
+    width: 270px;
     position: sticky;
     position: -webkit-sticky;
     top: 100px;
