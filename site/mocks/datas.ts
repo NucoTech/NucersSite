@@ -33,4 +33,29 @@ const HotTagsMocks: Array<IWordCloud> = [
     { text: "娱乐", value: 100 },
 ]
 
-export { HeatDataMocks, ActsRadarMocks, HotTagsMocks }
+/**
+ * 广告投放模拟数据
+ */
+import { IAds } from "@components/common/AdsSide"
+const AdsMocks: Array<IAds> = [
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        url: "https://www.nucosc.com",
+    },
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        url: "https://www.nucosc.com",
+    },
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        url: "https://www.nucosc.com",
+    },
+]
+
+export { HeatDataMocks, ActsRadarMocks, HotTagsMocks, AdsMocks }

@@ -8,6 +8,15 @@
 }
 
 .vditor-reset h1,
+.vditor-reset h2,
+.vditor-reset h3,
+.vditor-reset h4,
+.vditor-reset h5,
+.vditor-reset h6 {
+    font-weight: 600;
+}
+
+.vditor-reset h1,
 .vditor-reset h2 {
     border-bottom: 1px solid #eaecef;
 }

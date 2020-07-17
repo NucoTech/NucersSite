@@ -1,11 +1,20 @@
 /* 夜晚主题 */
 
 .vditor-reset {
-    color: rgb(189, 189, 189);
     padding: 50px;
     background-color: transparent;
     box-shadow: 0 0 1px grey;
     border-radius: 10px;
+}
+
+.vditor-reset h1,
+.vditor-reset h2,
+.vditor-reset h3,
+.vditor-reset h4,
+.vditor-reset h5,
+.vditor-reset h6 {
+    font-weight: 600;
+    color: rgb(189, 189, 189);
 }
 
 .vditor-reset h1,
@@ -34,6 +43,7 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
+    color: rgb(189, 189, 189)
 }
 
 .vditor-reset table thead {
@@ -51,12 +61,14 @@
     margin: 10px 0;
     font-size: 14px;
     font-weight: 400;
+    color: rgb(189, 189, 189);
 }
 
 /* 列表渲染 */
 .vditor-reset ul,
 .vditor-reset ol {
     margin: 10px 0;
+    color: rgb(189, 189, 189)
 }
 
 .vditor-reset li {
@@ -120,6 +132,7 @@
     border-radius: 5px;
     padding: 10px;
     font-size: small;
+    color: rgb(189, 189, 189);
 }
 .vditor-reset details summary {
     font-size: medium;
@@ -146,6 +159,7 @@
 /* katex */
 .vditor-reset .katex {
     margin: 0 3px;
+    color: rgb(189, 189, 189)
 }
 
 .vditor-reset .katex .base {

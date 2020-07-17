@@ -253,6 +253,6 @@ http://chimee.org/vod/1.mp4
 
 音频demo
 
-https://sharefs.yun.kugou.com/202007121336/989ccddfdd5ddd6e8ab219729f913e7a/G151/M07/15/04/d5QEAFz6V_CAR0r7AEHlOc5g6DE932.mp3
+http://stor.cloudmusics.cn/mp3/2020/01/727f6d5495b821b2c87d70c29a83a4d9.mp3http://stor.cloudmusics.cn/mp3/2020/01/727f6d5495b821b2c87d70c29a83a4d9.mp3
 
 ## [高级语法](/posts/advancedmd)

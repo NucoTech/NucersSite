@@ -77,7 +77,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: calc(100% - 20px);
-    height: 17px;
 }
 
 .navbarSearchTips > li > a {
@@ -85,7 +84,7 @@
 }
 
 .navbarSearchBox:hover ul {
-    height: 74px;
+    height: 80px;
 }
 
 /* 设置元素可见 */

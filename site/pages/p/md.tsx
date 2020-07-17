@@ -10,6 +10,8 @@ import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
+import AdsSide from "@components/common/AdsSide"
+import { AdsMocks } from "@mocks/datas"
 const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
@@ -24,6 +26,7 @@ export default () => {
             </div>
             <div className={articleStyle.articleRight}>
                 <MarkdownOutline content={markdownMd.default} />
+                <AdsSide ads={AdsMocks} />
                 <CopyrightSide />
             </div>
             <MarkdownOutlineMobile content={markdownMd.default} />
