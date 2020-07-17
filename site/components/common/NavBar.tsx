@@ -189,7 +189,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                     : "请输入搜索内容..."}
                             </li>
                             <li>
-                                <a href="/posts/syntax">
+                                <a href="/p/syntax">
                                     了解Nucers搜索语法...
                                 </a>
                             </li>

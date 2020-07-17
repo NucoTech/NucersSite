@@ -198,4 +198,4 @@ digraph finite_state_machine {
 }
 ```
 
-## [基础语法](/posts/md)
+## [基础语法](/p/md)

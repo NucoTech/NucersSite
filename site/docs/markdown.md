@@ -255,4 +255,4 @@ http://chimee.org/vod/1.mp4
 
 http://stor.cloudmusics.cn/mp3/2020/01/727f6d5495b821b2c87d70c29a83a4d9.mp3http://stor.cloudmusics.cn/mp3/2020/01/727f6d5495b821b2c87d70c29a83a4d9.mp3
 
-## [高级语法](/posts/advancedmd)
+## [高级语法](/p/advancedmd)

@@ -82,8 +82,8 @@ export default class WordCloud extends React.Component<
         return (
             <div
                 style={{
-                    height: "300px",
-                    width: "300px",
+                    height: "200px",
+                    width: "200px",
                     backgroundColor: "transparent",
                 }}
             >
