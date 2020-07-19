@@ -1,0 +1,37 @@
+.contentLight,
+.contentDark {
+    width: 100%;
+    box-shadow: 0 0 1px grey;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.contentLight > .boxHeader,
+.contentDark > .boxHeader {
+    overflow: hidden;
+    padding: 5px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.contentLight > .boxHeader {
+    background-color: #f1f8ff;
+}
+
+.contentDark > .boxHeader {
+    background-color: transparent;
+}
+
+.contentLight > .boxContent,
+.contentDark > .boxContent {
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.contentLight > .boxContent {
+    background-color: white;
+}
+
+.contentDark > .boxContent {
+    background-color: transparent;
+}

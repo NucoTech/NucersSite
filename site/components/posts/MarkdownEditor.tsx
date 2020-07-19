@@ -67,15 +67,25 @@ export default class MarkdownEditor extends React.Component {
             },
             preview: {
                 delay: 500,
+                theme: {
+                    path:
+                        "https://cdn.jsdelivr.net/npm/vditor@latest/dist/css/content-theme",
+                    current: isNightNow() ? "dark" : "light",
+                },
             },
             hint: {
                 // at: (value: string) => {
                 //     // 在此可以引用推文等
+                //     // 这里需要fetch查询可引用范围数组
                 //     console.log(value)
                 //     return [
                 //         {
-                //             value: value,
-                //             html: `<a href="http://localhost:3000/p/${value}">${value}</a>`,
+                //             value: "@" + value,
+                //             html: `<a>${value}</a>`,
+                //         },
+                //         {
+                //             value: "@test",
+                //             html: "test",
                 //         },
                 //     ]
                 // },
@@ -114,6 +124,22 @@ export default class MarkdownEditor extends React.Component {
                             onClick={() =>
                                 window.open(
                                     "https://mermaidjs.github.io/#/",
+                                    "_blank"
+                                )
+                            }
+                        />
+                    </li>
+                    <li>
+                        <IconFont
+                            type="nucers-echarts"
+                            style={{
+                                fontSize: "20px",
+                                color: isNightNow() ? "#b9b9b9" : "black",
+                            }}
+                            title="Echarts绘图教程"
+                            onClick={() =>
+                                window.open(
+                                    "https://echarts.apache.org/zh/tutorial.html",
                                     "_blank"
                                 )
                             }

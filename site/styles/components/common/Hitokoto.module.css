@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 1px grey;
+    font-weight: 300;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.content > .from {
+    align-self: flex-end;
+}

@@ -3,5 +3,46 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 0 50px;
+    margin: 45px 100px;
+    width: calc(100vw - 200px);
+}
+
+.content > .left {
+    width: 200px;
+    margin-right: 60px;
+}
+
+.content > .right {
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+.rightContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contentLeft,
+.contentRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 520px;
+}
+
+.contentLeft {
+    width: 430px;
+    margin-right: 40px;
+}
+
+.contentRight {
+    flex: 1;
 }
