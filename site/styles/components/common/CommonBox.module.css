@@ -10,8 +10,21 @@
 .contentDark > .boxHeader {
     overflow: hidden;
     padding: 5px;
-    padding-left: 10px;
+    padding-left: 20px;
     font-weight: 600;
+    position: relative;
+    border-bottom: 1px solid rgb(166, 233, 255);
+}
+
+.boxHeader::after {
+    content: "";
+    position: absolute;
+    background-color: orange;
+    width: 5px;
+    height: 6px;
+    top: auto;
+    bottom: auto;
+    left: 5px;
 }
 
 .contentLight > .boxHeader {
@@ -34,4 +47,16 @@
 
 .contentDark > .boxContent {
     background-color: transparent;
+}
+
+.boxContent > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.boxContent > ul > li {
+    height: 25px;
+    padding: 0 10px;
+    text-align: start;
 }

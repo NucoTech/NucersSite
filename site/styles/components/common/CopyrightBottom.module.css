@@ -1,0 +1,22 @@
+.content {
+    background-color: var(--theme-nav-bg-color);
+    padding: 20px 100px;
+    color: white;
+}
+
+.commonLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentText {
+    font-size: small;
+    color: grey;
+}
+
+.contentICP {
+    font-size: small;
+    color: rgb(163, 163, 163);
+}

@@ -10,6 +10,7 @@ import Hitokoto from "@components/common/Hitokoto"
 import HotPosts from "@components/common/HotPosts"
 import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
+import CopyrightBottom from "@components/common/CopyrightBottom"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
@@ -20,34 +21,38 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
 export default () => {
     welcome2Nucers()
     return (
-        <div className={indexStyle.content}>
+        <div>
             <Head>
                 <title>Nucers社区 | 技术因分享而升华</title>
             </Head>
             <NavBar />
-            <div className={indexStyle.left}>
-                <HotTopics />
-                <WordCloud words={HotTagsMocks} />
-            </div>
-            <div className={indexStyle.right}>
-                <Hitokoto />
-                <div className={indexStyle.rightContent}>
-                    <div className={indexStyle.contentLeft}>
-                        <Activities acts={AdsMocks} />
-                        <Notices />
-                    </div>
-                    <div className={indexStyle.contentRight}>
-                        <HotPosts />
-                        <Newers />
-                    </div>
+            <div className={indexStyle.content}>
+                <div className={indexStyle.left}>
+                    <HotTopics />
+                    <WordCloud words={HotTagsMocks} />
                 </div>
+                <div className={indexStyle.right}>
+                    <Hitokoto />
+                    <div className={indexStyle.rightContent}>
+                        <div className={indexStyle.contentLeft}>
+                            <Activities acts={AdsMocks} />
+                            <Notices />
+                        </div>
+                        <div className={indexStyle.contentRight}>
+                            <HotPosts />
+                            <Newers />
+                        </div>
+                    </div>
 
-                {/* 轮播图广告 */}
-                {/* 通知 */}
-                {/* 热门帖子 */}
-                {/* 热门一点想法 */}
-                {/* 新加入成员 */}
+                    {/* 轮播图广告 */}
+                    {/* 通知 */}
+                    {/* 热门帖子 */}
+                    {/* 热门一点想法 */}
+                    {/* 新加入成员 */}
+                </div>
             </div>
+
+            <CopyrightBottom />
         </div>
     )
 }
