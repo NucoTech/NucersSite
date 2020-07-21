@@ -1,14 +1,17 @@
 import React from "react"
 import Vditor from "vditor/dist/method.min"
-import { isNightNow } from "@utils/utils"
+import  { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { inject, observer } from "mobx-react"
 
-interface IMdRendererProps {
+interface IMdRendererProps extends OnlyDarkThemeStoreType {
     content: string
 }
 
 /**
  * Markdown文件渲染组件
  */
+@inject("darkThemeStore")
+@observer
 export default class MarkdownRenderer extends React.Component<
     IMdRendererProps
 > {
@@ -16,22 +19,37 @@ export default class MarkdownRenderer extends React.Component<
         super(props)
     }
     private $nucersMdRenderer = React.createRef<HTMLDivElement>()
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
+    }
     componentDidMount() {
         const { content } = this.props
+        const { darkNow } = this.props.darkThemeStore
         Vditor.preview(this.$nucersMdRenderer.current, content, {
             anchor: 2,
             theme: {
-                current: !isNightNow() ? "light" : "dark",
+                current: !darkNow ? "light" : "dark",
                 // 下面是自定义主题的地址，上线需要修改
-                path: "http://localhost:3000/css"
+                path: "http://localhost:3000/css",
             },
             hljs: {
                 enable: true,
-                style: !isNightNow() ? "igor" : "monokai",
-                lineNumber: true
-            }
+                style: !darkNow ? "igor" : "monokai",
+                lineNumber: true,
+            },
         })
     }
+    componentDidUpdate() {
+        const { darkNow } = this.props.darkThemeStore
+        Vditor.setContentTheme(
+            !darkNow ? "light" : "dark",
+            "http://localhost:3000/css"
+        )
+        // 暂时无法动态修改当前状态下的主题
+    }
+
     render() {
         return <div id="nucers-md-renderer" ref={this.$nucersMdRenderer}></div>
     }

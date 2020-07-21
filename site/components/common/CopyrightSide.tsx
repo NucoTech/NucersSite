@@ -1,13 +1,16 @@
 import React from "react"
-import { isNightNow } from "@utils/utils"
+import { inject, observer } from "mobx-react"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
-export interface ICopyrightSide {
+export interface ICopyrightSide extends OnlyDarkThemeStoreType {
     ICP: string
     Gongan?: string
     address: string
     email: string
 }
 
+@inject("darkThemeStore")
+@observer
 export default class CopyrightSide extends React.Component<ICopyrightSide> {
     constructor(props: ICopyrightSide) {
         super(props)
@@ -18,16 +21,24 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
         address: "山西省太原市尖草坪区学院路三号中北大学",
         email: "herberthe@nucosc.com",
     }
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
+    }
     render() {
         const { ICP, Gongan, address, email } = this.props
+        const { darkNow } = this.props.darkThemeStore
         return (
             <div
                 style={{
                     padding: "20px",
-                    backgroundColor: isNightNow() ? "tranparent" : "white",
+                    backgroundColor: darkNow
+                        ? "var(--theme-bg-color-night)"
+                        : "white",
                     boxShadow: "0 0 1px grey",
                     marginTop: "20px",
-                    color: isNightNow() ? "white" : "black",
+                    color: darkNow ? "white" : "black",
                 }}
             >
                 <div

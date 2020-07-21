@@ -1,27 +1,49 @@
 import React from "react"
 import { inject, observer } from "mobx-react"
-
-interface IDarkSwitcherProps {
-    darkThemeStore?: any
-}
+import IconFont from "./IconFont"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 @inject("darkThemeStore")
 @observer
-export default class DarkSwitcher extends React.Component<IDarkSwitcherProps> {
-    constructor(props: IDarkSwitcherProps) {
-        super(props)
-    }
+export default class DarkSwitcher extends React.Component<
+    OnlyDarkThemeStoreType
+> {
     static async getInitialProps({ mobxStore }) {
         return { darkThemeStore: mobxStore.darkThemeStore }
     }
 
     render() {
-        const { darkThemeStore } = this.props
+        const { darkNow, setDark } = this.props.darkThemeStore
         return (
-            <div>
-                <button onClick={() => darkThemeStore.setDark()}>
-                    夜间模式
-                </button>
+            <div
+                title={darkNow ? "开灯" : "关灯"}
+                onClick={() => setDark()}
+                style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "30px",
+                    backgroundColor: darkNow
+                        ? "var(--theme-bg-color-night)"
+                        : "white",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    boxShadow: "0 0 2px grey",
+                    position: "fixed",
+                    right: "50px",
+                    bottom: "50px",
+                    zIndex: 99999,
+                }}
+            >
+                <IconFont
+                    type="nucers-deng"
+                    style={{
+                        color: darkNow ? "white" : "black",
+                        fontSize: "30px",
+                    }}
+                />
             </div>
         )
     }

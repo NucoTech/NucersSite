@@ -1,17 +1,11 @@
 import React from "react"
-import { isNightNow } from "@utils/utils"
+import CommonBox from "./CommonBox"
 const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 export default class HotPosts extends React.Component {
     render() {
         return (
-            <div
-                className={
-                    isNightNow()
-                        ? commonBoxStyle.contentDark
-                        : commonBoxStyle.contentLight
-                }
-            >
+            <CommonBox>
                 <div className={commonBoxStyle.boxHeader}>热门帖子</div>
                 <div className={commonBoxStyle.boxContent}>
                     <ul>
@@ -27,7 +21,7 @@ export default class HotPosts extends React.Component {
                         <li>测试</li>
                     </ul>
                 </div>
-            </div>
+            </CommonBox>
         )
     }
 }

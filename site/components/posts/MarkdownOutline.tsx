@@ -3,6 +3,8 @@ import React from "react"
 import marked from "marked"
 import { isNightNow } from "@utils/utils"
 import IconFont from "@components/common/IconFont"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { inject, observer } from "mobx-react"
 
 const mdOutlineStyle = require("@styles/components/posts/MdOutline.module.css")
 
@@ -12,7 +14,7 @@ interface HeadingContent {
     href?: string
 }
 
-interface IMdOutlineProps {
+interface IMdOutlineProps extends OnlyDarkThemeStoreType {
     content: string
 }
 
@@ -24,6 +26,8 @@ interface IMdOutlineStates {
 /**
  * 大纲生成组件
  */
+@inject("darkThemeStore")
+@observer
 export default class MarkdownOutline extends React.Component<
     IMdOutlineProps,
     IMdOutlineStates
@@ -37,6 +41,12 @@ export default class MarkdownOutline extends React.Component<
     }
     static defaultProps = {
         content: "",
+    }
+
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
     }
     componentDidMount() {
         // 在此解析词法
@@ -60,11 +70,12 @@ export default class MarkdownOutline extends React.Component<
     }
     render() {
         const { isOpen, headingArray } = this.state
+        const { darkNow } = this.props.darkThemeStore
         return (
             <div
                 style={{
-                    color: isNightNow() ? "white" : "black",
-                    backgroundColor: isNightNow() ? "transparent" : "white",
+                    color: darkNow ? "white" : "black",
+                    backgroundColor: darkNow ? "transparent" : "white",
                     padding: "5px",
                     boxShadow: "0 0 1px grey",
                 }}
@@ -112,7 +123,7 @@ export default class MarkdownOutline extends React.Component<
                                 style={{
                                     color: item.href
                                         ? "#0366d6"
-                                        : isNightNow()
+                                        : darkNow
                                         ? "white"
                                         : "black",
                                 }}

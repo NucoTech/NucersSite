@@ -11,6 +11,7 @@ import HotPosts from "@components/common/HotPosts"
 import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
+import DarkSwitcher from "@components/common/DarkSwitcher"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
@@ -51,7 +52,7 @@ export default () => {
                     {/* 新加入成员 */}
                 </div>
             </div>
-
+            <DarkSwitcher />
             <CopyrightBottom />
         </div>
     )

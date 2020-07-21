@@ -1,5 +1,5 @@
 import React from "react"
-import { isNightNow } from "@utils/utils"
+import CommonBox from "./CommonBox"
 const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 interface IHotTopicsProps {}
@@ -48,13 +48,7 @@ export default class HotTopics extends React.Component<
     render() {
         const { topics } = this.state
         return (
-            <div
-                className={
-                    isNightNow()
-                        ? commonBoxStyle.contentDark
-                        : commonBoxStyle.contentLight
-                }
-            >
+            <CommonBox>
                 <div className={commonBoxStyle.boxHeader}>热门话题</div>
                 <div className={commonBoxStyle.boxContent}>
                     <ul>
@@ -63,16 +57,20 @@ export default class HotTopics extends React.Component<
                                 key={`topic-${index}`}
                                 style={{ color: index === 0 ? "red" : "green" }}
                             >
-                                <span style={{
-                                    width: "60px",
-                                }}>{index + 1}</span>
+                                <span
+                                    style={{
+                                        width: "60px",
+                                    }}
+                                >
+                                    {index + 1}
+                                </span>
 
                                 <span>#{item}#</span>
                             </li>
                         ))}
                     </ul>
                 </div>
-            </div>
+            </CommonBox>
         )
     }
 }

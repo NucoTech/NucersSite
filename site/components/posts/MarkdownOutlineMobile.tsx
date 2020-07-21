@@ -3,6 +3,8 @@ import React from "react"
 import marked from "marked"
 import { isNightNow } from "@utils/utils"
 import IconFont from "@components/common/IconFont"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { inject, observer } from "mobx-react"
 
 const mdOutlineMbStyle = require("@styles/components/posts/MdOutlineMobile.module.css")
 
@@ -12,7 +14,7 @@ interface HeadingContent {
     href?: string
 }
 
-interface IMdOutlineProps {
+interface IMdOutlineProps extends OnlyDarkThemeStoreType {
     content: string
 }
 
@@ -24,6 +26,8 @@ interface IMdOutlineStates {
 /**
  * 大纲移动端组件
  */
+@inject("darkThemeStore")
+@observer
 export default class MarkdownOutlineMobile extends React.Component<
     IMdOutlineProps,
     IMdOutlineStates
@@ -37,6 +41,11 @@ export default class MarkdownOutlineMobile extends React.Component<
     }
     static defaultProps = {
         content: "",
+    }
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
     }
     componentDidMount() {
         // 在此解析词法
@@ -60,12 +69,13 @@ export default class MarkdownOutlineMobile extends React.Component<
     }
     render() {
         const { isOpen, headingArray } = this.state
+        const { darkNow } = this.props.darkThemeStore
         return (
             <div
                 className={mdOutlineMbStyle.outlineMb}
                 style={{
                     transform: isOpen ? "translateX(0px)" : "",
-                    backgroundColor: isNightNow() ? "black" : "white",
+                    backgroundColor: darkNow ? "black" : "white",
                 }}
             >
                 <div
@@ -76,7 +86,7 @@ export default class MarkdownOutlineMobile extends React.Component<
                         })
                     }
                     style={{
-                        backgroundColor: isNightNow() ? "black" : "white",
+                        backgroundColor: darkNow ? "black" : "white",
                     }}
                 >
                     <IconFont
@@ -93,8 +103,8 @@ export default class MarkdownOutlineMobile extends React.Component<
                 <ul
                     className={mdOutlineMbStyle.outline}
                     style={{
-                        backgroundColor: isNightNow() ? "black" : "white",
-                        color: isNightNow() ? "white" : "black",
+                        backgroundColor: darkNow ? "black" : "white",
+                        color: darkNow ? "white" : "black",
                     }}
                 >
                     {headingArray.map((item: HeadingContent) => (
@@ -109,7 +119,7 @@ export default class MarkdownOutlineMobile extends React.Component<
                                 style={{
                                     color: item.href
                                         ? "#0366d6"
-                                        : isNightNow()
+                                        : darkNow
                                         ? "white"
                                         : "black",
                                 }}

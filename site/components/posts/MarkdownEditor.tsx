@@ -4,12 +4,9 @@ import IconFont from "@components/common/IconFont"
 
 // 引入mobx对状态进行控制
 import { inject, observer } from "mobx-react"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 const mdEditorStyle = require("@styles/components/posts/MdEditor.module.css")
-
-interface IMarkdownEditorProps {
-    darkThemeStore?: any
-}
 
 interface IMarkdownEditorStates {
     vditor: any
@@ -19,10 +16,10 @@ interface IMarkdownEditorStates {
 @inject("darkThemeStore")
 @observer
 export default class MarkdownEditor extends React.Component<
-    IMarkdownEditorProps,
+    OnlyDarkThemeStoreType,
     IMarkdownEditorStates
 > {
-    constructor(props: IMarkdownEditorProps) {
+    constructor(props: OnlyDarkThemeStoreType) {
         super(props)
         this.state = {
             vditor: null,

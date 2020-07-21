@@ -12,6 +12,7 @@ import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
+import DarkSwitcher from "@components/common/DarkSwitcher"
 const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
@@ -29,6 +30,7 @@ export default () => {
                 <AdsSide ads={AdsMocks} />
                 <CopyrightSide />
             </div>
+            <DarkSwitcher />
             <MarkdownOutlineMobile content={markdownMd.default} />
         </div>
     )

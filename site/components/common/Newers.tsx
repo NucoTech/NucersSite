@@ -1,5 +1,5 @@
 import React from "react"
-import { isNightNow } from "@utils/utils"
+import CommonBox from "./CommonBox"
 const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 /**
@@ -8,13 +8,7 @@ const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 export default class Newers extends React.Component {
     render() {
         return (
-            <div
-                className={
-                    isNightNow()
-                        ? commonBoxStyle.contentDark
-                        : commonBoxStyle.contentLight
-                }
-            >
+            <CommonBox>
                 <div className={commonBoxStyle.boxHeader}>新加入成员</div>
                 <div className={commonBoxStyle.boxContent}>
                     <ul>
@@ -26,7 +20,7 @@ export default class Newers extends React.Component {
                         <li>avatar</li>
                     </ul>
                 </div>
-            </div>
+            </CommonBox>
         )
     }
 }
