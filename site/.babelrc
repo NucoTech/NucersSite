@@ -1,3 +1,4 @@
+// 引入MobX做全局状态管理，参考https://www.themikelewis.com/post/nextjs-with-mobx
 {
     "presets": [
         "next/babel"
@@ -9,6 +10,18 @@
                 "libraryName": "antd",
                 "libraryDirectory": "lib",
                 "style": true
+            }
+        ],
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                "loose": true
             }
         ]
     ]

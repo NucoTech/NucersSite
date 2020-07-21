@@ -6,6 +6,10 @@
     overflow: hidden;
 }
 
+.contentDark {
+    color: white;
+}
+
 .contentLight > .boxHeader,
 .contentDark > .boxHeader {
     overflow: hidden;

@@ -1,13 +1,41 @@
 import React from "react"
 import Vditor from "vditor"
-import { isNightNow } from "@utils/utils"
 import IconFont from "@components/common/IconFont"
+
+// 引入mobx对状态进行控制
+import { inject, observer } from "mobx-react"
 
 const mdEditorStyle = require("@styles/components/posts/MdEditor.module.css")
 
-export default class MarkdownEditor extends React.Component {
+interface IMarkdownEditorProps {
+    darkThemeStore?: any
+}
+
+interface IMarkdownEditorStates {
+    vditor: any
+}
+
+// 修改夜间模式控制
+@inject("darkThemeStore")
+@observer
+export default class MarkdownEditor extends React.Component<
+    IMarkdownEditorProps,
+    IMarkdownEditorStates
+> {
+    constructor(props: IMarkdownEditorProps) {
+        super(props)
+        this.state = {
+            vditor: null,
+        }
+    }
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
+    }
     componentDidMount() {
         // 引用主题
+        const { darkNow } = this.props.darkThemeStore
         const themeLink = document.createElement("link")
         themeLink.rel = "stylesheet"
         themeLink.href = "https://cdn.jsdelivr.net/npm/vditor/dist/index.css"
@@ -19,7 +47,7 @@ export default class MarkdownEditor extends React.Component {
             outline: false,
             width: "100%",
             placeholder: "写点什么吧...",
-            theme: isNightNow() ? "dark" : "classic",
+            theme: darkNow ? "dark" : "classic",
             toolbar: [
                 "emoji",
                 "headings",
@@ -70,7 +98,7 @@ export default class MarkdownEditor extends React.Component {
                 theme: {
                     path:
                         "https://cdn.jsdelivr.net/npm/vditor@latest/dist/css/content-theme",
-                    current: isNightNow() ? "dark" : "light",
+                    current: darkNow ? "dark" : "light",
                 },
             },
             hint: {
@@ -91,15 +119,29 @@ export default class MarkdownEditor extends React.Component {
                 // },
             },
         })
+        this.setState({
+            vditor,
+        })
     }
+
+    componentDidUpdate() {
+        const { vditor } = this.state
+        const { darkNow } = this.props.darkThemeStore
+        vditor.setTheme(
+            darkNow ? "dark" : "classic",
+            darkNow ? "dark" : "light"
+        )
+    }
+
     render() {
+        const { darkNow } = this.props.darkThemeStore
         return (
             <div className={mdEditorStyle.content}>
                 <div id="nucers-vditor-editor"></div>
                 <ul
                     className={mdEditorStyle.helper}
                     style={{
-                        backgroundColor: isNightNow() ? "#1d2125" : "#f6f8fa",
+                        backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
                     }}
                 >
                     <li>
@@ -108,7 +150,7 @@ export default class MarkdownEditor extends React.Component {
                             title="Markdown基础教程"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             onClick={() => window.open("/p/md", "_blank")}
                         />
@@ -118,7 +160,7 @@ export default class MarkdownEditor extends React.Component {
                             type="nucers-gantetu"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             title="Mermaid教程"
                             onClick={() =>
@@ -134,7 +176,7 @@ export default class MarkdownEditor extends React.Component {
                             type="nucers-echarts"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             title="Echarts绘图教程"
                             onClick={() =>
@@ -151,7 +193,7 @@ export default class MarkdownEditor extends React.Component {
                             title="KaTeX教程"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             onClick={() =>
                                 window.open("https://katex.org/", "_blank")
@@ -164,7 +206,7 @@ export default class MarkdownEditor extends React.Component {
                             title="ABC记谱法教程"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             onClick={() =>
                                 window.open(
@@ -180,7 +222,7 @@ export default class MarkdownEditor extends React.Component {
                             title="Graphviz教程"
                             style={{
                                 fontSize: "20px",
-                                color: isNightNow() ? "#b9b9b9" : "black",
+                                color: darkNow ? "#b9b9b9" : "black",
                             }}
                             onClick={() =>
                                 window.open(
