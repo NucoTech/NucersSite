@@ -1,17 +1,26 @@
-.content {
+.contentLight,
+.contentDark {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 5px 10px;
-    margin-bottom: 20px;
     box-shadow: 0 0 1px grey;
     font-weight: 300;
     width: 100%;
-    background-color: white;
     border-radius: 5px;
 }
 
-.content > .from {
+.contentLight {
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.contentDark {
+    color: white;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+.contentLight > .from,
+.contentDark > .from {
     align-self: flex-end;
 }

@@ -13,25 +13,28 @@ import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
 import DarkSwitcher from "@components/common/DarkSwitcher"
+import PageBox from "@components/common/PageBox"
 const syntaxMd = require("../../docs/syntax.md")
 
 export default () => {
     return (
-        <div className={articleStyle.articlePage}>
+        <PageBox>
             <Head>
                 <title>Nucers社区 | 搜索语法设计</title>
             </Head>
             <NavBar />
-            <div className={articleStyle.articleLeft}>
-                <MarkdownRenderer content={syntaxMd.default} />
+            <div className={articleStyle.articlePage}>
+                <div className={articleStyle.articleLeft}>
+                    <MarkdownRenderer content={syntaxMd.default} />
+                </div>
+                <div className={articleStyle.articleRight}>
+                    <MarkdownOutline content={syntaxMd.default} />
+                    <AdsSide ads={AdsMocks} />
+                    <CopyrightSide />
+                </div>
+                <DarkSwitcher />
+                <MarkdownOutlineMobile content={syntaxMd.default} />
             </div>
-            <div className={articleStyle.articleRight}>
-                <MarkdownOutline content={syntaxMd.default} />
-                <AdsSide ads={AdsMocks} />
-                <CopyrightSide />
-            </div>
-            <DarkSwitcher />
-            <MarkdownOutlineMobile content={syntaxMd.default} />
-        </div>
+        </PageBox>
     )
 }

@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 45px 100px;
+    margin: 0 100px;
+    margin-bottom: 40px;
     width: calc(100vw - 200px);
 }
 
@@ -35,7 +36,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 520px;
 }
 
 .contentLeft {
@@ -45,4 +45,9 @@
 
 .contentRight {
     flex: 1;
+}
+
+.marginer {
+    margin-top: 40px;
+    width: 100%;
 }

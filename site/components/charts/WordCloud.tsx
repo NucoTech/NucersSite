@@ -1,6 +1,9 @@
 import React from "react"
 import ReactWordCloud from "react-wordcloud"
 import { dataRemote } from "@utils/utils"
+import CommonBox from "@components/common/CommonBox"
+
+const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 export interface IWordCloud {
     text: string
@@ -80,27 +83,33 @@ export default class WordCloud extends React.Component<
     render() {
         const { words } = this.props
         return (
-            <div
-                style={{
-                    height: "200px",
-                    width: "200px",
-                    backgroundColor: "transparent",
-                }}
-            >
-                <ReactWordCloud
-                    words={words}
-                    callbacks={{
-                        onWordClick: this.getCallback("onWordClick"),
-                        onWordMouseOver: this.getCallback("onWordMouseOver"),
-                        onWordMouseOut: this.getCallback("onWordMouseOut"),
+            <CommonBox>
+                <div className={commonBoxStyle.boxHeader}>标签词云</div>
+                <div
+                    className={commonBoxStyle.boxContent}
+                    style={{
+                        height: "200px",
+                        width: "200px",
+                        padding: 0
                     }}
-                    options={{
-                        rotations: 3,
-                        rotationAngles: [0, 90],
-                        enableTooltip: false,
-                    }}
-                />
-            </div>
+                >
+                    <ReactWordCloud
+                        words={words}
+                        callbacks={{
+                            onWordClick: this.getCallback("onWordClick"),
+                            onWordMouseOver: this.getCallback(
+                                "onWordMouseOver"
+                            ),
+                            onWordMouseOut: this.getCallback("onWordMouseOut"),
+                        }}
+                        options={{
+                            rotations: 3,
+                            rotationAngles: [0, 90],
+                            enableTooltip: false,
+                        }}
+                    />
+                </div>
+            </CommonBox>
         )
     }
 }

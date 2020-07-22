@@ -13,25 +13,28 @@ import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
 import DarkSwitcher from "@components/common/DarkSwitcher"
+import PageBox from "@components/common/PageBox"
 const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
     return (
-        <div className={articleStyle.articlePage}>
+        <PageBox>
             <Head>
                 <title>Nucers社区 | Markdown基础与拓展语法</title>
             </Head>
             <NavBar />
-            <div className={articleStyle.articleLeft}>
-                <MarkdownRenderer content={markdownMd.default} />
+            <div className={articleStyle.articlePage}>
+                <div className={articleStyle.articleLeft}>
+                    <MarkdownRenderer content={markdownMd.default} />
+                </div>
+                <div className={articleStyle.articleRight}>
+                    <MarkdownOutline content={markdownMd.default} />
+                    <AdsSide ads={AdsMocks} />
+                    <CopyrightSide />
+                </div>
+                <DarkSwitcher />
+                <MarkdownOutlineMobile content={markdownMd.default} />
             </div>
-            <div className={articleStyle.articleRight}>
-                <MarkdownOutline content={markdownMd.default} />
-                <AdsSide ads={AdsMocks} />
-                <CopyrightSide />
-            </div>
-            <DarkSwitcher />
-            <MarkdownOutlineMobile content={markdownMd.default} />
-        </div>
+        </PageBox>
     )
 }

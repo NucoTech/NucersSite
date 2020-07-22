@@ -12,6 +12,7 @@ import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import DarkSwitcher from "@components/common/DarkSwitcher"
+import PageBox from "@components/common/PageBox"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
@@ -22,7 +23,7 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
 export default () => {
     welcome2Nucers()
     return (
-        <div>
+        <PageBox>
             <Head>
                 <title>Nucers社区 | 技术因分享而升华</title>
             </Head>
@@ -30,18 +31,28 @@ export default () => {
             <div className={indexStyle.content}>
                 <div className={indexStyle.left}>
                     <HotTopics />
-                    <WordCloud words={HotTagsMocks} />
+                    <div className={indexStyle.marginer}>
+                        <WordCloud words={HotTagsMocks} />
+                    </div>
                 </div>
                 <div className={indexStyle.right}>
                     <Hitokoto />
                     <div className={indexStyle.rightContent}>
                         <div className={indexStyle.contentLeft}>
-                            <Activities acts={AdsMocks} />
-                            <Notices />
+                            <div className={indexStyle.marginer}>
+                                <Activities acts={AdsMocks} />
+                            </div>
+                            <div className={indexStyle.marginer}>
+                                <Notices />
+                            </div>
                         </div>
                         <div className={indexStyle.contentRight}>
-                            <HotPosts />
-                            <Newers />
+                            <div className={indexStyle.marginer}>
+                                <HotPosts />
+                            </div>
+                            <div className={indexStyle.marginer}>
+                                <Newers />
+                            </div>
                         </div>
                     </div>
 
@@ -54,6 +65,6 @@ export default () => {
             </div>
             <DarkSwitcher />
             <CopyrightBottom />
-        </div>
+        </PageBox>
     )
 }

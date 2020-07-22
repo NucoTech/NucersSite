@@ -17,6 +17,7 @@ Nucers 社区建设平台
     |   |-- README.md
     |-- server
     |-- site
+    |-- deploy
 ```
 
 ### 单文件
@@ -35,6 +36,10 @@ Nucers社区建设平台文档
 ### site
 
 前端项目
+
+### deploy
+
+项目部署工具
 
 ## 项目开发规范
 

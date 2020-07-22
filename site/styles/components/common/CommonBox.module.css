@@ -6,6 +6,12 @@
     overflow: hidden;
 }
 
+.contentLight:hover,
+.contentDark:hover {
+    box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.08),
+        0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+}
+
 .contentDark {
     color: white;
 }
@@ -32,11 +38,22 @@
 }
 
 .contentLight > .boxHeader {
-    background-color: #f1f8ff;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
 .contentDark > .boxHeader {
-    background-color: transparent;
+    background: linear-gradient(
+            to bottom,
+            #323232 0%,
+            #3f3f3f 40%,
+            #1c1c1c 150%
+        ),
+        linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(0, 0, 0, 0.25) 200%
+        );
+    background-blend-mode: multiply;
 }
 
 .contentLight > .boxContent,
@@ -46,11 +63,22 @@
 }
 
 .contentLight > .boxContent {
-    background-color: white;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 .contentDark > .boxContent {
-    background-color: transparent;
+    background: linear-gradient(
+            to bottom,
+            #323232 0%,
+            #3f3f3f 40%,
+            #1c1c1c 150%
+        ),
+        linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(0, 0, 0, 0.25) 200%
+        );
+    background-blend-mode: multiply;
 }
 
 .boxContent > ul {

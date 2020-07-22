@@ -1,8 +1,10 @@
 import React from "react"
+import { inject, observer } from "mobx-react"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 const hitokotoStyle = require("@styles/components/common/Hitokoto.module.css")
 
-interface IHitokotoProps {}
+interface IHitokotoProps extends OnlyDarkThemeStoreType {}
 
 interface IHitokotoStates {
     hitokoto: string
@@ -13,6 +15,8 @@ interface IHitokotoStates {
  * 一言组件
  * 接口由https://hitokoto.cn/提供
  */
+@inject("darkThemeStore")
+@observer
 export default class Hitokoto extends React.Component<
     IHitokotoProps,
     IHitokotoStates
@@ -22,6 +26,12 @@ export default class Hitokoto extends React.Component<
         this.state = {
             hitokoto: "",
             from: "",
+        }
+    }
+
+    static async getInitialProps({ mobxState }) {
+        return {
+            darkThemeStore: mobxState.darkThemeStore,
         }
     }
 
@@ -41,11 +51,16 @@ export default class Hitokoto extends React.Component<
     }
     render() {
         const { hitokoto, from } = this.state
+        const { darkNow } = this.props.darkThemeStore
         return (
             <>
                 {hitokoto && (
                     <div
-                        className={hitokotoStyle.content}
+                        className={
+                            darkNow
+                                ? hitokotoStyle.contentDark
+                                : hitokotoStyle.contentLight
+                        }
                         title="语料由一言Hitokoto提供"
                     >
                         <div>{hitokoto}</div>
