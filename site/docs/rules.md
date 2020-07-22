@@ -38,7 +38,7 @@
 
 ## 免责声明
 
-- 用户所发布的内容仅为用户自己的认知，在未违反本站应尽的监督义务下发布的内容与本站无关
+- 用户所发布的内容仅为用户自己的认知，在未违反本站应尽的监督义务下发布的内容所造成的影响与本站无关
 - 本站涉及的社区建设部分由[NUCOSC](https://www.nucosc.com)负责，商业化主体内容由[Nuco.tech](https://nuco.tech)负责，合作的商业化内容由合作的提供方负责，合作方的责任划分将严格按照与[Nuco.tech](https://nuco.tech)所签订的合同履行
 - [NUCOSC](https://www.nucosc.com)和[Nuco.tech](https://nuco.tech)享有用户的管理权，非敏感数据的使用权
 - 本站的社区建设解释权由[NUCOSC](https://www.nucosc.com)所有，商业化解释权由[Nuco.tech](https://nuco.tech)所有
