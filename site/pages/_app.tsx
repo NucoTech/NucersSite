@@ -39,19 +39,3 @@ class MyApp extends App {
 }
 
 export default MyApp
-
-// const Container = ({ Component, pageProps }) => {
-//     return (
-//         <Component
-//             {...pageProps}
-//         />
-//     )
-// }
-
-// Container.getInitialProps = async (appContext) => {
-//     const appProps = await App.getInitialProps(appContext)
-//     return {
-//         ...appProps,
-//     }
-// }
-// export default Container

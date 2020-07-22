@@ -41,13 +41,13 @@ export default class MarkdownRenderer extends React.Component<
             },
         })
     }
+
     componentDidUpdate() {
         const { darkNow } = this.props.darkThemeStore
         Vditor.setContentTheme(
             !darkNow ? "light" : "dark",
             "http://localhost:3000/css"
         )
-        // 暂时无法动态修改当前状态下的主题
     }
 
     render() {

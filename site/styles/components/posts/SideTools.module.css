@@ -1,0 +1,31 @@
+.tools {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    left: 10px;
+}
+
+.tools > .toolbox {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.singleTool {
+    margin: 10px 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+    background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+}

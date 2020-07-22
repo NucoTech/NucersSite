@@ -78,6 +78,7 @@ export default class MarkdownOutline extends React.Component<
                     backgroundColor: darkNow ? "transparent" : "white",
                     padding: "5px",
                     boxShadow: "0 0 1px grey",
+                    borderRadius: "5px"
                 }}
             >
                 <div

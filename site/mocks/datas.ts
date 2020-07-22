@@ -58,4 +58,41 @@ const AdsMocks: Array<IAds> = [
     },
 ]
 
-export { HeatDataMocks, ActsRadarMocks, HotTagsMocks, AdsMocks }
+/**
+ * 新加入成员模拟数据
+ */
+import { IUser } from "@components/common/Newers"
+const NewersMocks: Array<IUser> = [
+    {
+        name: "Zenith",
+        uid: "123123",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "1123",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "1223",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "12",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "113",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+]
+
+export { HeatDataMocks, ActsRadarMocks, HotTagsMocks, AdsMocks, NewersMocks }

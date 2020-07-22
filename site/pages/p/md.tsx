@@ -14,6 +14,8 @@ import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
 import DarkSwitcher from "@components/common/DarkSwitcher"
 import PageBox from "@components/common/PageBox"
+import SideTools from "@components/posts/SideTools"
+import Comments from "@components/posts/Comments"
 const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
@@ -26,11 +28,13 @@ export default () => {
             <div className={articleStyle.articlePage}>
                 <div className={articleStyle.articleLeft}>
                     <MarkdownRenderer content={markdownMd.default} />
+                    <Comments />
                 </div>
                 <div className={articleStyle.articleRight}>
                     <MarkdownOutline content={markdownMd.default} />
                     <AdsSide ads={AdsMocks} />
                     <CopyrightSide />
+                    <SideTools />
                 </div>
                 <DarkSwitcher />
                 <MarkdownOutlineMobile content={markdownMd.default} />

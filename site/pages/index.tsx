@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 
 import NavBar from "@components/common/NavBar"
 import { welcome2Nucers } from "@utils/utils"
-import { HotTagsMocks, AdsMocks } from "@mocks/datas"
+import { HotTagsMocks, AdsMocks, NewersMocks } from "@mocks/datas"
 import HotTopics from "@components/common/HotTopics"
 import Activities from "@components/common/Activities"
 import Hitokoto from "@components/common/Hitokoto"
@@ -13,6 +13,7 @@ import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import DarkSwitcher from "@components/common/DarkSwitcher"
 import PageBox from "@components/common/PageBox"
+import SomeIdea from "@components/common/SomeIdea"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
@@ -50,8 +51,25 @@ export default () => {
                             <div className={indexStyle.marginer}>
                                 <HotPosts />
                             </div>
-                            <div className={indexStyle.marginer}>
-                                <Newers />
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    justifyContent: "space-between",
+                                    alignItems: "flex-start",
+                                    width: "100%"
+                                }}
+                            >
+                                <div className={indexStyle.marginer} style={{
+                                    marginRight: "40px"
+                                }}>
+                                    <SomeIdea />
+                                </div>
+                                <div className={indexStyle.marginer} style={{
+                                    width: "200px"
+                                }}>
+                                    <Newers newers={NewersMocks} />
+                                </div>
                             </div>
                         </div>
                     </div>

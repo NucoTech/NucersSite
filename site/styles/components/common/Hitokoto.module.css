@@ -12,7 +12,7 @@
 }
 
 .contentLight {
-    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
 .contentDark {
