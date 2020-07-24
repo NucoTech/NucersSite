@@ -42,10 +42,6 @@ export default class MarkdownRenderer extends React.Component<
         })
     }
 
-    componentDidUpdate() {
-        // 未解决切换夜间模式的问题
-    }
-
     render() {
         return <div id="nucers-md-renderer" ref={this.$nucersMdRenderer}></div>
     }

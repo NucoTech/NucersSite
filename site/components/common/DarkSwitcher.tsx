@@ -2,6 +2,7 @@ import React from "react"
 import { inject, observer } from "mobx-react"
 import IconFont from "./IconFont"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import locale from "antd/lib/date-picker/locale/en_US"
 
 @inject("darkThemeStore")
 @observer
@@ -23,6 +24,9 @@ export default class DarkSwitcher extends React.Component<
                         String(!darkNow ? String(1) : String(0))
                     )
                     setDark()
+                    if (location.pathname.split("/")[1] === "p") {
+                        location.reload()
+                    }
                 }}
                 style={{
                     width: "50px",
