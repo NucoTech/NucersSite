@@ -3,11 +3,11 @@ import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
 
 /**
- * 本地夜间模式注入盒子
+ * 本地状态注入盒子
  */
 @inject("darkThemeStore")
 @observer
-export default class LocalDarkInjectBox extends React.Component<
+export default class LocalStatesInjectBox extends React.Component<
     OnlyDarkThemeStoreType
 > {
     static async getInitialProps({ mobxStore }) {

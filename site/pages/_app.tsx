@@ -3,7 +3,7 @@ import App from "next/app"
 // 顶层数据注入
 import { Provider } from "mobx-react"
 import initializeStore from "../stores/stores"
-import LocalDarkInjectBox from "@components/common/LocalDarkInjectBox"
+import LocalStatesInjectBox from "@components/common/LocalStatesInjectBox"
 
 // 全局样式
 import "@styles/global.css"
@@ -34,9 +34,9 @@ class MyApp extends App {
         const { Component, pageProps } = this.props
         return (
             <Provider {...this.mobxStore}>
-                <LocalDarkInjectBox>
+                <LocalStatesInjectBox>
                     <Component {...pageProps} />
-                </LocalDarkInjectBox>
+                </LocalStatesInjectBox>
             </Provider>
         )
     }
