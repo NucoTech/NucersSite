@@ -1,6 +1,6 @@
 import React from "react"
 import Vditor from "vditor/dist/method.min"
-import  { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
 
 interface IMdRendererProps extends OnlyDarkThemeStoreType {
@@ -43,11 +43,7 @@ export default class MarkdownRenderer extends React.Component<
     }
 
     componentDidUpdate() {
-        const { darkNow } = this.props.darkThemeStore
-        Vditor.setContentTheme(
-            !darkNow ? "light" : "dark",
-            "http://localhost:3000/css"
-        )
+        // 未解决切换夜间模式的问题
     }
 
     render() {

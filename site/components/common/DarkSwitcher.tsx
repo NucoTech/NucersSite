@@ -17,7 +17,13 @@ export default class DarkSwitcher extends React.Component<
         return (
             <div
                 title={darkNow ? "开灯" : "关灯"}
-                onClick={() => setDark()}
+                onClick={() => {
+                    localStorage.setItem(
+                        "darkNow",
+                        String(!darkNow ? String(1) : String(0))
+                    )
+                    setDark()
+                }}
                 style={{
                     width: "50px",
                     height: "50px",

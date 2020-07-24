@@ -6,7 +6,15 @@ import initializeStore from "../stores/stores"
 
 // 全局样式
 import "@styles/global.css"
+import dynamic from "next/dynamic"
+const LocalDarkInjectBox = dynamic(
+    import("@components/common/LocalDarkInjectBox"),
+    {
+        ssr: false,
+    }
+)
 
+// 在此考虑引入组件解决本地夜间模式免去切换的问题
 class MyApp extends App {
     mobxStore = {}
 
@@ -32,7 +40,9 @@ class MyApp extends App {
         const { Component, pageProps } = this.props
         return (
             <Provider {...this.mobxStore}>
-                <Component {...pageProps} />
+                <LocalDarkInjectBox>
+                    <Component {...pageProps} />
+                </LocalDarkInjectBox>
             </Provider>
         )
     }

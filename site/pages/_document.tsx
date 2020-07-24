@@ -1,8 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
-// 全局的样式手动修改并没有做
 class MyDocument extends Document {
-    static async getInitialProps(context) {
+    static async getInitialProps(context: any) {
         const componentProps = await Document.getInitialProps(context)
         return {
             ...componentProps,
