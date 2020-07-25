@@ -92,6 +92,13 @@ export function searchEngineLexer(
 }
 
 /**
+ * oa的url返回
+ */
+export function backOAURL(url: string): string {
+    return url.split("/").slice(0, 4).join("/")
+}
+
+/**
  * 设置数据API
  */
 export const dataRemote: string = ""
