@@ -4,7 +4,7 @@ import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 const commentsStyle = require("@styles/components/posts/Comments.module.css")
 /**
- * 目前不支持markdown类型的评论，锚点定位有失灵的情况
+ * 目前不支持markdown类型的评论，锚点定位有失灵的情况，重写此部分
  */
 @inject("darkThemeStore")
 @observer

@@ -24,9 +24,10 @@ export default class DarkSwitcher extends React.Component<
                         String(!darkNow ? String(1) : String(0))
                     )
                     setDark()
-                    if (location.pathname.split("/")[1] === "p") {
-                        location.reload()
-                    }
+                    location.reload()
+                    // if (location.pathname.split("/")[1] === "p") {
+                    //     location.reload()
+                    // }
                 }}
                 style={{
                     width: "50px",

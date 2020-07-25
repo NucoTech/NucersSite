@@ -25,7 +25,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-wordcloud": "^1.2.3",
-    "vditor": "^3.3.5"
+    "vditor": "^3.3.10"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",

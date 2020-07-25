@@ -21,7 +21,6 @@
     align-items: flex-start;
 }
 
-
 .rightContent {
     width: 100%;
     display: flex;
@@ -50,4 +49,38 @@
 .marginer {
     margin-top: 40px;
     width: 100%;
+}
+
+.ideaAndNewer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        margin: 0 10px;
+        width: calc(100vw - 20px);
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    .content > .left {
+        display: none;
+    }
+    .content > .right {
+        width: 100%;
+    }
+    .contentLeft,
+    .contentRight {
+        width: 100%;
+    }
+    .rightContent,
+    .ideaAndNewer {
+        flex-direction: column;
+    }
+    .marginer {
+        margin-top: 20px;
+    }
 }

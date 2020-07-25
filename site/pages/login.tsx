@@ -18,6 +18,8 @@ export default () => {
         <PageBox>
             <Head>
                 <title>Nucers社区 | 登录 Login</title>
+                <meta name="keywords" content="Nucers, 登录, Login, NUCOSC" />
+                <meta name="description" content="Nucers社区登录页面" />
             </Head>
             <NavBar />
             <div className={loginStyle.content}>

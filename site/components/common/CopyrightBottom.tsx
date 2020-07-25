@@ -30,7 +30,12 @@ export default class CopyrightBottom extends React.Component {
                         herberthe@nucosc.com
                     </div>
                     <div className={copyrightBottomStyle.contentICP}>
-                        <img src="/gongan.png" width="16" height="16" />
+                        <img
+                            alt="gongan"
+                            src="/gongan.png"
+                            width="16"
+                            height="16"
+                        />
                         公网安备晋xxxxxxxxxxxxxxxxxx号
                     </div>
                 </div>

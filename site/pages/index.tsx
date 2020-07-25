@@ -51,34 +51,26 @@ export default () => {
                             <div className={indexStyle.marginer}>
                                 <HotPosts />
                             </div>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    justifyContent: "space-between",
-                                    alignItems: "flex-start",
-                                    width: "100%"
-                                }}
-                            >
-                                <div className={indexStyle.marginer} style={{
-                                    marginRight: "40px"
-                                }}>
+                            <div className={indexStyle.ideaAndNewer}>
+                                <div
+                                    className={indexStyle.marginer}
+                                    style={{
+                                        marginRight: "40px",
+                                    }}
+                                >
                                     <SomeIdea />
                                 </div>
-                                <div className={indexStyle.marginer} style={{
-                                    width: "200px"
-                                }}>
+                                <div
+                                    className={indexStyle.marginer}
+                                    style={{
+                                        width: "200px",
+                                    }}
+                                >
                                     <Newers newers={NewersMocks} />
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* 轮播图广告 */}
-                    {/* 通知 */}
-                    {/* 热门帖子 */}
-                    {/* 热门一点想法 */}
-                    {/* 新加入成员 */}
                 </div>
             </div>
             <DarkSwitcher />

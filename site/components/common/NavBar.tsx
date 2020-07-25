@@ -205,10 +205,6 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 cursor: "pointer",
                             }}
                         />
-                        <ul className={navBarStyle.navbarAddPost}>
-                            <li>一点想法</li>
-                            <li>一篇帖子</li>
-                        </ul>
                     </div>
 
                     {

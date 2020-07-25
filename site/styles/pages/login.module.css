@@ -1,17 +1,19 @@
 .content {
+    box-sizing: border-box;
     width: 100vw;
-    padding: 0 100px 60px;
+    padding: 60px 100px;
+    padding-top: 0;
+    margin-top: -30px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    min-height: calc(100vh - 140px);
+    justify-content: flex-start;
+    min-height: calc(100vh - 100px);
 }
 
 .left {
     width: calc((100vw - 200px) / 2);
     background-color: rgba(0, 0, 0, 0.8);
     border-right: 1px dotted grey;
-    flex: 1;
 }
 
 .right {
@@ -28,5 +30,6 @@
     .left,
     .right {
         width: calc(100vw - 20px);
+        height: 50%;
     }
 }

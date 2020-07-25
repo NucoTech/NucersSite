@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    z-index: 999999;
+    z-index: 16;
 }
 
 .navbarLeft {
@@ -102,40 +102,6 @@
     cursor: pointer;
 }
 
-.navbarAddPost {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 48px;
-    right: 0;
-    height: 0;
-    width: 90px;
-    background-color: white;
-    box-shadow: 0 0 2px grey;
-    transition: height 0.5s ease-in-out;
-    z-index: 999;
-    overflow: hidden;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbarAddPost > li {
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-}
-
-.navbarAddPost > li:hover {
-    background-color: #6b6b6b;
-}
-
-.navbarAddIcon:hover .navbarAddPost {
-    height: 70px;
-}
-
 /* 进入个人空间 */
 .navbarAvatar {
     height: 40px;
@@ -146,6 +112,10 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .navbarMine {

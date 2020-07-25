@@ -60,6 +60,7 @@
 .contentDark > .boxContent {
     overflow: hidden;
     padding: 10px 0;
+    position: relative;
 }
 
 .contentLight > .boxContent {

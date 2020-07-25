@@ -10,7 +10,7 @@ interface ISideToolsStates {
 }
 
 /**
- * 文章点赞、分享侧边组件
+ * 文章点赞、分享侧边组件，重写此部分样式
  */
 export default class SideTools extends React.Component<
     ISideToolsProps,

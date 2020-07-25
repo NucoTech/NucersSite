@@ -6506,10 +6506,10 @@ util@^0.11.0:
   dependencies:
     inherits "2.0.3"
 
-vditor@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.npm.taobao.org/vditor/download/vditor-3.3.5.tgz#906661efe961cb8a9cea0a90a2644c93d05030aa"
-  integrity sha1-kGZh7+lhy4qc6gqQomRMk9BQMKo=
+vditor@^3.3.10:
+  version "3.3.10"
+  resolved "https://registry.npm.taobao.org/vditor/download/vditor-3.3.10.tgz#cced557ec25587d78436cec5ca63c27582945da9"
+  integrity sha1-zO1VfsJVh9eENs7FymPCdYKUXak=
   dependencies:
     diff-match-patch "^1.0.5"
 

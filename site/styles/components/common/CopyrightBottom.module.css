@@ -20,3 +20,13 @@
     font-size: small;
     color: rgb(163, 163, 163);
 }
+
+@media screen and (max-width: 767px) {
+    .content {
+        padding: 20px;
+    }
+    .commonLine {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+}

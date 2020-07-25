@@ -14,33 +14,26 @@ import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
 import DarkSwitcher from "@components/common/DarkSwitcher"
 import PageBox from "@components/common/PageBox"
-const advancedMd = require("../../docs/advancedmd.md")
+const rulesMd = require("../../docs/rules.md")
 
 export default () => {
     return (
         <PageBox>
             <Head>
-                <title>Nucers社区 | Markdown高级语法</title>
-                {/* SEO优化 */}
-                {/* 注意设置关键词为标签 */}
-                <meta name="keywords" content="不超过五个关键词" />
-                <meta
-                    name="description"
-                    content={`${advancedMd.default.substr(0, 145)}`}
-                />
+                <title>Nucers社区 | 社区守则</title>
             </Head>
             <NavBar />
             <div className={articleStyle.articlePage}>
                 <div className={articleStyle.articleLeft}>
-                    <MarkdownRenderer content={advancedMd.default} />
+                    <MarkdownRenderer content={rulesMd.default} />
                 </div>
                 <div className={articleStyle.articleRight}>
-                    <MarkdownOutline content={advancedMd.default} />
+                    <MarkdownOutline content={rulesMd.default} />
                     <AdsSide ads={AdsMocks} />
                     <CopyrightSide />
                 </div>
                 <DarkSwitcher />
-                <MarkdownOutlineMobile content={advancedMd.default} />
+                <MarkdownOutlineMobile content={rulesMd.default} />
             </div>
         </PageBox>
     )
