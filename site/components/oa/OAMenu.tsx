@@ -13,10 +13,14 @@ import {
     FlagOutlined,
     MoneyCollectOutlined,
     PoweroffOutlined,
+    ExceptionOutlined,
+    DashboardOutlined,
 } from "@ant-design/icons"
+
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { backOAURL } from "@utils/utils"
+
 const { SubMenu } = Menu
 
 interface IOAMenuProps extends OnlyDarkThemeStoreType {}
@@ -110,41 +114,26 @@ export default class OAMenu extends React.Component<
                     inlineCollapsed={this.state.collapsed}
                     mode="inline"
                     theme={darkNow ? "dark" : "light"}
+                    style={{
+                        height: "calc(100vh - 70px)"
+                    }}
                 >
+                    <Menu.Item icon={<DashboardOutlined />}>
+                        <a href={backOAURL("")}>控制台</a>
+                    </Menu.Item>
                     <SubMenu
                         key="webManagement"
                         title="门户管理"
                         icon={<ClusterOutlined />}
                     >
                         <Menu.Item icon={<DesktopOutlined />}>
-                            <a
-                                href={`${
-                                    location.origin +
-                                    backOAURL(location.pathname)
-                                }/info`}
-                            >
-                                基本信息
-                            </a>
+                            <a href={backOAURL("info")}>信息维护</a>
                         </Menu.Item>
                         <Menu.Item icon={<MessageOutlined />}>
-                            <a
-                                href={`${
-                                    location.origin +
-                                    backOAURL(location.pathname)
-                                }/notices`}
-                            >
-                                公告管理
-                            </a>
+                            <a href={backOAURL("notices")}>公告管理</a>
                         </Menu.Item>
                         <Menu.Item icon={<FlagOutlined />}>
-                            <a
-                                href={`${
-                                    location.origin +
-                                    backOAURL(location.pathname)
-                                }/acts`}
-                            >
-                                活动管理
-                            </a>
+                            <a href={backOAURL("acts")}>活动管理</a>
                         </Menu.Item>
                     </SubMenu>
                     <SubMenu
@@ -156,43 +145,20 @@ export default class OAMenu extends React.Component<
                             key="people-management"
                             icon={<UserSwitchOutlined />}
                         >
-                            <a
-                                href={`${
-                                    location.origin +
-                                    backOAURL(location.pathname)
-                                }/members`}
-                            >
-                                成员管理
-                            </a>
+                            <a href={backOAURL("members")}>成员管理</a>
                         </Menu.Item>
                         <Menu.Item key="people-add" icon={<UserAddOutlined />}>
-                            <a
-                                href={`${
-                                    location.origin +
-                                    backOAURL(location.pathname)
-                                }/members-add`}
-                            >
-                                新增成员
-                            </a>
+                            <a href={backOAURL("members-add")}>新增成员</a>
                         </Menu.Item>
                     </SubMenu>
                     <Menu.Item icon={<MoneyCollectOutlined />}>
-                        <a
-                            href={`${
-                                location.origin + backOAURL(location.pathname)
-                            }/finance`}
-                        >
-                            财务管理
-                        </a>
+                        <a href={backOAURL("finance")}>财务管理</a>
                     </Menu.Item>
                     <Menu.Item icon={<SubnodeOutlined />}>
-                        <a
-                            href={`${
-                                location.origin + backOAURL(location.pathname)
-                            }/plugins`}
-                        >
-                            插件管理
-                        </a>
+                        <a href={backOAURL("plugins")}>插件管理</a>
+                    </Menu.Item>
+                    <Menu.Item icon={<ExceptionOutlined />}>
+                        <a href={backOAURL("support")}>技术支持</a>
                     </Menu.Item>
                 </Menu>
             </div>

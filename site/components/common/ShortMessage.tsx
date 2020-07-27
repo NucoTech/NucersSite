@@ -100,11 +100,13 @@ export default class ShortMessage extends React.Component<
                         alignItems: "center",
                         backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
                         borderRadius: "0 0 5px 5px",
+                        padding: "5px",
+                        border: "1px solid #d1d5da",
+                        borderTop: "none"
                     }}
                 >
                     <div
                         style={{
-                            padding: "5px",
                             color: darkNow ? "rgb(189, 189, 189)" : "black",
                         }}
                     >
@@ -123,6 +125,8 @@ export default class ShortMessage extends React.Component<
                             backgroundColor: "black",
                             cursor: "pointer",
                             color: "white",
+                            borderRadius: "5px",
+                            outline: "none",
                         }}
                     >
                         <IconFont

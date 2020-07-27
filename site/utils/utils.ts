@@ -93,13 +93,15 @@ export function searchEngineLexer(
 
 /**
  * oa的url返回
- * @param {string} url
  * @returns {string}
  */
 export function backOAURL(url: string): string {
-    return url.split("/").slice(0, 4).join("/")
+    return (
+        location.origin +
+        location.pathname.split("/").slice(0, 4).join("/") +
+        `/${url}`
+    )
 }
-
 
 /**
  * 注入从CDN注入CSS
