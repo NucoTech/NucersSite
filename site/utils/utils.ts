@@ -93,9 +93,24 @@ export function searchEngineLexer(
 
 /**
  * oa的url返回
+ * @param {string} url
+ * @returns {string}
  */
 export function backOAURL(url: string): string {
     return url.split("/").slice(0, 4).join("/")
+}
+
+
+/**
+ * 注入从CDN注入CSS
+ */
+export function injectCSSFromCDN(CDNs: Array<string>): void {
+    for (let cdn of CDNs) {
+        let cssLink = document.createElement("link")
+        cssLink.rel = "stylesheet"
+        cssLink.href = cdn
+        document.head.appendChild(cssLink)
+    }
 }
 
 /**
