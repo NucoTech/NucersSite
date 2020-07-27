@@ -33,6 +33,9 @@ interface ICodeMirrorStates {
     modes: Array<Array<string>>
 }
 
+/**
+ * 考虑code页面直接可导入修改代码，后期网页运行？
+ */
 export default class CodeMirrorEditor extends React.Component<
     ICodeMirrorProps,
     ICodeMirrorStates

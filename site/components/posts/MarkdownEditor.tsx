@@ -2,7 +2,8 @@ import React from "react"
 import Vditor from "vditor"
 import IconFont from "@components/common/IconFont"
 
-// 引入mobx对状态进行控制
+import { injectCSSFromCDN } from "utils/utils"
+
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
@@ -12,7 +13,6 @@ interface IMarkdownEditorStates {
     vditor: any
 }
 
-// 修改夜间模式控制
 @inject("darkThemeStore")
 @observer
 export default class MarkdownEditor extends React.Component<
@@ -33,10 +33,7 @@ export default class MarkdownEditor extends React.Component<
     componentDidMount() {
         // 引用主题
         const { darkNow } = this.props.darkThemeStore
-        const themeLink = document.createElement("link")
-        themeLink.rel = "stylesheet"
-        themeLink.href = "https://cdn.jsdelivr.net/npm/vditor/dist/index.css"
-        document.head.appendChild(themeLink)
+        injectCSSFromCDN(["https://cdn.jsdelivr.net/npm/vditor/dist/index.css"])
         // 暂时未适配图片上传和录音上传
         // 可以考虑新增增图的内容插入
         const vditor = new Vditor("nucers-vditor-editor", {

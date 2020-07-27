@@ -7,6 +7,27 @@
     border-radius: 5px;
 }
 
+.vditor-toolbar {
+    border-radius: 5px 5px 0 0;
+}
+
+.vditor-sv {
+    padding: 10px 9px 10px 10px;
+    border-radius: 0;
+    background-color: #fafbfc;
+}
+
+.vditor-preview > .vditor-reset {
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.vditor-preview__action {
+    display: none;
+}
+
 .vditor-reset h1,
 .vditor-reset h2,
 .vditor-reset h3,
@@ -14,6 +35,9 @@
 .vditor-reset h5,
 .vditor-reset h6 {
     font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    line-height: 1.5;
 }
 
 .vditor-reset h1,
@@ -25,7 +49,7 @@
 .vditor-reset blockquote {
     color: #6a737d;
     border-left: 0.25em solid #eaecef;
-    padding-left: 10px;
+    padding: 0 1em;
     margin: 10px 0;
 }
 
@@ -34,6 +58,7 @@
     padding: 5px;
     margin: 0 3px;
     border-radius: 2px;
+    font-size: 85%;
 }
 
 /* 表格渲染 */
@@ -41,10 +66,20 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
+
+
 }
 
-.vditor-reset table thead {
-    background-color: #eee;
+.vditor-reset table thead tr {
+    background-color: #f6f8fa;
+}
+
+.vditor-reset table tbody tr {
+    background-color: transparent;
+}
+
+.vditor-reset table tbody tr:nth-child(2n) {
+    background-color: #f6f8fa;
 }
 
 .vditor-reset table td,
@@ -64,6 +99,7 @@
 .vditor-reset ul,
 .vditor-reset ol {
     margin: 10px 0;
+    color: black;
 }
 
 .vditor-reset li {
@@ -76,6 +112,7 @@
     border-radius: 5px;
     position: relative;
     overflow: auto;
+    margin: 1em 0;
 }
 
 .vditor-reset pre .vditor-copy span {
@@ -106,6 +143,7 @@
     padding: 10px;
     background-color: #fefbec;
     border-radius: 5px;
+    font-size: 85%;
 }
 
 /* 文字处理 */
@@ -137,6 +175,12 @@
     cursor: pointer;
 }
 
+.vditor-task input {
+    margin: 0 0.2em 0.25em -1.6em;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
 /* 视频播放器 */
 .vditor-reset video {
     width: 100%;
@@ -151,6 +195,7 @@
 /* katex */
 .vditor-reset .katex {
     margin: 0 3px;
+    color: black;
 }
 
 .vditor-reset .katex .base {

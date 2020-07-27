@@ -1,6 +1,10 @@
 import React from "react"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import dynamic from "next/dynamic"
+const ShortMessage = dynamic(import("@components/common/ShortMessage"), {
+    ssr: false,
+})
 
 const commentsStyle = require("@styles/components/posts/Comments.module.css")
 /**
@@ -26,23 +30,44 @@ export default class Comments extends React.Component<OnlyDarkThemeStoreType> {
             >
                 {/* 输入框 */}
                 <div id="comments-box" className={commentsStyle.inputBox}>
-                    <input placeholder="留下你的想法..." />
-                    <button>Send</button>
+                    <ShortMessage type="comment" />
                 </div>
                 {/* 考虑做分页处理 */}
                 {/* 考虑引用回复 */}
                 <ul>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
-                    <li><a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx</li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
+                    <li>
+                        <a href="#">xxxx</a> said: xxxxxxxxxxxxxxxxxx
+                    </li>
                 </ul>
             </div>
         )

@@ -31,8 +31,7 @@ export default class MarkdownRenderer extends React.Component<
             anchor: 2,
             theme: {
                 current: !darkNow ? "light" : "dark",
-                // 下面是自定义主题的地址，上线需要修改
-                path: "http://localhost:3000/css",
+                path: "/css",
             },
             hljs: {
                 enable: true,

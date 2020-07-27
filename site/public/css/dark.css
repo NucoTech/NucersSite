@@ -7,6 +7,27 @@
     border-radius: 5px;
 }
 
+.vditor-toolbar {
+    border-radius: 5px 5px 0 0;
+}
+
+.vditor-sv {
+    padding: 10px 9px 10px 10px;
+    border-radius: 0;
+    background-color: #24292e;
+}
+
+.vditor-preview > .vditor-reset {
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.vditor-preview__action {
+    display: none;
+}
+
 .vditor-reset h1,
 .vditor-reset h2,
 .vditor-reset h3,
@@ -15,10 +36,14 @@
 .vditor-reset h6 {
     font-weight: 600;
     color: rgb(189, 189, 189);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    line-height: 1.5;
 }
 
 .vditor-reset h1,
 .vditor-reset h2 {
+    padding-bottom: 0.3em;
     border-bottom: 1px solid #eaecef;
 }
 
@@ -26,7 +51,7 @@
 .vditor-reset blockquote {
     color: #6a737d;
     border-left: 0.25em solid #0366d6;
-    padding-left: 10px;
+    padding: 0 1em;
     margin: 10px 0;
 }
 
@@ -36,6 +61,7 @@
     margin: 0 3px;
     border-radius: 2px;
     color: white;
+    font-size: 85%;
 }
 
 /* 表格渲染 */
@@ -43,11 +69,19 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
-    color: rgb(189, 189, 189)
+    color: rgb(189, 189, 189);
 }
 
-.vditor-reset table thead {
-    background-color: black;
+.vditor-reset table thead tr {
+    background-color: #1d2125;
+}
+
+.vditor-reset table tbody tr {
+    background-color: transparent;
+}
+
+.vditor-reset table tbody tr:nth-child(2n) {
+    background-color: transparent;
 }
 
 .vditor-reset table td,
@@ -68,7 +102,7 @@
 .vditor-reset ul,
 .vditor-reset ol {
     margin: 10px 0;
-    color: rgb(189, 189, 189)
+    color: rgb(189, 189, 189);
 }
 
 .vditor-reset li {
@@ -81,6 +115,7 @@
     border-radius: 5px;
     position: relative;
     overflow: auto;
+    margin: 1em 0;
 }
 
 .vditor-reset pre .vditor-copy span {
@@ -113,6 +148,7 @@
     padding: 10px;
     background-color: transparent;
     border-radius: 5px;
+    font-size: 85%;
 }
 
 /* 文字处理 */
@@ -145,6 +181,12 @@
     cursor: pointer;
 }
 
+.vditor-task input {
+    margin: 0 0.2em 0.25em -1.6em;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
 /* 视频播放器 */
 .vditor-reset video {
     width: 100%;
@@ -159,7 +201,7 @@
 /* katex */
 .vditor-reset .katex {
     margin: 0 3px;
-    color: rgb(189, 189, 189)
+    color: rgb(189, 189, 189);
 }
 
 .vditor-reset .katex .base {

@@ -3,6 +3,7 @@ import Vditor from "vditor"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import IconFont from "./IconFont"
+import { injectCSSFromCDN } from "@utils/utils"
 
 interface IShortMessageProps extends OnlyDarkThemeStoreType {
     type: string
@@ -38,10 +39,7 @@ export default class ShortMessage extends React.Component<
         // 引用主题，想法200，评论100？
         const { darkNow } = this.props.darkThemeStore
         const { type } = this.props
-        const themeLink = document.createElement("link")
-        themeLink.rel = "stylesheet"
-        themeLink.href = "https://cdn.jsdelivr.net/npm/vditor/dist/index.css"
-        document.head.appendChild(themeLink)
+        injectCSSFromCDN(["https://cdn.jsdelivr.net/npm/vditor/dist/index.css"])
         const vditor = new Vditor("nucers-short-message", {
             height: 200,
             outline: false,
@@ -63,8 +61,7 @@ export default class ShortMessage extends React.Component<
                 mode: "editor",
                 theme: {
                     current: darkNow ? "dark" : "light",
-                    path:
-                        "https://cdn.jsdelivr.net/npm/vditor@latest/dist/css/content-theme",
+                    path: "/css",
                 },
             },
         })
@@ -81,6 +78,7 @@ export default class ShortMessage extends React.Component<
         )
     }
     render() {
+        const { darkNow } = this.props.darkThemeStore
         return (
             <div
                 style={{
@@ -100,11 +98,14 @@ export default class ShortMessage extends React.Component<
                         flexDirection: "row",
                         justifyContent: "space-between",
                         alignItems: "center",
+                        backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
+                        borderRadius: "0 0 5px 5px",
                     }}
                 >
                     <div
                         style={{
                             padding: "5px",
+                            color: darkNow ? "rgb(189, 189, 189)" : "black",
                         }}
                     >
                         <IconFont
