@@ -166,7 +166,7 @@ export default class CodeMirrorEditor extends React.Component<
                                     mode: e.target.value,
                                 })
                             }}
-                            defaultValue={mode}
+                            value={mode}
                         >
                             {Modes.map((item: Array<string>) => (
                                 <option key={item[0]} value={item[0]}>
@@ -209,11 +209,16 @@ export default class CodeMirrorEditor extends React.Component<
                                         /[^\.]\w*$/
                                     )[0]
                                     if (FileType.includes(suffix)) {
+                                        const mode: string =
+                                            FileSupport[
+                                                FileType.indexOf(suffix)
+                                            ]
+                                        localStorage.setItem(
+                                            "code-editor-lang",
+                                            mode
+                                        )
                                         this.setState({
-                                            mode:
-                                                FileSupport[
-                                                    FileType.indexOf(suffix)
-                                                ],
+                                            mode: mode,
                                             value: reader.result.toString(),
                                         })
                                         message.success(
