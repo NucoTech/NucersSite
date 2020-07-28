@@ -32,7 +32,6 @@ interface ICodeMirrorProps {}
 interface ICodeMirrorStates {
     value: string
     mode: string
-    modes: Array<Array<string>>
 }
 
 // 文件类型匹配
@@ -77,6 +76,27 @@ const FileType: Array<string> = [
     "CMAKE",
 ]
 
+const Modes: Array<Array<string>> = [
+    ["text/javascript", "JavaScript"],
+    ["text/x-csrc", "C"],
+    ["text/x-x-c++src", "C++"],
+    ["text/x-csharp", "C#"],
+    ["text/x-java", "Java"],
+    ["text/x-rustsrc", "Rust"],
+    ["text/x-go", "Go"],
+    ["text/css", "CSS"],
+    ["text/x-scss", "Scss"],
+    ["text/x-less", "Less"],
+    ["text/x-python", "Python"],
+    ["text/x-julia", "Julia"],
+    ["text/x-sql", "SQL"],
+    ["text/x-octave", "Octave/Matlab"],
+    ["text/x-mathematica", "Mathematica"],
+    ["text/x-common-lisp", "Common Lisp"],
+    ["text/x-vhdl", "VHDL"],
+    ["text/x-cmake", "CMake"],
+]
+
 /**
  * 考虑code页面直接可导入修改代码，后期网页运行？
  */
@@ -91,26 +111,6 @@ export default class CodeMirrorEditor extends React.Component<
                 localStorage.getItem("code-editor-code") ||
                 "// Nucers在线编辑器",
             mode: localStorage.getItem("code-editor-lang") || "text/javascript",
-            modes: [
-                ["text/javascript", "JavaScript"],
-                ["text/x-csrc", "C"],
-                ["text/x-x-c++src", "C++"],
-                ["text/x-csharp", "C#"],
-                ["text/x-java", "Java"],
-                ["text/x-rustsrc", "Rust"],
-                ["text/x-go", "Go"],
-                ["text/css", "CSS"],
-                ["text/x-scss", "Scss"],
-                ["text/x-less", "Less"],
-                ["text/x-python", "Python"],
-                ["text/x-julia", "Julia"],
-                ["text/x-sql", "SQL"],
-                ["text/x-octave", "Octave/Matlab"],
-                ["text/x-mathematica", "Mathematica"],
-                ["text/x-common-lisp", "Common Lisp"],
-                ["text/x-vhdl", "VHDL"],
-                ["text/x-cmake", "CMake"],
-            ],
         }
         // 注入样式
         injectCSSFromCDN([
@@ -122,7 +122,7 @@ export default class CodeMirrorEditor extends React.Component<
     }
     // render之前插入
     render() {
-        const { mode, value, modes } = this.state
+        const { mode, value } = this.state
         return (
             <div
                 style={{
@@ -168,7 +168,7 @@ export default class CodeMirrorEditor extends React.Component<
                             }}
                             defaultValue={mode}
                         >
-                            {modes.map((item: Array<string>) => (
+                            {Modes.map((item: Array<string>) => (
                                 <option key={item[0]} value={item[0]}>
                                     {item[1]}
                                 </option>
