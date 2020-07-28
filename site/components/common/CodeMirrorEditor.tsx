@@ -1,6 +1,8 @@
 import React from "react"
 import { Controlled as CodeMirror } from "react-codemirror2"
 import { injectCSSFromCDN } from "@utils/utils"
+import { Button, message } from "antd"
+import { saveAs } from "file-saver"
 
 import "codemirror/lib/codemirror"
 // 配置智能提示
@@ -33,6 +35,48 @@ interface ICodeMirrorStates {
     modes: Array<Array<string>>
 }
 
+// 文件类型匹配
+const FileSupport: Array<string> = [
+    "text/javascript",
+    "text/x-csrc",
+    "text/x-x-c++src",
+    "text/x-csharp",
+    "text/x-java",
+    "text/x-rustsrc",
+    "text/x-go",
+    "text/css",
+    "text/x-scss",
+    "text/x-less",
+    "text/x-python",
+    "text/x-julia",
+    "text/x-sql",
+    "text/x-octave",
+    "text/x-mathematica",
+    "text/x-common-lisp",
+    "text/x-vhdl",
+    "text/x-cmake",
+]
+const FileType: Array<string> = [
+    "js",
+    "c",
+    "cpp",
+    "cs",
+    "java",
+    "rs",
+    "go",
+    "css",
+    "scss",
+    "less",
+    "py",
+    "Jl",
+    "sql",
+    "m",
+    "m",
+    "lsp",
+    "vhdl",
+    "CMAKE",
+]
+
 /**
  * 考虑code页面直接可导入修改代码，后期网页运行？
  */
@@ -43,8 +87,10 @@ export default class CodeMirrorEditor extends React.Component<
     constructor(props: ICodeMirrorProps) {
         super(props)
         this.state = {
-            value: "// Nucers在线编辑器",
-            mode: "text/javascript",
+            value:
+                localStorage.getItem("code-editor-code") ||
+                "// Nucers在线编辑器",
+            mode: localStorage.getItem("code-editor-lang") || "text/javascript",
             modes: [
                 ["text/javascript", "JavaScript"],
                 ["text/x-csrc", "C"],
@@ -80,41 +126,131 @@ export default class CodeMirrorEditor extends React.Component<
         return (
             <div
                 style={{
-                    fontSize: "20px",
+                    fontSize: "15px",
                 }}
             >
                 <div
                     style={{
                         backgroundColor: "#282a36",
                         height: "40px",
-                        color: "white",
                         display: "flex",
                         flexDirection: "row",
-                        justifyContent: "flex-start",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        fontSize: "15px",
+                        fontSize: "13px",
                     }}
                 >
                     <div
                         style={{
-                            margin: "0 10px",
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
                         }}
                     >
-                        选择语言类型:
+                        <div
+                            style={{
+                                margin: "0 10px",
+                                color: "white",
+                            }}
+                        >
+                            选择语言类型:
+                        </div>
+                        <select
+                            onChange={(e) => {
+                                localStorage.setItem(
+                                    "code-editor-lang",
+                                    e.target.value
+                                )
+                                this.setState({
+                                    mode: e.target.value,
+                                })
+                            }}
+                            defaultValue={mode}
+                        >
+                            {modes.map((item: Array<string>) => (
+                                <option key={item[0]} value={item[0]}>
+                                    {item[1]}
+                                </option>
+                            ))}
+                        </select>
                     </div>
-                    <select
-                        onChange={(e) =>
-                            this.setState({
-                                mode: e.target.value,
-                            })
-                        }
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "flex-end",
+                            alignItems: "center",
+                            margin: "auto 10px",
+                        }}
                     >
-                        {modes.map((item: Array<string>) => (
-                            <option key={item[0]} value={item[0]}>
-                                {item[1]}
-                            </option>
-                        ))}
-                    </select>
+                        <input
+                            type="file"
+                            placeholder="文件"
+                            accept={FileType.map(
+                                (item: string) => `.${item}`
+                            ).join(", ")}
+                            style={{
+                                color: "white",
+                            }}
+                            onChange={(e) => {
+                                if (e.target.files.length === 0) {
+                                    message.error("请选择读取的文件！")
+                                    return
+                                }
+                                const reader = new FileReader()
+                                reader.readAsText(e.target.files[0])
+                                const filename = e.target.files[0].name
+                                reader.onerror = () => {
+                                    message.error(`文件${filename}读取错误！`)
+                                }
+                                reader.onload = () => {
+                                    const suffix: string = filename.match(
+                                        /[^\.]\w*$/
+                                    )[0]
+                                    if (FileType.includes(suffix)) {
+                                        this.setState({
+                                            mode:
+                                                FileSupport[
+                                                    FileType.indexOf(suffix)
+                                                ],
+                                            value: reader.result.toString(),
+                                        })
+                                        message.success(
+                                            `文件${filename}读取成功！`
+                                        )
+                                    } else {
+                                        message.warning(
+                                            "当前文件类型不受语法支持！"
+                                        )
+                                    }
+                                }
+                            }}
+                        />
+                        <Button
+                            type="primary"
+                            onClick={() => {
+                                try {
+                                    let isFileSaverSupported = !!new Blob()
+                                    const blob = new Blob([value], {
+                                        type: "text/plain; charset=utf-8",
+                                    })
+
+                                    const filename: string = `NucersCode.${
+                                        FileType[FileSupport.indexOf(mode)]
+                                    }`
+                                    saveAs(blob, filename)
+                                    message.success(`导出文件${filename}成功`)
+                                } catch (e) {
+                                    message.error(
+                                        "当前浏览器不支持导出代码文件！"
+                                    )
+                                }
+                            }}
+                        >
+                            导出
+                        </Button>
+                    </div>
                 </div>
                 <CodeMirror
                     options={{
@@ -122,7 +258,7 @@ export default class CodeMirrorEditor extends React.Component<
                         theme: "dracula",
                         lineNumbers: true,
                         lineWrapping: true,
-                        tabSize: 2,
+                        tabSize: 4,
                         styleActiveLine: true,
                         autoFocus: true,
                         extraKeys: { Alt: "autocomplete" },
@@ -133,6 +269,7 @@ export default class CodeMirrorEditor extends React.Component<
                         this.setState({ value })
                     }}
                     onChange={(editor, data, value) => {
+                        localStorage.setItem("code-editor-code", value)
                         this.setState({
                             value,
                         })
