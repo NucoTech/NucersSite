@@ -57,11 +57,15 @@ export default class ShortMessage extends React.Component<
                 id: type,
             },
             preview: {
-                // actions: ["mobile"],
                 mode: "editor",
                 theme: {
                     current: darkNow ? "dark" : "light",
                     path: "/css",
+                },
+                hljs: {
+                    enable: true,
+                    style: !darkNow ? "igor" : "dracula",
+                    lineNumber: true,
                 },
             },
         })
@@ -101,8 +105,6 @@ export default class ShortMessage extends React.Component<
                         backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
                         borderRadius: "0 0 5px 5px",
                         padding: "5px",
-                        border: "1px solid #d1d5da",
-                        borderTop: "none"
                     }}
                 >
                     <div

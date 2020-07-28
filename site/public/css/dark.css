@@ -7,16 +7,6 @@
     border-radius: 5px;
 }
 
-.vditor-toolbar {
-    border-radius: 5px 5px 0 0;
-}
-
-.vditor-sv {
-    padding: 10px 9px 10px 10px;
-    border-radius: 0;
-    background-color: #24292e;
-}
-
 .vditor-preview > .vditor-reset {
     padding: 10px;
     box-shadow: none;
@@ -57,7 +47,6 @@
 
 .vditor-reset code:not(.hljs):not(.highlight-chroma) {
     background-color: grey;
-    padding: 5px;
     margin: 0 3px;
     border-radius: 2px;
     color: white;
@@ -146,7 +135,7 @@
 
 .vditor-reset pre code {
     padding: 10px;
-    background-color: transparent;
+    background-color: #2b2b2b;
     border-radius: 5px;
     font-size: 85%;
 }
@@ -233,4 +222,29 @@
     background-color: transparent;
     height: 500px;
     width: 1000px;
+}
+
+/* message-box的预览配置 */
+#nucers-short-message .vditor-toolbar {
+    border-radius: 5px 5px 0 0;
+}
+
+#nucers-short-message .vditor-sv {
+    padding: 10px 9px 10px 10px;
+    border-radius: 0;
+    background-color: #24292e;
+}
+
+#nucers-short-message .vditor-copy {
+    display: none;
+}
+
+#nucers-short-message .vditor-sv .h1,
+#nucers-short-message .vditor-sv .h2,
+#nucers-short-message .vditor-sv .h3,
+#nucers-short-message .vditor-sv .h4,
+#nucers-short-message .vditor-sv .h5,
+#nucers-short-message .vditor-sv .h6 {
+    font-size: 1em;
+    line-height: 20px;
 }

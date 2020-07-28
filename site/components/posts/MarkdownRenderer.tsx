@@ -35,7 +35,7 @@ export default class MarkdownRenderer extends React.Component<
             },
             hljs: {
                 enable: true,
-                style: !darkNow ? "igor" : "monokai",
+                style: !darkNow ? "igor" : "dracula",
                 lineNumber: true,
             },
         })
