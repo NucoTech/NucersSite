@@ -41,9 +41,11 @@ import "codemirror/keymap/sublime"
 /**
  * 支持外部导入代码
  * @param {string} code
+ * @param {string} mode
  */
 interface ICodeMirrorProps {
     code?: string
+    mode?: string
 }
 
 interface ICodeMirrorStates {
@@ -201,7 +203,7 @@ export default class CodeMirrorEditor extends React.Component<
         super(props)
         this.state = {
             value: "",
-            mode: localStorage.getItem("code-editor-lang") || "text/javascript",
+            mode: "text/javascript",
         }
         // 注入样式
         injectCSSFromCDN([
@@ -213,6 +215,7 @@ export default class CodeMirrorEditor extends React.Component<
     }
 
     componentDidMount() {
+        const { code, mode } = this.props
         const editor = document.getElementsByClassName(
             "CodeMirror"
         )[0] as HTMLDivElement
@@ -221,12 +224,16 @@ export default class CodeMirrorEditor extends React.Component<
         }px)`
         this.setState({
             value:
-                this.props.code ||
+                code ||
                 localStorage.getItem("code-editor-code") ||
                 initialComments(
                     localStorage.getItem("code-editor-lang") ||
                         "text/javascript"
                 ),
+            mode:
+                mode ||
+                localStorage.getItem("code-editor-lang") ||
+                "text/javascript",
         })
     }
 

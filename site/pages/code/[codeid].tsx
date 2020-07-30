@@ -13,13 +13,13 @@ const CodeMirrorEditor = dynamic(
 /**
  * 云端获取代码
  */
-export default ({ code, title }) => {
+export default ({ code, title, mode }) => {
     return (
         <>
             <Head>
                 <title>Nucer在线代码编辑器 | {title}</title>
             </Head>
-            <CodeMirrorEditor code={code} />
+            <CodeMirrorEditor code={code} mode={mode} />
         </>
     )
 }
@@ -45,6 +45,7 @@ export const getStaticProps = async ({ params }) => {
         props: {
             code: data.code,
             title: data.title,
+            mode: data.mode,
         },
     }
 }
