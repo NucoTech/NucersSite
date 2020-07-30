@@ -3,6 +3,7 @@ import { Controlled as CodeMirror } from "react-codemirror2"
 import { injectCSSFromCDN } from "@utils/utils"
 import { Button, message } from "antd"
 import { saveAs } from "file-saver"
+import { RedoOutlined } from "@ant-design/icons"
 
 import "codemirror/lib/codemirror"
 // 配置智能提示
@@ -37,7 +38,13 @@ import "codemirror/mode/lua/lua"
 // 配置快捷键支持
 import "codemirror/keymap/sublime"
 
-interface ICodeMirrorProps {}
+/**
+ * 支持外部导入代码
+ * @param {string} code
+ */
+interface ICodeMirrorProps {
+    code?: string
+}
 
 interface ICodeMirrorStates {
     value: string
@@ -193,12 +200,7 @@ export default class CodeMirrorEditor extends React.Component<
     constructor(props: ICodeMirrorProps) {
         super(props)
         this.state = {
-            value:
-                localStorage.getItem("code-editor-code") ||
-                initialComments(
-                    localStorage.getItem("code-editor-lang") ||
-                        "text/javascript"
-                ),
+            value: "",
             mode: localStorage.getItem("code-editor-lang") || "text/javascript",
         }
         // 注入样式
@@ -217,6 +219,15 @@ export default class CodeMirrorEditor extends React.Component<
         editor.style.height = `calc(100vh - ${
             document.getElementById("code-bar").clientHeight
         }px)`
+        this.setState({
+            value:
+                this.props.code ||
+                localStorage.getItem("code-editor-code") ||
+                initialComments(
+                    localStorage.getItem("code-editor-lang") ||
+                        "text/javascript"
+                ),
+        })
     }
 
     // 设置编辑器的值
@@ -377,6 +388,16 @@ export default class CodeMirrorEditor extends React.Component<
                             margin: "auto 10px",
                         }}
                     >
+                        <Button
+                            type="primary"
+                            style={{
+                                marginRight: "20px",
+                            }}
+                            title="强制刷新"
+                            onClick={() => location.reload()}
+                        >
+                            <RedoOutlined />
+                        </Button>
                         <Button
                             type="primary"
                             onClick={() => {
