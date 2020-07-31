@@ -1,0 +1,12 @@
+.funcMenu {
+    height: calc(100vh - 70px);
+    visibility: visible;
+}
+
+@media screen and (max-width: 1024px) {
+    .funcMenu {
+        height: 0;
+        transition: height 0.2s ease-in-out;
+        overflow: hidden;
+    }
+}

@@ -3,6 +3,9 @@ import dynamic from "next/dynamic"
 import { ValidMenu } from "@components/oa/OAMenu"
 import InfoManagement from "@components/oa/InfoManagement"
 import Support from "@components/oa/Support"
+import Notices from "@components/oa/Notices"
+import Head from "next/head"
+import OABasicBox from "@components/oa/OABasicBox"
 const OA404Shower = dynamic(import("@components/oa/OA404Shower"), {
     ssr: false,
 })
@@ -13,14 +16,13 @@ const OAMenu = dynamic(import("@components/oa/OAMenu"), {
 export default ({ gid, action }) => {
     return (
         <AuthenticatedPageBox>
+            <Head>
+                <title>Nucers Group 后台管理系统 </title>
+            </Head>
             <OAMenu />
-            <div
-                style={{
-                    padding: "70px 0 0 80px",
-                }}
-            >
+            <OABasicBox>
                 {action === "info" && <InfoManagement gid={gid} />}
-                {action === "notices"}
+                {action === "notices" && <Notices gid={gid} />}
                 {action === "acts"}
                 {action === "members"}
                 {action === "members-add"}
@@ -28,7 +30,7 @@ export default ({ gid, action }) => {
                 {action === "plugins"}
                 {action === "support" && <Support />}
                 {!ValidMenu.includes(action) && <OA404Shower />}
-            </div>
+            </OABasicBox>
         </AuthenticatedPageBox>
     )
 }

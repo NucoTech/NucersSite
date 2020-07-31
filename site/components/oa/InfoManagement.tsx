@@ -1,9 +1,10 @@
 import React from "react"
-import OABasicBox from "./OABasicBox"
 import { Input, Button } from "antd"
 const { TextArea } = Input
 
 const infoManageMentStyle = require("@styles/components/oa/InfoManagement.module.css")
+
+const oaBasicStyle = require("@styles/components/oa/OABasic.module.css")
 
 interface IInfoManagementProps {
     gid: string
@@ -32,49 +33,43 @@ export default class InfoManagement extends React.Component<
         const { name } = this.state
         const { gid } = this.props
         return (
-            <OABasicBox>
-                <div className={infoManageMentStyle.content}>
-                    <div className={infoManageMentStyle.title}>
-                        {name} 门户信息维护
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>
-                            Group id
-                        </div>
-                        {gid}
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>标题</div>
-                        <Input placeholder="网站标题" />
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>标签</div>
-                        <Input placeholder="使用分号( ; )分隔，不超过四个" />
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>描述</div>
-                        <TextArea
-                            placeholder="在此输入网站描述"
-                            allowClear
-                            autoSize={{
-                                minRows: 5,
-                                maxRows: 5,
-                            }}
-                        />
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>Email</div>
-                        <Input placeholder="在此输入联系邮箱" />
-                    </div>
-                    <div className={infoManageMentStyle.item}>
-                        <div className={infoManageMentStyle.label}>地址</div>
-                        <Input placeholder="在此输入联系地址" />
-                    </div>
-                    <div className={infoManageMentStyle.bottom}>
-                        <Button type="primary">保存</Button>
-                    </div>
+            <div className={infoManageMentStyle.content}>
+                <div className={oaBasicStyle.title}>{name} 门户信息维护</div>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>Group id</div>
+                    {gid}
                 </div>
-            </OABasicBox>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>标题</div>
+                    <Input placeholder="网站标题" />
+                </div>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>标签</div>
+                    <Input placeholder="使用分号( ; )分隔，不超过四个" />
+                </div>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>描述</div>
+                    <TextArea
+                        placeholder="在此输入网站描述"
+                        allowClear
+                        autoSize={{
+                            minRows: 5,
+                            maxRows: 5,
+                        }}
+                    />
+                </div>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>Email</div>
+                    <Input placeholder="在此输入联系邮箱" />
+                </div>
+                <div className={infoManageMentStyle.item}>
+                    <div className={infoManageMentStyle.label}>地址</div>
+                    <Input placeholder="在此输入联系地址" />
+                </div>
+                <div className={infoManageMentStyle.bottom}>
+                    <Button type="primary">保存</Button>
+                </div>
+            </div>
         )
     }
 }

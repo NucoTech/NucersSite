@@ -23,6 +23,8 @@ import { backOAURL } from "@utils/utils"
 
 const { SubMenu } = Menu
 
+const oaMenuStyle = require("@styles/components/oa/OAMenu.module.css")
+
 interface IOAMenuProps extends OnlyDarkThemeStoreType {}
 
 /**
@@ -41,6 +43,7 @@ export const ValidMenu: Array<string> = [
 
 interface IOAMenuStates {
     collapsed: boolean
+    isOpened: boolean
 }
 
 @inject("darkThemeStore")
@@ -53,6 +56,7 @@ export default class OAMenu extends React.Component<
         super(props)
         this.state = {
             collapsed: true,
+            isOpened: false,
         }
     }
     static async getInitialProps({ mobxStore }) {
@@ -61,9 +65,25 @@ export default class OAMenu extends React.Component<
         }
     }
     toggleCollapsed() {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        })
+        if (document.body.clientWidth <= 1024) {
+            const { isOpened } = this.state
+            const funcMenuStyle = document.getElementById("funcMenu").style
+            if (isOpened) {
+                funcMenuStyle.visibility = "hidden"
+                funcMenuStyle.height = "0px"
+            } else {
+                funcMenuStyle.visibility = "visible"
+                funcMenuStyle.height = "calc(100vh - 70px)"
+            }
+            this.setState({
+                isOpened: !isOpened,
+                collapsed: false,
+            })
+        } else {
+            this.setState({
+                collapsed: !this.state.collapsed,
+            })
+        }
     }
     render() {
         const { darkNow, setDark } = this.props.darkThemeStore
@@ -74,7 +94,7 @@ export default class OAMenu extends React.Component<
                     position: "fixed",
                     top: 0,
                     left: 0,
-                    zIndex: 2000
+                    zIndex: 999,
                 }}
             >
                 <div
@@ -126,12 +146,11 @@ export default class OAMenu extends React.Component<
                 </div>
 
                 <Menu
+                    id="funcMenu"
                     inlineCollapsed={this.state.collapsed}
                     mode="inline"
                     theme={darkNow ? "dark" : "light"}
-                    style={{
-                        height: "calc(100vh - 70px)",
-                    }}
+                    className={oaMenuStyle.funcMenu}
                 >
                     <Menu.Item icon={<DashboardOutlined />}>
                         <a href={backOAURL("")}>控制台</a>

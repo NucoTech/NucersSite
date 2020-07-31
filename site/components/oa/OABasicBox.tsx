@@ -16,12 +16,16 @@ export default class OABasicBox extends React.Component<
     render() {
         const { darkNow } = this.props.darkThemeStore
         return (
-            <div
-                className={
-                    darkNow ? oaBasicStyle.basicDark : oaBasicStyle.basicLight
-                }
-            >
-                {this.props.children}
+            <div className={oaBasicStyle.content}>
+                <div
+                    className={
+                        darkNow
+                            ? oaBasicStyle.basicDark
+                            : oaBasicStyle.basicLight
+                    }
+                >
+                    {this.props.children}
+                </div>
             </div>
         )
     }

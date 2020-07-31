@@ -6,7 +6,7 @@ import IconFont from "./IconFont"
 import { injectCSSFromCDN } from "@utils/utils"
 
 interface IShortMessageProps extends OnlyDarkThemeStoreType {
-    type: string
+    type: "idea" | "comment"
 }
 
 interface IShortMessageStates {
