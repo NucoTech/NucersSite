@@ -25,6 +25,20 @@ const { SubMenu } = Menu
 
 interface IOAMenuProps extends OnlyDarkThemeStoreType {}
 
+/**
+ * 合法菜单列表
+ */
+export const ValidMenu: Array<string> = [
+    "info",
+    "notices",
+    "acts",
+    "members",
+    "members-add",
+    "finance",
+    "plugins",
+    "support",
+]
+
 interface IOAMenuStates {
     collapsed: boolean
 }
@@ -60,6 +74,7 @@ export default class OAMenu extends React.Component<
                     position: "fixed",
                     top: 0,
                     left: 0,
+                    zIndex: 2000
                 }}
             >
                 <div
@@ -115,7 +130,7 @@ export default class OAMenu extends React.Component<
                     mode="inline"
                     theme={darkNow ? "dark" : "light"}
                     style={{
-                        height: "calc(100vh - 70px)"
+                        height: "calc(100vh - 70px)",
                     }}
                 >
                     <Menu.Item icon={<DashboardOutlined />}>

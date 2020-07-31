@@ -21,7 +21,13 @@ export default class DashBoardItem extends React.Component<
                 }}
             >
                 <div>{icon}</div>
-                <div>{name}</div>
+                <div
+                    style={{
+                        marginTop: "10px",
+                    }}
+                >
+                    {name}
+                </div>
             </div>
         )
     }

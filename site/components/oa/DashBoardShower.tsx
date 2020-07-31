@@ -16,11 +16,12 @@ import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 const items = [
     {
         name: "公告管理",
-        url: backOAURL("info"),
+        url: backOAURL("notices"),
         icon: (
             <DesktopOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#4045bf",
                 }}
             />
         ),
@@ -32,6 +33,7 @@ const items = [
             <FlagOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#862d2e",
                 }}
             />
         ),
@@ -43,6 +45,7 @@ const items = [
             <UserOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#4083bf",
                 }}
             />
         ),
@@ -54,6 +57,7 @@ const items = [
             <MoneyCollectOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#bf4040",
                 }}
             />
         ),
@@ -65,6 +69,7 @@ const items = [
             <SubnodeOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#f14e32",
                 }}
             />
         ),
@@ -76,6 +81,7 @@ const items = [
             <ExceptionOutlined
                 style={{
                     fontSize: "30px",
+                    color: "#09aeb0",
                 }}
             />
         ),
@@ -84,18 +90,61 @@ const items = [
 
 const dashBoardShowerStyle = require("@styles/components/oa/DashBoardShower.module.css")
 
+interface IDashBoardShowerStates {
+    name: string
+    applyTime: string
+    members: number
+    notices: number
+    actsDone: number
+    actsDoing: number
+    actsWill: number
+    plugins: number
+    workorders: number
+}
+
 @inject("darkThemeStore")
 @observer
 export default class DashBoardShower extends React.Component<
-    OnlyDarkThemeStoreType
+    OnlyDarkThemeStoreType,
+    IDashBoardShowerStates
 > {
+    constructor(props: OnlyDarkThemeStoreType) {
+        super(props)
+        this.state = {
+            name: "",
+            applyTime: "xxxx-xx-xx",
+            members: 0,
+            notices: 0,
+            actsDone: 0,
+            actsDoing: 0,
+            actsWill: 0,
+            plugins: 0,
+            workorders: 0,
+        }
+    }
     static async getInitialProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+    componentDidMount() {
+        this.setState({
+            name: "Nucers"
+        })
+    }
     render() {
         const { darkNow } = this.props.darkThemeStore
+        const {
+            name,
+            applyTime,
+            members,
+            notices,
+            actsDoing,
+            actsDone,
+            actsWill,
+            plugins,
+            workorders,
+        } = this.state
         return (
             <div
                 className={
@@ -104,18 +153,39 @@ export default class DashBoardShower extends React.Component<
                         : dashBoardShowerStyle.showerDark
                 }
             >
-                <div className={dashBoardShowerStyle.groupName}>
-                    Nucers, 欢迎使用Nucers社区平台
+                <div className={dashBoardShowerStyle.groupWelcome}>
+                    『 {name} 』, 欢迎使用Nucers社区平台
                 </div>
-                {/* 当前组织名称 */}
-                <div>申请时间</div>
-                <div>成员: 10人</div>
-                <div>公告: 20条</div>
-                <div>已举办活动: 10次</div>
-                <div>进行中活动: 10次</div>
-                <div>已举行活动: 10次</div>
-                <div>付费插件数: 2个</div>
-                <div>当前处理中的工单: 2个</div>
+                <div className={dashBoardShowerStyle.sameLine}>
+                    <div className={dashBoardShowerStyle.infos}>
+                        申请时间: <span>{applyTime}</span>
+                    </div>
+                    <div className={dashBoardShowerStyle.infos}>
+                        成员: <span>{members}</span>人
+                    </div>
+                    <div className={dashBoardShowerStyle.infos}>
+                        公告: <span>{notices}</span>条
+                    </div>
+                </div>
+
+                <div className={dashBoardShowerStyle.sameLine}>
+                    <div className={dashBoardShowerStyle.infos}>
+                        活动已举行: <span>{actsDone}</span>次
+                    </div>
+                    <div className={dashBoardShowerStyle.infos}>
+                        进行中: <span>{actsDoing}</span>次
+                    </div>
+                    <div className={dashBoardShowerStyle.infos}>
+                        计划中: <span>{actsWill}</span>次
+                    </div>
+                </div>
+
+                <div className={dashBoardShowerStyle.infos}>
+                    插件数: <span>{plugins}</span>个
+                </div>
+                <div className={dashBoardShowerStyle.infos}>
+                    当前处理中的工单: <span>{workorders}</span>个
+                </div>
                 <ul>
                     {items.map((item) => (
                         <li key={item.url}>

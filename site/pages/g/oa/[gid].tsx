@@ -11,7 +11,7 @@ export default () => (
         <OAMenu />
         <div
             style={{
-                padding: "70px 0px 20px 80px",
+                padding: "70px 0 0 80px",
             }}
         >
             <DashBoardShower />
