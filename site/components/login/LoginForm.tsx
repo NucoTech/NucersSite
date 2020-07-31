@@ -14,7 +14,7 @@ export default class LoginForm extends React.Component {
                 <input placeholder="电子邮箱/手机号/学号/组织号" />
                 <input type="password" placeholder="密码" />
                 <div className={loginFormStyle.tips}>
-                    <a href="#">申请组织账号</a>
+                    <a href="/g/apply">申请组织账号</a>
                     <div>
                         <IconFont type="nucers-warning" />
                         首次使用请使用邮箱将自动发送注册信息
