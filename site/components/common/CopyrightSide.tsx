@@ -39,6 +39,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
                     boxShadow: "0 0 1px grey",
                     marginTop: "20px",
                     color: darkNow ? "white" : "black",
+                    width: "100%"
                 }}
             >
                 <div

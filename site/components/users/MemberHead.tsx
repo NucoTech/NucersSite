@@ -12,6 +12,9 @@ interface IMemberHeadProps {
     typeInfo?: string
 }
 
+/**
+ * 已被废弃！！！
+ */
 export default class MemberHead extends React.Component<IMemberHeadProps> {
     // ICON颜色
     static VIPColor: Map<string, string> = new Map<string, string>([

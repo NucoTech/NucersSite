@@ -142,7 +142,7 @@ export default class OAMenu extends React.Component<
                     <div
                         style={{
                             fontSize: "large",
-                            fontWeight: 500,
+                            fontWeight: 300,
                             margin: "0 40px",
                         }}
                     >

@@ -22,7 +22,7 @@ export default class Support extends React.Component {
                 <div className={supportStyle.item}>
                     <div className={supportStyle.label}>工单类型</div>
                     <Select defaultValue="ask">
-                        <Option value="">问题咨询</Option>
+                        <Option value="ask">问题咨询</Option>
                         <Option value="bugs">故障申报</Option>
                         <Option value="plugins">插件业务</Option>
                     </Select>
