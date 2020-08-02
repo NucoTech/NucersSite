@@ -1,6 +1,6 @@
 import React from "react"
 
-const dashBoardItemStyle = require("@styles/components/oa/DashBoardItem.module.css")
+const dashBoardItemStyle = require("@styles/components/groups/oa/DashBoardItem.module.css")
 
 interface IDashBoardItemProps {
     icon: any

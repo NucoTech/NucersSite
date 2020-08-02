@@ -1,5 +1,5 @@
 /* 白天主题 */
-
+/* 样式重叠导致了渲染不一致的情况，需要继续修改 */
 .vditor-reset {
     padding: 50px;
     background-color: white;

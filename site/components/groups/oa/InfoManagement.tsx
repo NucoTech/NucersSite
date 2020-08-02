@@ -2,9 +2,9 @@ import React from "react"
 import { Input, Button } from "antd"
 const { TextArea } = Input
 
-const infoManageMentStyle = require("@styles/components/oa/InfoManagement.module.css")
+const infoManageMentStyle = require("@styles/components/groups/oa/InfoManagement.module.css")
 
-const oaBasicStyle = require("@styles/components/oa/OABasic.module.css")
+const oaBasicStyle = require("@styles/components/groups/oa/OABasic.module.css")
 
 interface IInfoManagementProps {
     gid: string

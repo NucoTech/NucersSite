@@ -1,7 +1,7 @@
 import React from "react"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
-const oaBasicStyle = require("@styles/components/oa/OABasic.module.css")
+const oaBasicStyle = require("@styles/components/groups/oa/OABasic.module.css")
 
 @inject("darkThemeStore")
 @observer

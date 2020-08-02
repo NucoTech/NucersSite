@@ -4,9 +4,9 @@ import TextArea from "antd/lib/input/TextArea"
 
 const { RangePicker } = DatePicker
 
-const noticesStyle = require("@styles/components/oa/InfoManagement.module.css")
+const noticesStyle = require("@styles/components/groups/oa/InfoManagement.module.css")
 
-const oaBasicStyle = require("@styles/components/oa/OABasic.module.css")
+const oaBasicStyle = require("@styles/components/groups/oa/OABasic.module.css")
 
 interface INoticesProps {
     gid: string

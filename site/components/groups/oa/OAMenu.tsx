@@ -15,6 +15,7 @@ import {
     PoweroffOutlined,
     ExceptionOutlined,
     DashboardOutlined,
+    KeyOutlined,
 } from "@ant-design/icons"
 
 import { inject, observer } from "mobx-react"
@@ -23,7 +24,7 @@ import { backOAURL } from "@utils/utils"
 
 const { SubMenu } = Menu
 
-const oaMenuStyle = require("@styles/components/oa/OAMenu.module.css")
+const oaMenuStyle = require("@styles/components/groups/oa/OAMenu.module.css")
 
 interface IOAMenuProps extends OnlyDarkThemeStoreType {}
 
@@ -39,6 +40,7 @@ export const ValidMenu: Array<string> = [
     "finance",
     "plugins",
     "support",
+    "security",
 ]
 
 interface IOAMenuStates {
@@ -65,9 +67,10 @@ export default class OAMenu extends React.Component<
         }
     }
     toggleCollapsed() {
+        const funcMenuStyle = document.getElementById("funcMenu").style
         if (document.body.clientWidth <= 1024) {
             const { isOpened } = this.state
-            const funcMenuStyle = document.getElementById("funcMenu").style
+
             if (isOpened) {
                 funcMenuStyle.visibility = "hidden"
                 funcMenuStyle.height = "0px"
@@ -80,6 +83,8 @@ export default class OAMenu extends React.Component<
                 collapsed: false,
             })
         } else {
+            funcMenuStyle.visibility = "visible"
+            funcMenuStyle.height = "calc(100vh - 70px)"
             this.setState({
                 collapsed: !this.state.collapsed,
             })
@@ -113,7 +118,7 @@ export default class OAMenu extends React.Component<
                         <Button
                             type="primary"
                             onClick={() => {
-                                localStorage.setItem(
+                                sessionStorage.setItem(
                                     "darkNow",
                                     String(!darkNow ? String(1) : String(0))
                                 )
@@ -193,6 +198,9 @@ export default class OAMenu extends React.Component<
                     </Menu.Item>
                     <Menu.Item icon={<ExceptionOutlined />}>
                         <a href={backOAURL("support")}>技术支持</a>
+                    </Menu.Item>
+                    <Menu.Item icon={<KeyOutlined />}>
+                        <a href={backOAURL("security")}>账户安全</a>
                     </Menu.Item>
                 </Menu>
             </div>

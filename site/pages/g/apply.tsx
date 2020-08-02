@@ -1,6 +1,7 @@
+import Apply4Group from "@components/groups/Apply4Group"
+import PageBox from "@components/common/PageBox"
+
 /**
  * 申请组织
  */
-export default () => {
-    return <div>组织号申请</div>
-}
+export default () => <Apply4Group />

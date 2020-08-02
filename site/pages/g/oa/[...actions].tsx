@@ -1,15 +1,15 @@
 import AuthenticatedPageBox from "@components/auth/AuthenticatedPageBox"
 import dynamic from "next/dynamic"
-import { ValidMenu } from "@components/oa/OAMenu"
-import InfoManagement from "@components/oa/InfoManagement"
-import Support from "@components/oa/Support"
-import Notices from "@components/oa/Notices"
+import { ValidMenu } from "@components/groups/oa/OAMenu"
+import InfoManagement from "@components/groups/oa/InfoManagement"
+import Support from "@components/groups/oa/Support"
+import Notices from "@components/groups/oa/Notices"
 import Head from "next/head"
-import OABasicBox from "@components/oa/OABasicBox"
-const OA404Shower = dynamic(import("@components/oa/OA404Shower"), {
+import OABasicBox from "@components/groups/oa/OABasicBox"
+const OA404Shower = dynamic(import("@components/groups/oa/OA404Shower"), {
     ssr: false,
 })
-const OAMenu = dynamic(import("@components/oa/OAMenu"), {
+const OAMenu = dynamic(import("@components/groups/oa/OAMenu"), {
     ssr: false,
 })
 
@@ -29,6 +29,7 @@ export default ({ gid, action }) => {
                 {action === "finance"}
                 {action === "plugins"}
                 {action === "support" && <Support />}
+                {action === "security"}
                 {!ValidMenu.includes(action) && <OA404Shower />}
             </OABasicBox>
         </AuthenticatedPageBox>

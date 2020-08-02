@@ -1,9 +1,8 @@
 .showerLight,
 .showerDark {
-    margin: 20px 0 0 20px;
     height: calc(100vh - 90px);
     overflow-y: auto;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

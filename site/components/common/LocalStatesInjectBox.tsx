@@ -17,7 +17,7 @@ export default class LocalStatesInjectBox extends React.Component<
     }
     componentDidMount() {
         const { setLocalDark } = this.props.darkThemeStore
-        setLocalDark(!!parseInt(localStorage.getItem("darkNow")))
+        setLocalDark(!!parseInt(sessionStorage.getItem("darkNow")))
     }
     render() {
         return <>{this.props.children}</>

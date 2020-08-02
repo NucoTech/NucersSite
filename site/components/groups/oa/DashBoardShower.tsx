@@ -8,6 +8,7 @@ import {
     FlagOutlined,
     MoneyCollectOutlined,
     ExceptionOutlined,
+    KeyOutlined,
 } from "@ant-design/icons"
 import { backOAURL } from "@utils/utils"
 import { inject, observer } from "mobx-react"
@@ -86,9 +87,21 @@ const items = [
             />
         ),
     },
+    {
+        name: "账户安全",
+        url: backOAURL("security"),
+        icon: (
+            <KeyOutlined
+                style={{
+                    fontSize: "30px",
+                    color: "red",
+                }}
+            />
+        ),
+    },
 ]
 
-const dashBoardShowerStyle = require("@styles/components/oa/DashBoardShower.module.css")
+const dashBoardShowerStyle = require("@styles/components/groups/oa/DashBoardShower.module.css")
 
 interface IDashBoardShowerStates {
     name: string
@@ -129,7 +142,7 @@ export default class DashBoardShower extends React.Component<
     }
     componentDidMount() {
         this.setState({
-            name: "Nucers"
+            name: "Nucers",
         })
     }
     render() {

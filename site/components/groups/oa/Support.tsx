@@ -3,9 +3,9 @@ import { Button, Input, Select } from "antd"
 const { TextArea } = Input
 const { Option } = Select
 
-const supportStyle = require("@styles/components/oa/InfoManagement.module.css")
+const supportStyle = require("@styles/components/groups/oa/InfoManagement.module.css")
 
-const oaBasicStyle = require("@styles/components/oa/OABasic.module.css")
+const oaBasicStyle = require("@styles/components/groups/oa/OABasic.module.css")
 
 /**
  * 工单系统

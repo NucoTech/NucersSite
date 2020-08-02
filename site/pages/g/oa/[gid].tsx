@@ -1,20 +1,19 @@
 import dynamic from "next/dynamic"
+import OABasicBox from "@components/groups/oa/OABasicBox"
 import AuthenticatedPageBox from "@components/auth/AuthenticatedPageBox"
-const DashBoardShower = dynamic(import("@components/oa/DashBoardShower"), {
+
+const DashBoardShower = dynamic(import("@components/groups/oa/DashBoardShower"), {
     ssr: false,
 })
-const OAMenu = dynamic(import("@components/oa/OAMenu"), {
+const OAMenu = dynamic(import("@components/groups/oa/OAMenu"), {
     ssr: false,
 })
+
 export default () => (
     <AuthenticatedPageBox>
         <OAMenu />
-        <div
-            style={{
-                padding: "70px 0 0 80px",
-            }}
-        >
+        <OABasicBox>
             <DashBoardShower />
-        </div>
+        </OABasicBox>
     </AuthenticatedPageBox>
 )
