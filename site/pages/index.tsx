@@ -18,6 +18,7 @@ import SomeIdea from "@components/common/SomeIdea"
 const indexStyle = require("@styles/pages/index.module.css")
 
 import PageBox from "@components/common/PageBox"
+import NavBarMobile from "@components/common/NavBarMobile"
 
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
@@ -31,6 +32,7 @@ export default () => {
                 <title>Nucers社区 | 技术因分享而升华</title>
             </Head>
             <NavBar />
+            <NavBarMobile />
             <div className={indexStyle.content}>
                 <div className={indexStyle.left}>
                     <HotTopics />
