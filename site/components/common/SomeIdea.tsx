@@ -1,6 +1,10 @@
 import React from "react"
-import CommonBox from "./CommonBox"
 import dynamic from "next/dynamic"
+import CommonBox from "./CommonBox"
+
+const MessageListRender = dynamic(import("./MessageListRender"), {
+    ssr: false,
+})
 
 const ShortMessage = dynamic(import("@components/common/ShortMessage"), {
     ssr: false,
@@ -18,16 +22,11 @@ export default class SomeIdea extends React.Component {
                         flexDirection: "column",
                         justifyContent: "flex-start",
                         alignItems: "flex-start",
+                        marginTop: "-1px"
                     }}
                 >
                     <ShortMessage type="idea" />
-                    <ul>
-                        <li>xxx said: xxxxxx</li>
-                        <li>xxx said: xxxxxx</li>
-                        <li>xxx said: xxxxxx</li>
-                        <li>xxx said: xxxxxx</li>
-                        <li>xxx said: xxxxxx</li>
-                    </ul>
+                    <MessageListRender type="idea" />
                 </div>
             </CommonBox>
         )

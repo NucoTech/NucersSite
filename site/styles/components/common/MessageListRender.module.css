@@ -1,0 +1,115 @@
+/* 自定义渲染样式 */
+.content {
+    width: 100%;
+    padding: 20px 30px;
+    margin: 0;
+    list-style: circle;
+}
+
+.content > li {
+    width: 100%;
+    position: relative;
+    padding: 7px 0;
+}
+
+.content > li::before {
+    content: "";
+    position: absolute;
+    background-color: #eaecef;
+    top: 0;
+    bottom: 0;
+    left: -14px;
+    width: 2px;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: small;
+}
+
+.title > a {
+    margin-right: 5px;
+}
+
+.more {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.more > a:hover {
+    text-decoration: underline;
+}
+
+.mdcontainer {
+    width: 100%;
+    box-shadow: 0 0 1px grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mdrender {
+    padding: 5px !important;
+    width: 100% !important;
+    box-shadow: none !important;
+}
+
+/* 覆盖标题 */
+.mdrender h1,
+.mdrender h2,
+.mdrender h3,
+.mdrender h4,
+.mdrender h5,
+.mdrender h6 {
+    margin: 10px 0 !important;
+    line-height: 1 !important;
+    font-size: medium !important;
+}
+
+/* 覆盖引用块 */
+.mdrender blockquote {
+    margin: 5px 0 !important;
+}
+
+/* 覆盖表格渲染 */
+.mdrender table td,
+.mdrender table th {
+    padding: 5px !important;
+}
+
+/* 覆盖段落 */
+.mdrender p {
+    margin: 5px 0 !important;
+    font-size: 12px !important;
+}
+
+/* 覆盖列表 */
+.mdrender ul,
+.mdrender ol {
+    margin: 5px 0 !important;
+}
+
+.mdrender li {
+    margin: 1px 0 !important;
+    font-size: 13px !important;
+}
+
+.mdrender pre {
+    margin: 1px 0 !important;
+}
+
+.mdrender pre code {
+    padding: 5px !important;
+}
+
+/* 折叠块覆盖 */
+.mdrender details {
+    padding: 5px !important;
+}
+
+.mdrender details summary {
+    margin-bottom: 3px !important;
+}
