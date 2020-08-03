@@ -4,6 +4,7 @@
     box-shadow: 0 0 1px grey;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .contentLight:hover,
@@ -19,11 +20,11 @@
 .contentLight > .boxHeader,
 .contentDark > .boxHeader {
     overflow: hidden;
-    padding: 5px;
+    padding: 10px;
     padding-left: 20px;
     font-weight: 600;
     position: relative;
-    border-bottom: 1px solid rgb(166, 233, 255);
+    border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .boxHeader::after {
@@ -38,7 +39,7 @@
 }
 
 .contentLight > .boxHeader {
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-color: #f6f8fa;
 }
 
 .contentDark > .boxHeader {
@@ -59,12 +60,11 @@
 .contentLight > .boxContent,
 .contentDark > .boxContent {
     overflow: hidden;
-    padding: 10px 0;
     position: relative;
 }
 
 .contentLight > .boxContent {
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-color: white;
 }
 
 .contentDark > .boxContent {
@@ -80,16 +80,4 @@
             rgba(0, 0, 0, 0.25) 200%
         );
     background-blend-mode: multiply;
-}
-
-.boxContent > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.boxContent > ul > li {
-    height: 25px;
-    padding: 0 10px;
-    text-align: start;
 }

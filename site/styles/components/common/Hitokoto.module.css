@@ -6,13 +6,14 @@
     align-items: flex-start;
     padding: 5px 10px;
     box-shadow: 0 0 1px grey;
+    font-size: small;
     font-weight: 300;
     width: 100%;
     border-radius: 5px;
 }
 
 .contentLight {
-    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    background-color: #f6f8fa;
 }
 
 .contentDark {

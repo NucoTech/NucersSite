@@ -12,10 +12,12 @@ import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import DarkSwitcher from "@components/common/DarkSwitcher"
-import PageBox from "@components/common/PageBox"
+import SchoolNews from "@components/common/SchoolNews"
 import SomeIdea from "@components/common/SomeIdea"
 
 const indexStyle = require("@styles/pages/index.module.css")
+
+import PageBox from "@components/common/PageBox"
 
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
@@ -35,6 +37,9 @@ export default () => {
                     <div className={indexStyle.marginer}>
                         <WordCloud words={HotTagsMocks} />
                     </div>
+                    <div className={indexStyle.marginer}>
+                        <Newers newers={NewersMocks} />
+                    </div>
                 </div>
                 <div className={indexStyle.right}>
                     <Hitokoto />
@@ -46,27 +51,17 @@ export default () => {
                             <div className={indexStyle.marginer}>
                                 <Notices />
                             </div>
+                            <div className={indexStyle.marginer}>
+                                <SchoolNews />
+                            </div>
                         </div>
                         <div className={indexStyle.contentRight}>
                             <div className={indexStyle.marginer}>
                                 <HotPosts />
                             </div>
                             <div className={indexStyle.ideaAndNewer}>
-                                <div
-                                    className={indexStyle.marginer}
-                                    style={{
-                                        marginRight: "40px",
-                                    }}
-                                >
+                                <div className={indexStyle.marginer}>
                                     <SomeIdea />
-                                </div>
-                                <div
-                                    className={indexStyle.marginer}
-                                    style={{
-                                        width: "200px",
-                                    }}
-                                >
-                                    <Newers newers={NewersMocks} />
                                 </div>
                             </div>
                         </div>

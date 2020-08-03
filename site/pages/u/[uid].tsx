@@ -1,10 +1,11 @@
 import Head from "next/head"
 import NavBar from "@components/common/NavBar"
-import PageBox from "@components/common/PageBox"
 import UserCard from "@components/users/UserCard"
+import CalendarHeatmapChart from "@components/charts/CalendarHeatmapChart"
 import UserDisplay from "@components/users/UserDisplay"
-
 const userStyle = require("@styles/pages/user.module.css")
+
+import PageBox from "@components/common/PageBox"
 
 export default () => {
     return (
@@ -15,6 +16,7 @@ export default () => {
             <NavBar />
             <div className={userStyle.content}>
                 <div className={userStyle.left}>
+                    <CalendarHeatmapChart />
                     <UserDisplay uid="23423423" />
                 </div>
                 <div className={userStyle.right}>

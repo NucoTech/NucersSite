@@ -1,6 +1,8 @@
 import React from "react"
+
+const hotTopicsStyle = require("@styles/components/common/HotTopics.module.css")
+
 import CommonBox from "./CommonBox"
-const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 interface IHotTopicsProps {}
 
@@ -39,7 +41,7 @@ export default class HotTopics extends React.Component<
             "话题十二",
             "话题十三",
             "话题十四",
-            "话题十五",
+            "话题十五测试测试测试测试",
         ]
         this.setState({
             topics,
@@ -48,28 +50,24 @@ export default class HotTopics extends React.Component<
     render() {
         const { topics } = this.state
         return (
-            <CommonBox>
-                <div className={commonBoxStyle.boxHeader}>热门话题</div>
-                <div className={commonBoxStyle.boxContent}>
-                    <ul>
-                        {topics.map((item: string, index: number) => (
-                            <li
-                                key={`topic-${index}`}
-                                style={{ color: index === 0 ? "red" : "green" }}
-                            >
-                                <span
-                                    style={{
-                                        width: "60px",
-                                    }}
+            <CommonBox header="热门话题">
+                <ul className={hotTopicsStyle.list}>
+                    {topics.map((item: string, index: number) => (
+                        <li key={`topic-${index}`}>
+                            <div className={hotTopicsStyle.rate}>
+                                {index + 1}
+                            </div>
+                            <div className={hotTopicsStyle.ellipsis}>
+                                <a
+                                    href={`/s?topic=${item}`}
+                                    title={`#${item}#`}
                                 >
-                                    {index + 1}
-                                </span>
-
-                                <span>#{item}#</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                                    #{item}#
+                                </a>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </CommonBox>
         )
     }

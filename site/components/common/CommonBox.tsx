@@ -4,12 +4,16 @@ import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
+interface ICommonBoxProps extends OnlyDarkThemeStoreType {
+    header: string
+}
+
 /**
  * CommonBox组件视觉一致化设计
  */
 @inject("darkThemeStore")
 @observer
-export default class CommonBox extends React.Component<OnlyDarkThemeStoreType> {
+export default class CommonBox extends React.Component<ICommonBoxProps> {
     static async getInitialProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
@@ -17,6 +21,7 @@ export default class CommonBox extends React.Component<OnlyDarkThemeStoreType> {
     }
     render() {
         const { darkNow } = this.props.darkThemeStore
+        const { header } = this.props
         return (
             <div
                 className={
@@ -25,7 +30,10 @@ export default class CommonBox extends React.Component<OnlyDarkThemeStoreType> {
                         : commonBoxStyle.contentLight
                 }
             >
-                {this.props.children}
+                <div className={commonBoxStyle.boxHeader}>{header}</div>
+                <div className={commonBoxStyle.boxContent}>
+                    {this.props.children}
+                </div>
             </div>
         )
     }

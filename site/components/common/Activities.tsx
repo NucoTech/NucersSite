@@ -30,7 +30,7 @@ export default class Activities extends React.Component<IAdsSideProps> {
                                 src={item.src}
                                 alt={item.title}
                                 title={item.title}
-                                width="430px"
+                                width="100%"
                                 height="200px"
                                 onClick={() => {
                                     if (item.url) {

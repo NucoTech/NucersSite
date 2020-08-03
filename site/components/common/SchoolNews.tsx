@@ -4,7 +4,7 @@ const commonListStyle = require("@styles/components/common/CommonList.module.css
 
 import CommonBox from "./CommonBox"
 
-const notices = [
+const news = [
     { id: "324234234", title: "测试" },
     { id: "2346223423t234", title: "公告" },
     { id: "sdfadadfasdfa", title: "测试公告" },
@@ -18,15 +18,20 @@ const notices = [
     { id: "asdfafadfadfasdf", title: "QWERQWERQWERQWE" },
 ]
 
-export default class Notices extends React.Component {
+export default class SchoolNews extends React.Component {
     render() {
         return (
-            <CommonBox header="公告">
+            <CommonBox header="校园新闻">
                 <ol className={commonListStyle.ol}>
-                    {notices.map((item) => (
+                    {news.map((item) => (
                         <li key={item.id}>
                             <div className={commonListStyle.ellipsis}>
-                                <a href={`/notice/${item.id}`} title={item.title}>{item.title}</a>
+                                <a
+                                    href={`/news/${item.id}`}
+                                    title={item.title}
+                                >
+                                    {item.title}
+                                </a>
                             </div>
                         </li>
                     ))}

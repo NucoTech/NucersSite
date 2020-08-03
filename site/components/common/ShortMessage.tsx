@@ -91,7 +91,6 @@ export default class ShortMessage extends React.Component<
                     flexDirection: "column",
                     justifyContent: "flex-start",
                     alignItems: "flex-end",
-                    marginTop: "-10px",
                 }}
             >
                 <div id="nucers-short-message"></div>

@@ -1,5 +1,6 @@
 import React from "react"
 import { Carousel } from "antd"
+
 const AdsStyle = require("@styles/components/common/Ads.module.css")
 
 /**

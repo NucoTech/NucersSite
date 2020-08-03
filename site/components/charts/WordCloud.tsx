@@ -1,9 +1,6 @@
 import React from "react"
 import ReactWordCloud from "react-wordcloud"
-import { dataRemote } from "@utils/utils"
 import CommonBox from "@components/common/CommonBox"
-
-const commonBoxStyle = require("@styles/components/common/CommonBox.module.css")
 
 export interface IWordCloud {
     text: string
@@ -65,7 +62,7 @@ export default class WordCloud extends React.Component<
         dom.addEventListener("click", () => {
             if (isActive) {
                 window.open(
-                    `${location.href}search?tags=${word.text}`,
+                    `${location.href}s?tags=${word.text}`,
                     "_blank"
                 )
             }
@@ -83,14 +80,12 @@ export default class WordCloud extends React.Component<
     render() {
         const { words } = this.props
         return (
-            <CommonBox>
-                <div className={commonBoxStyle.boxHeader}>标签词云</div>
+            <CommonBox header="标签词云">
                 <div
-                    className={commonBoxStyle.boxContent}
                     style={{
                         height: "200px",
-                        width: "200px",
-                        padding: 0
+                        width: "100%",
+                        padding: 0,
                     }}
                 >
                     <ReactWordCloud
