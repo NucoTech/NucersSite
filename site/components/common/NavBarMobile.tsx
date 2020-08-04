@@ -1,8 +1,7 @@
 import React from "react"
 import IconFont from "./IconFont"
 import { INav, SubNav, MyNav } from "./NavBar"
-import SubMenu from "antd/lib/menu/SubMenu"
-import { DoubleLeftOutlined } from "@ant-design/icons"
+import DarkSwitcher from "./DarkSwitcher"
 
 const navBarMobileStyle = require("@styles/components/common/NavBarMobile.module.css")
 
@@ -58,6 +57,8 @@ export default class NavBarMobile extends React.Component<
     spreadSubNav = (index: number) => {
         const subIconDom = document.getElementById(`subicon-${index}`)
         const subNavDom = document.getElementById(`subnav-${index}`)
+        const navs = document.getElementById("navs")
+
         let subNavHeight: number = 0
 
         ;[...document.getElementsByClassName(`subgroup-${index}`)].forEach(
@@ -72,11 +73,29 @@ export default class NavBarMobile extends React.Component<
 
         subIconDom.style.transform === "rotate(0deg)"
             ? ((subIconDom.style.transform = "rotate(90deg)"),
-              (subNavDom.style.height = subNavHeight + "px"))
+              (subNavDom.style.height = subNavHeight + "px"),
+              (navs.style.height =
+                  this.countNavsHeight() + subNavHeight + "px"))
             : ((subIconDom.style.transform = "rotate(0deg)"),
-              (subNavDom.style.height = "0px"))
-
+              (subNavDom.style.height = "0px"),
+              (navs.style.height =
+                  this.countNavsHeight() - subNavHeight + "px"))
     }
+
+    countNavsHeight = (): number => {
+        let navsHeight: number = 0
+        ;[...document.getElementsByClassName(`navs-li`)].forEach(
+            (item: HTMLDivElement) => {
+                navsHeight += parseFloat(
+                    document.defaultView
+                        .getComputedStyle(item)
+                        .height.replace("px", "")
+                )
+            }
+        )
+        return navsHeight
+    }
+
     render() {
         const { menuOpened } = this.state
         const { navs } = this.props
@@ -92,95 +111,140 @@ export default class NavBarMobile extends React.Component<
                     </b>
                     <img />
                 </div>
-                <div className={navBarMobileStyle.menu}>
-                    <IconFont
-                        type="nucers-menu"
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <div
                         style={{
-                            transform: `rotate(${menuOpened ? "135deg" : "0"})`,
+                            marginRight: "10px",
                         }}
-                        className={navBarMobileStyle.icon}
-                        onClick={() => {
-                            this.setState({
-                                menuOpened: !this.state.menuOpened,
-                            })
-                        }}
-                    />
-                    <ul
-                        style={{
-                            height: `${menuOpened ? "700px" : 0}`,
-                        }}
-                        className={navBarMobileStyle.navs}
                     >
-                        {navs &&
-                            navs.map((item: INav, index: number) => (
-                                <li key={item.title}>
-                                    {item.children &&
-                                    item.children.length !== 0 ? (
-                                        <div>
-                                            <IconFont
-                                                id={`subicon-${index}`}
-                                                type="nucers-arrow"
-                                                style={{
-                                                    marginRight: "5px",
-                                                    color:
-                                                        "var(--theme-post-add)",
-                                                    transform: "rotate(0deg)",
-                                                }}
-                                            />
-                                            <a
-                                                onClick={() => {
-                                                    this.spreadSubNav(index)
-                                                }}
-                                            >
-                                                {item.title}
-                                            </a>
-                                            <div
-                                                id={`subnav-${index}`}
-                                                className={
-                                                    navBarMobileStyle.subNav
-                                                }
-                                            >
-                                                {/* 子导航遍历 */}
-                                                {item.children.map(
-                                                    (subGroup: SubNav) => (
-                                                        <div
-                                                            key={subGroup.group}
-                                                            className={`subgroup-${index}`}
-                                                        >
-                                                            <span>
-                                                                {subGroup.group}
-                                                            </span>
-                                                            <ul>
-                                                                {subGroup.children.map(
-                                                                    (
-                                                                        subItem: MyNav
-                                                                    ) => (
-                                                                        <li
-                                                                            key={
-                                                                                subItem.title
-                                                                            }
-                                                                        >
-                                                                            <a>
-                                                                                {
+                        <DarkSwitcher />
+                    </div>
+
+                    <div className={navBarMobileStyle.menu}>
+                        <IconFont
+                            type="nucers-menu"
+                            style={{
+                                transform: `rotate(${
+                                    menuOpened ? "135deg" : "0"
+                                })`,
+                            }}
+                            className={navBarMobileStyle.icon}
+                            onClick={() => {
+                                this.setState({
+                                    menuOpened: !this.state.menuOpened,
+                                })
+                            }}
+                        />
+                        <ul
+                            id="navs"
+                            style={{
+                                height: `${
+                                    menuOpened
+                                        ? this.countNavsHeight() + "px"
+                                        : 0
+                                }`,
+                            }}
+                            className={navBarMobileStyle.navs}
+                        >
+                            {navs &&
+                                navs.map((item: INav, index: number) => (
+                                    <li key={item.title} className="navs-li">
+                                        {item.children &&
+                                        item.children.length !== 0 ? (
+                                            <div>
+                                                <IconFont
+                                                    id={`subicon-${index}`}
+                                                    type="nucers-arrow"
+                                                    style={{
+                                                        marginRight: "5px",
+                                                        color:
+                                                            "var(--theme-post-add)",
+                                                        transform:
+                                                            "rotate(0deg)",
+                                                    }}
+                                                />
+
+                                                <a
+                                                    onClick={() => {
+                                                        this.spreadSubNav(index)
+                                                    }}
+                                                >
+                                                    {item.title}
+                                                </a>
+
+                                                <div
+                                                    id={`subnav-${index}`}
+                                                    className={
+                                                        navBarMobileStyle.subNav
+                                                    }
+                                                >
+                                                    {/* 子导航遍历 */}
+                                                    {item.children.map(
+                                                        (subGroup: SubNav) => (
+                                                            <div
+                                                                key={
+                                                                    subGroup.group
+                                                                }
+                                                                className={`subgroup-${index}`}
+                                                            >
+                                                                <span
+                                                                    style={{
+                                                                        color:
+                                                                            "grey",
+                                                                        fontSize:
+                                                                            "12px",
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        subGroup.group
+                                                                    }
+                                                                </span>
+                                                                <ul>
+                                                                    {subGroup.children.map(
+                                                                        (
+                                                                            subItem: MyNav
+                                                                        ) => (
+                                                                            <li
+                                                                                key={
                                                                                     subItem.title
                                                                                 }
-                                                                            </a>
-                                                                        </li>
-                                                                    )
-                                                                )}
-                                                            </ul>
-                                                        </div>
-                                                    )
-                                                )}
+                                                                            >
+                                                                                <a
+                                                                                    href={
+                                                                                        subItem.url
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        subItem.title
+                                                                                    }
+                                                                                </a>
+                                                                            </li>
+                                                                        )
+                                                                    )}
+                                                                </ul>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ) : (
-                                        // 这里是无子项目
-                                        <a href={item.url}>{item.title}</a>
-                                    )}
-                                </li>
-                            ))}
-                    </ul>
+                                        ) : (
+                                            // 这里是无子项目
+                                            <a href={item.url}>{item.title}</a>
+                                        )}
+                                    </li>
+                                ))}
+                            {/* <li>
+                            <input />
+                        </li> */}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )

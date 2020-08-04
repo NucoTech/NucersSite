@@ -63,8 +63,6 @@
     .content {
         margin: 0 10px;
         width: calc(100vw - 20px);
-        margin-top: -20px;
-        margin-bottom: 20px;
         flex-wrap: wrap-reverse;
     }
     .content > .left {

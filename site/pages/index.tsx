@@ -11,7 +11,6 @@ import HotPosts from "@components/common/HotPosts"
 import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
-import DarkSwitcher from "@components/common/DarkSwitcher"
 import SchoolNews from "@components/common/SchoolNews"
 import SomeIdea from "@components/common/SomeIdea"
 
@@ -70,7 +69,6 @@ export default () => {
                     </div>
                 </div>
             </div>
-            <DarkSwitcher />
             <CopyrightBottom />
         </PageBox>
     )

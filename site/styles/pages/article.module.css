@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 1024px) {
     .articlePage {
-        padding: 20px 5px;
+        padding: 0 5px;
         width: calc(100vw - 10px);
         max-width: calc(100vw - 10px);
     }

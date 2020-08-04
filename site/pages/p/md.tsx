@@ -12,10 +12,10 @@ import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
-import DarkSwitcher from "@components/common/DarkSwitcher"
 import PageBox from "@components/common/PageBox"
 import SideTools from "@components/posts/SideTools"
 import Comments from "@components/posts/Comments"
+import NavBarMobile from "@components/common/NavBarMobile"
 const markdownMd = require("../../docs/markdown.md")
 
 export default () => {
@@ -25,6 +25,7 @@ export default () => {
                 <title>Nucers社区 | Markdown基础与拓展语法</title>
             </Head>
             <NavBar />
+            <NavBarMobile />
             <div className={articleStyle.articlePage}>
                 <div className={articleStyle.articleLeft}>
                     <MarkdownRenderer content={markdownMd.default} />
@@ -36,7 +37,6 @@ export default () => {
                     <CopyrightSide />
                     <SideTools />
                 </div>
-                <DarkSwitcher />
                 <MarkdownOutlineMobile content={markdownMd.default} />
             </div>
         </PageBox>

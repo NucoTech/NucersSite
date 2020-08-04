@@ -1,6 +1,7 @@
 import React from "react"
 import IconFont from "./IconFont"
 import { searchEngineLexer } from "@utils/utils"
+import DarkSwitcher from "./DarkSwitcher"
 
 const navBarStyle = require("@styles/components/common/NavBar.module.css")
 
@@ -87,7 +88,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
         const { search } = this.state
         // 判断search是否为空
         if (!search) return
-        const searchNodes =  searchEngineLexer(search)
+        const searchNodes = searchEngineLexer(search)
         console.log(searchNodes)
         // 跳转搜索答案页
     }
@@ -189,20 +190,30 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                     : "请输入搜索内容..."}
                             </li>
                             <li>
-                                <a href="/p/syntax">
-                                    了解Nucers搜索语法...
-                                </a>
+                                <a href="/p/syntax">了解Nucers搜索语法...</a>
                             </li>
                         </ul>
                     </div>
 
                     <div className={navBarStyle.navbarAddIcon}>
+                        <div
+                            style={{
+                                marginRight: "15px",
+                            }}
+                        >
+                            <DarkSwitcher />
+                        </div>
+
                         <IconFont
                             type="nucers-add"
+                            title="发布一篇帖子"
                             style={{
                                 color: "var(--theme-post-add)",
                                 fontSize: "25px",
                                 cursor: "pointer",
+                            }}
+                            onClick={() => {
+                                window.open("/p/new", "_blank")
                             }}
                         />
                     </div>

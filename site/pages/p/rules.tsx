@@ -12,8 +12,8 @@ import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
 import { AdsMocks } from "@mocks/datas"
-import DarkSwitcher from "@components/common/DarkSwitcher"
 import PageBox from "@components/common/PageBox"
+import NavBarMobile from "@components/common/NavBarMobile"
 const rulesMd = require("../../docs/rules.md")
 
 export default () => {
@@ -23,6 +23,7 @@ export default () => {
                 <title>Nucers社区 | 社区守则</title>
             </Head>
             <NavBar />
+            <NavBarMobile />
             <div className={articleStyle.articlePage}>
                 <div className={articleStyle.articleLeft}>
                     <MarkdownRenderer content={rulesMd.default} />
@@ -32,7 +33,6 @@ export default () => {
                     <AdsSide ads={AdsMocks} />
                     <CopyrightSide />
                 </div>
-                <DarkSwitcher />
                 <MarkdownOutlineMobile content={rulesMd.default} />
             </div>
         </PageBox>

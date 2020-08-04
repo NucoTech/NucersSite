@@ -12,3 +12,10 @@
 .pageDark {
     background-color: var(--theme-bg-color-night);
 }
+
+@media screen and (max-width: 768px) {
+    .pageLight,
+    .pageDark {
+        padding-top: 90px;
+    }
+}

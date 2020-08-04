@@ -22,35 +22,6 @@ export default () => {
                 <div className={userStyle.right}>
                     <UserCard uid="234234" />
                 </div>
-                {/* <div className={memberStyle}></div> */}
-
-                {/* <MemberHead
-                    nickname="Zenith"
-                    avatar="https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg"
-                    type="person"
-                    typeInfo="xxx社团成员"
-                /> */}
-                {/* <main> */}
-                {/* <div className={memberStyle.mainLeft}> */}
-                {/* 用户活跃打卡热力日历图 */}
-                {/* <div className={memberStyle.charts}> */}
-                {/* <span>活跃数据</span> */}
-                {/* <HeatCalendar datas={HeatDataMocks} /> */}
-                {/* </div> */}
-
-                {/* 用户活跃时间线 */}
-                {/* <div className={memberStyle.module}> */}
-                {/* <span>时间线</span> */}
-                {/* </div> */}
-                {/* </div> */}
-                {/* <div className={memberStyle.mainRight}> */}
-                {/* <div className={memberStyle.charts}> */}
-                {/* 用户动作趋向图 */}
-                {/* <span>活跃偏好</span> */}
-                {/* <ActsRadar datas={ActsRadarMocks} /> */}
-                {/* </div> */}
-                {/* </div> */}
-                {/* </main> */}
             </div>
         </PageBox>
     )
