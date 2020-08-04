@@ -1,18 +1,33 @@
 import React from "react"
+import { inject, observer } from "mobx-react"
+import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 
 const actsTimelineStyle = require("@styles/components/users/ActsTimeline.module.css")
 
-interface IActsTimelineProps {
+interface IActsTimelineProps extends OnlyDarkThemeStoreType {
     uid: string
 }
 
 /**
  * 动态时间线，伪元素实现时间线样式
  */
+@inject("darkThemeStore")
+@observer
 export default class ActsTimeline extends React.Component<IActsTimelineProps> {
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
+    }
     render() {
+        const { darkNow } = this.props.darkThemeStore
         return (
-            <ul className={actsTimelineStyle.content}>
+            <ul
+                style={{
+                    color: darkNow ? "white" : "",
+                }}
+                className={actsTimelineStyle.content}
+            >
                 <li>
                     <div className={actsTimelineStyle.title}>
                         xxxx-xx-xx 认同了

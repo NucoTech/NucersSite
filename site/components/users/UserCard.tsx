@@ -1,12 +1,16 @@
 import React from "react"
 import IconFont from "@components/common/IconFont"
+import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
+import { inject, observer } from "mobx-react"
 
 const userCardStyles = require("@styles/components/users/UserCard.module.css")
 
-interface IUserCardProps {
+interface IUserCardProps extends OnlyDarkThemeStoreType {
     uid: string
 }
 
+@inject("darkThemeStore")
+@observer
 export default class UserCard extends React.Component<IUserCardProps> {
     static VIPColor: Map<string, string> = new Map<string, string>([
         ["official", "#0abde3"],
@@ -14,9 +18,23 @@ export default class UserCard extends React.Component<IUserCardProps> {
         ["person", "#10ac84"],
         ["lab", "#feca57"],
     ])
+    static async getInitialProps({ mobxStore }) {
+        return {
+            darkThemeStore: mobxStore.darkThemeStore,
+        }
+    }
     render() {
+        const { darkNow } = this.props.darkThemeStore
         return (
-            <div className={userCardStyles.content}>
+            <div
+                style={{
+                    backgroundColor: darkNow
+                        ? "var(--theme-commonbox-night)"
+                        : "white",
+                    color: darkNow ? "white" : "",
+                }}
+                className={userCardStyles.content}
+            >
                 <div className={userCardStyles.avatar}>
                     <img
                         alt="avatar"

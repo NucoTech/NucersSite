@@ -37,7 +37,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
                         ? "var(--theme-bg-color-night)"
                         : "white",
                     boxShadow: "0 0 1px grey",
-                    marginTop: "20px",
+                    marginTop: "10px",
                     color: darkNow ? "white" : "black",
                     width: "100%"
                 }}

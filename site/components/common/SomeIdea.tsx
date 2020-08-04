@@ -25,8 +25,8 @@ export default class SomeIdea extends React.Component {
                         marginTop: "-1px"
                     }}
                 >
-                    <ShortMessage type="idea" />
-                    <MessageListRender type="idea" />
+                    <ShortMessage msgtype="idea" />
+                    <MessageListRender msgtype="idea" />
                 </div>
             </CommonBox>
         )

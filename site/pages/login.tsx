@@ -7,6 +7,7 @@ import NavBar from "@components/common/NavBar"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import LoginForm from "@components/login/LoginForm"
 import PageBox from "@components/common/PageBox"
+import NavBarMobile from "@components/common/NavBarMobile"
 
 const LoginDisplay = dynamic(import("@components/login/LoginDisplay"), {
     ssr: false,
@@ -22,6 +23,7 @@ export default () => {
                 <meta name="description" content="Nucers社区登录页面" />
             </Head>
             <NavBar />
+            <NavBarMobile />
             <div className={loginStyle.content}>
                 <div className={loginStyle.left}>
                     <LoginForm />

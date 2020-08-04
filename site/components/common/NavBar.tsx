@@ -2,6 +2,8 @@ import React from "react"
 import IconFont from "./IconFont"
 import { searchEngineLexer } from "@utils/utils"
 import DarkSwitcher from "./DarkSwitcher"
+import { inject, observer } from "mobx-react"
+import { AuthenticatedStoreType } from "@stores/AuthenticatedStore"
 
 const navBarStyle = require("@styles/components/common/NavBar.module.css")
 
@@ -28,7 +30,7 @@ export interface INav extends MyNav {
     children?: Array<SubNav>
 }
 
-interface INavProps {
+interface INavProps extends AuthenticatedStoreType {
     navs?: Array<INav>
 }
 
@@ -39,11 +41,19 @@ interface INavStates {
 /**
  * 导航栏组件，需要设置默认值
  */
+@inject("authenticatedStore")
+@observer
 export default class NavBar extends React.Component<INavProps, INavStates> {
     constructor(props: INavProps) {
         super(props)
         this.state = {
             search: "",
+        }
+    }
+
+    static async getInitialProps({ mobxStore }) {
+        return {
+            authenticatedStore: mobxStore.authenticatedStore,
         }
     }
 
@@ -95,6 +105,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
 
     render() {
         const { navs } = this.props
+        const { authed, utype } = this.props.authenticatedStore
         const { search } = this.state
         return (
             <div className={navBarStyle.navbar}>
@@ -203,24 +214,24 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                         >
                             <DarkSwitcher />
                         </div>
-
-                        <IconFont
-                            type="nucers-add"
-                            title="发布一篇帖子"
-                            style={{
-                                color: "var(--theme-post-add)",
-                                fontSize: "25px",
-                                cursor: "pointer",
-                            }}
-                            onClick={() => {
-                                window.open("/p/new", "_blank")
-                            }}
-                        />
+                        {authed && utype === "user" && (
+                            <IconFont
+                                type="nucers-add"
+                                title="发布一篇帖子"
+                                style={{
+                                    color: "var(--theme-post-add)",
+                                    fontSize: "25px",
+                                    cursor: "pointer",
+                                }}
+                                onClick={() => {
+                                    window.open("/p/new", "_blank")
+                                }}
+                            />
+                        )}
+                        {!authed && <a href="/login">登录/注册</a>}
                     </div>
 
-                    {
-                        // 判断是否登录
-                        // 登录返回头像
+                    {authed && utype === "user" && (
                         <div className={navBarStyle.navbarAvatar}>
                             <img
                                 alt="avatar"
@@ -237,7 +248,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 <li>注销账号</li>
                             </ul>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
         )

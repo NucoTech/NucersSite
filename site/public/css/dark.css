@@ -62,7 +62,7 @@
 }
 
 .vditor-reset table thead tr {
-    background-color: #1d2125;
+    background-color: var(--theme-commonbox-night);
 }
 
 .vditor-reset table tbody tr {
@@ -227,16 +227,21 @@
 /* message-box的预览配置 */
 #nucers-short-message .vditor-toolbar {
     border-radius: 5px 5px 0 0;
+    background-color: var(--theme-commonbox-content-night);
 }
 
 #nucers-short-message .vditor-sv {
     padding: 10px 9px 10px 10px;
     border-radius: 0;
-    background-color: #24292e;
+    background-color: var(--theme-bg-color-night);
 }
 
 #nucers-short-message .vditor-copy {
     display: none;
+}
+
+#nucers-short-message .vditor-preview {
+    background-color: var(--theme-commonbox-preview-night);
 }
 
 #nucers-short-message .vditor-sv .h1,

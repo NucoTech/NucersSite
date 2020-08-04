@@ -109,7 +109,7 @@ export default class MarkdownOutline extends React.Component<
                 <ul
                     className={mdOutlineStyle.outline}
                     style={{
-                        height: isOpen ? "300px" : "0",
+                        height: isOpen ? "200px" : "0",
                     }}
                 >
                     {headingArray.map((item: HeadingContent) => (

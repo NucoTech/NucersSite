@@ -6,7 +6,7 @@ import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 const messageListRenderStyle = require("@styles/components/common/MessageListRender.module.css")
 
 interface IMessageListRenderProps extends OnlyDarkThemeStoreType {
-    type: "idea" | "comment"
+    msgtype: "idea" | "comment"
 }
 
 const ideas = [

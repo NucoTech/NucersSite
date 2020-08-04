@@ -6,6 +6,7 @@ import UserDisplay from "@components/users/UserDisplay"
 const userStyle = require("@styles/pages/user.module.css")
 
 import PageBox from "@components/common/PageBox"
+import NavBarMobile from "@components/common/NavBarMobile"
 
 export default () => {
     return (
@@ -14,6 +15,7 @@ export default () => {
                 <title>Nucers用户</title>
             </Head>
             <NavBar />
+            <NavBarMobile />
             <div className={userStyle.content}>
                 <div className={userStyle.left}>
                     <CalendarHeatmapChart />

@@ -36,7 +36,7 @@
     top: 41px;
     right: -20px;
     transition: all 0.2s ease-in-out;
-    background-color: #333;
+    background-color: var(--theme-commonbox-night);
     overflow-y: auto;
     list-style: none;
     margin: 0;
@@ -47,8 +47,8 @@
 .navs > li {
     width: 100%;
     padding: 10px 20px;
-    background-color: #333;
-    border: 1px solid grey;
+    background-color: var(--theme-commonbox-night);
+    box-shadow: 0 0 1px grey;
     font-size: 16px;
 }
 
@@ -63,7 +63,7 @@
     height: 0;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
-    background-color: #1c1c1c;
+    background-color: var(--theme-commonbox-content-night);
 }
 
 [class^="subgroup"] ul {

@@ -30,7 +30,7 @@ export default class Comments extends React.Component<OnlyDarkThemeStoreType> {
             >
                 {/* 输入框 */}
                 <div id="comments-box" className={commentsStyle.inputBox}>
-                    <ShortMessage type="comment" />
+                    <ShortMessage msgtype="comment" />
                 </div>
                 {/* 考虑做分页处理 */}
                 {/* 考虑引用回复 */}

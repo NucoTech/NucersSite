@@ -1,14 +1,28 @@
 import { observable, action } from "mobx"
 const Cookies = require("js-cookie")
 
+interface AuthenticatedType {
+    authed?: boolean
+    uid?: string
+    token?: string
+    utype?: "user" | "group"
+    setLocalAuthed?: (id: string, utype: "user" | "group") => {}
+}
+
+export interface AuthenticatedStoreType {
+    authenticatedStore?: AuthenticatedType
+}
+
 class AuthenticatedStore {
     // 认证状态存储
     @observable authed: boolean = false
-    fetchAuthed = () => {
-        // 调用此函数登录
-    }
-    @action setAuthed = () => {
-        // 设置认证态
+    @observable uid: string = ""
+    @observable token: string = ""
+    @observable utype: "user" | "group" = null
+    @action setLocalAuthed = (uid: string, utype: "user" | "group") => {
+        this.authed = true
+        this.uid = uid
+        this.utype = utype
     }
 }
 

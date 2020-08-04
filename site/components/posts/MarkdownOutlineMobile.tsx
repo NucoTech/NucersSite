@@ -75,7 +75,9 @@ export default class MarkdownOutlineMobile extends React.Component<
                 className={mdOutlineMbStyle.outlineMb}
                 style={{
                     transform: isOpen ? "translateX(0px)" : "",
-                    backgroundColor: darkNow ? "black" : "white",
+                    backgroundColor: darkNow
+                        ? "var(--theme-commonbox-night)"
+                        : "white",
                 }}
             >
                 <div
@@ -86,7 +88,9 @@ export default class MarkdownOutlineMobile extends React.Component<
                         })
                     }
                     style={{
-                        backgroundColor: darkNow ? "black" : "white",
+                        backgroundColor: darkNow
+                            ? "var(--theme-commonbox-night)"
+                            : "white",
                     }}
                 >
                     <IconFont
@@ -103,8 +107,12 @@ export default class MarkdownOutlineMobile extends React.Component<
                 <ul
                     className={mdOutlineMbStyle.outline}
                     style={{
-                        backgroundColor: darkNow ? "black" : "white",
-                        color: darkNow ? "white" : "black",
+                        backgroundColor: darkNow
+                            ? "var(--theme-commonbox-night)"
+                            : "white",
+                        color: darkNow
+                            ? "white"
+                            : "var(--theme-commonbox-night)",
                     }}
                 >
                     {headingArray.map((item: HeadingContent) => (

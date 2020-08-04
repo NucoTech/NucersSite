@@ -4,9 +4,12 @@ import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import IconFont from "./IconFont"
 import { injectCSSFromCDN } from "@utils/utils"
+import { AuthenticatedStoreType } from "@stores/AuthenticatedStore"
 
-interface IShortMessageProps extends OnlyDarkThemeStoreType {
-    type: "idea" | "comment"
+interface IShortMessageProps
+    extends OnlyDarkThemeStoreType,
+        AuthenticatedStoreType {
+    msgtype: "idea" | "comment"
 }
 
 interface IShortMessageStates {
@@ -15,8 +18,9 @@ interface IShortMessageStates {
 }
 
 /**
- * 基于Vditor的小编辑器组件，持久化存储，idea和comment的内容，在此注入检查登录态
+ * 基于Vditor的小编辑器组件，持久化存储，idea和comment的内容
  */
+@inject("authenticatedStore")
 @inject("darkThemeStore")
 @observer
 export default class ShortMessage extends React.Component<
@@ -33,45 +37,51 @@ export default class ShortMessage extends React.Component<
     static async getInitialProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
+            authenticatedStore: mobxStore.authenticatedStore,
         }
     }
     componentDidMount() {
         // 引用主题，想法200，评论100？
         const { darkNow } = this.props.darkThemeStore
-        const { type } = this.props
-        injectCSSFromCDN(["https://cdn.jsdelivr.net/npm/vditor/dist/index.css"])
-        const vditor = new Vditor("nucers-short-message", {
-            height: 200,
-            outline: false,
-            width: "100%",
-            placeholder: "写点什么吧...",
-            theme: darkNow ? "dark" : "classic",
-            mode: "sv",
-            toolbar: ["preview", "fullscreen"],
-            counter: {
-                enable: true,
-                max: type === "idea" ? 200 : 100,
-                type: "markdown",
-            },
-            cache: {
-                id: type,
-            },
-            preview: {
-                mode: "editor",
-                theme: {
-                    current: darkNow ? "dark" : "light",
-                    path: "/css",
-                },
-                hljs: {
+        const { authed } = this.props.authenticatedStore
+        const { msgtype } = this.props
+        if (authed) {
+            injectCSSFromCDN([
+                "https://cdn.jsdelivr.net/npm/vditor/dist/index.css",
+            ])
+            const vditor = new Vditor("nucers-short-message", {
+                height: 200,
+                outline: false,
+                width: "100%",
+                placeholder: "写点什么吧...",
+                theme: darkNow ? "dark" : "classic",
+                mode: "sv",
+                toolbar: ["preview", "fullscreen"],
+                counter: {
                     enable: true,
-                    style: !darkNow ? "igor" : "dracula",
-                    lineNumber: true,
+                    max: msgtype === "idea" ? 200 : 100,
+                    type: "markdown",
                 },
-            },
-        })
-        this.setState({
-            vditor,
-        })
+                cache: {
+                    id: msgtype,
+                },
+                preview: {
+                    mode: "editor",
+                    theme: {
+                        current: darkNow ? "dark" : "light",
+                        path: "/css",
+                    },
+                    hljs: {
+                        enable: true,
+                        style: !darkNow ? "igor" : "dracula",
+                        lineNumber: true,
+                    },
+                },
+            })
+            this.setState({
+                vditor,
+            })
+        }
     }
     componentDidUpdate() {
         const { vditor } = this.state
@@ -82,62 +92,92 @@ export default class ShortMessage extends React.Component<
         )
     }
     render() {
+        const { msgtype } = this.props
         const { darkNow } = this.props.darkThemeStore
+        const { authed, utype } = this.props.authenticatedStore
         return (
-            <div
-                style={{
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    alignItems: "flex-end",
-                }}
-            >
-                <div id="nucers-short-message"></div>
-                <div
-                    style={{
-                        width: "100%",
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
-                        borderRadius: "0 0 5px 5px",
-                        padding: "5px",
-                    }}
-                >
+            <>
+                {authed && utype === "user" && (
                     <div
                         style={{
-                            color: darkNow ? "rgb(189, 189, 189)" : "black",
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-start",
+                            alignItems: "flex-end",
                         }}
                     >
-                        <IconFont
-                            type="nucers-markdown"
-                            title="Markdown教程"
-                            style={{
-                                cursor: "pointer",
-                            }}
-                        />{" "}
-                        支持Markdown语法
-                    </div>
+                        <div id="nucers-short-message"></div>
 
-                    <button
+                        <div
+                            style={{
+                                width: "100%",
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                backgroundColor: darkNow
+                                    ? "var(--theme-commonbox-content-night)"
+                                    : "#f6f8fa",
+                                borderRadius: "0 0 5px 5px",
+                                padding: "5px",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    color: darkNow
+                                        ? "rgb(189, 189, 189)"
+                                        : "black",
+                                }}
+                            >
+                                <IconFont
+                                    type="nucers-markdown"
+                                    title="Markdown教程"
+                                    style={{
+                                        cursor: "pointer",
+                                    }}
+                                />{" "}
+                                支持Markdown语法
+                            </div>
+
+                            <button
+                                style={{
+                                    backgroundColor: "black",
+                                    cursor: "pointer",
+                                    color: "white",
+                                    borderRadius: "5px",
+                                    outline: "none",
+                                }}
+                            >
+                                <IconFont
+                                    type="nucers-fly"
+                                    style={{ color: "white" }}
+                                />{" "}
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                )}
+                {!authed && (
+                    <div
                         style={{
-                            backgroundColor: "black",
-                            cursor: "pointer",
-                            color: "white",
-                            borderRadius: "5px",
-                            outline: "none",
+                            width: "100%",
+                            height: "100px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontWeight: 600,
+                            color: darkNow ? "white" : "black",
+                            backgroundColor: darkNow
+                                ? "var(--theme-commonbox-content-night)"
+                                : "var(--theme-commonbox-light)",
                         }}
                     >
-                        <IconFont
-                            type="nucers-fly"
-                            style={{ color: "white" }}
-                        />{" "}
-                        Send
-                    </button>
-                </div>
-            </div>
+                        发表{msgtype === "idea" ? "想法" : "评论"}，请先
+                        <a href="/login">登录</a>
+                    </div>
+                )}
+            </>
         )
     }
 }

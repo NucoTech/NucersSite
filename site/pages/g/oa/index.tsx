@@ -1,4 +1,6 @@
 /**
- * 返回报错信息
+ * 在此判断自动登录与否
  */
-export {}
+export default () => {
+    return <div>Hello World</div>
+}

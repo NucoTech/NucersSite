@@ -173,7 +173,7 @@ export default class Apply4Group extends React.Component<
                                 />
                             </Form.Item>
                             <Form.Item
-                                label="登陆密码"
+                                label="登录密码"
                                 name="password"
                                 rules={[{ required: true }]}
                             >

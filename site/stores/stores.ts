@@ -6,6 +6,7 @@ useStaticRendering(isServer)
 let store: any = null
 
 import DarkThemeStore from "./DarkThemeStore"
+import AuthenticatedStore from "./AuthenticatedStore"
 
 /**
  * 初始化store
@@ -15,13 +16,13 @@ export default function initializeStore(initialData = {}) {
     if (isServer) {
         return {
             darkThemeStore: new DarkThemeStore(),
-            // store的对象新建
+            authenticatedStore: new AuthenticatedStore(),
         }
     }
     if (store === null) {
         store = {
             darkThemeStore: new DarkThemeStore(),
-            // store对象新建
+            authenticatedStore: new AuthenticatedStore(),
         }
     }
     return store
