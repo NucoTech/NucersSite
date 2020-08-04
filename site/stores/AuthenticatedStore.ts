@@ -6,7 +6,7 @@ interface AuthenticatedType {
     uid?: string
     token?: string
     utype?: "user" | "group"
-    setLocalAuthed?: (id: string, utype: "user" | "group") => {}
+    setLocalAuthed?: (uid: string, utype: "user" | "group") => {}
 }
 
 export interface AuthenticatedStoreType {

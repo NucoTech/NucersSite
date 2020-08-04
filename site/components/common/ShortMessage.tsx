@@ -43,9 +43,9 @@ export default class ShortMessage extends React.Component<
     componentDidMount() {
         // 引用主题，想法200，评论100？
         const { darkNow } = this.props.darkThemeStore
-        const { authed } = this.props.authenticatedStore
+        const { authed, utype } = this.props.authenticatedStore
         const { msgtype } = this.props
-        if (authed) {
+        if (authed && utype === "user") {
             injectCSSFromCDN([
                 "https://cdn.jsdelivr.net/npm/vditor/dist/index.css",
             ])
@@ -85,11 +85,14 @@ export default class ShortMessage extends React.Component<
     }
     componentDidUpdate() {
         const { vditor } = this.state
+        const { authed, utype } = this.props.authenticatedStore
         const { darkNow } = this.props.darkThemeStore
-        vditor.setTheme(
-            darkNow ? "dark" : "classic",
-            darkNow ? "dark" : "light"
-        )
+        if (authed && utype === "user") {
+            vditor.setTheme(
+                darkNow ? "dark" : "classic",
+                darkNow ? "dark" : "light"
+            )
+        }
     }
     render() {
         const { msgtype } = this.props

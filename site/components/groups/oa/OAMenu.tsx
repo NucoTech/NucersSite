@@ -104,7 +104,9 @@ export default class OAMenu extends React.Component<
             >
                 <div
                     style={{
-                        backgroundColor: darkNow ? "#001529" : "white",
+                        backgroundColor: darkNow
+                            ? "var(--theme-commonbox-content-night)"
+                            : "white",
                         color: darkNow ? "white" : "black",
                         width: "100vw",
                         height: "70px",
@@ -154,6 +156,11 @@ export default class OAMenu extends React.Component<
                     id="funcMenu"
                     inlineCollapsed={this.state.collapsed}
                     mode="inline"
+                    style={{
+                        backgroundColor: darkNow
+                            ? "var(--theme-commonbox-content-night)"
+                            : "",
+                    }}
                     theme={darkNow ? "dark" : "light"}
                     className={oaMenuStyle.funcMenu}
                 >
@@ -164,6 +171,11 @@ export default class OAMenu extends React.Component<
                         key="webManagement"
                         title="门户管理"
                         icon={<ClusterOutlined />}
+                        style={{
+                            backgroundColor: darkNow
+                                ? "var(--theme-commonbox-content-night)"
+                                : "",
+                        }}
                     >
                         <Menu.Item icon={<DesktopOutlined />}>
                             <a href={backOAURL("info")}>信息维护</a>

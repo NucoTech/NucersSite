@@ -66,7 +66,7 @@ export function searchEngineLexer(
     const searchArray: Array<string> = search.split("&&")
     const searchRegExp: RegExp = /[\s]+([\S]+):[\s]+([\s\S]+)/
     // 合法搜索头
-    const validHead: Array<string> = ["title", "groups", "tags"]
+    const validHead: Array<string> = ["title", "groups", "tags", "topic"]
     // 搜索内容节点
     let searchNodes: Map<string, string | Array<string>> = new Map<
         string,

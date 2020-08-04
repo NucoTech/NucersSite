@@ -10,8 +10,7 @@ interface AuthedPageBoxProps
 /**
  * 认证之后才可操作的页面盒子
  */
-@inject("darkThemeStore")
-@inject("authenticatedStore")
+@inject("authenticatedStore", "darkThemeStore")
 @observer
 export default class AuthenticatedPageBox extends React.Component<
     AuthedPageBoxProps
@@ -24,10 +23,11 @@ export default class AuthenticatedPageBox extends React.Component<
     }
 
     componentDidMount() {
-        const { authed, utype } = this.props.authenticatedStore
-        if (!authed || utype !== "group") {
-            location.replace("/login")
-        }
+        // const { authed, utype } = this.props.authenticatedStore
+        // if (!authed || utype !== "group") {
+        //     location.replace("/login")
+        // }
+        // 状态管理存在问题
     }
 
     render() {

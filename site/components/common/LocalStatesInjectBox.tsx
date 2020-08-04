@@ -10,8 +10,7 @@ interface LocalStatesInjectProps
 /**
  * 本地状态注入盒子
  */
-@inject("authenticatedStore")
-@inject("darkThemeStore")
+@inject("darkThemeStore", "authenticatedStore")
 @observer
 export default class LocalStatesInjectBox extends React.Component<
     LocalStatesInjectProps

@@ -105,7 +105,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
 
     render() {
         const { navs } = this.props
-        const { authed, utype } = this.props.authenticatedStore
+        const { authed, utype, uid } = this.props.authenticatedStore
         const { search } = this.state
         return (
             <div className={navBarStyle.navbar}>
@@ -248,6 +248,13 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 <li>注销账号</li>
                             </ul>
                         </div>
+                    )}
+                    {/* 组织账号登录 */}
+                    {authed && utype === "group" && (
+                        <a title="进入控制台" href={`/g/oa/${uid}`}>
+                            {/* 设置欢迎词 */}
+                            Group: Nucers
+                        </a>
                     )}
                 </div>
             </div>

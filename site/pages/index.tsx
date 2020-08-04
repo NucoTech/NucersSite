@@ -18,6 +18,7 @@ const indexStyle = require("@styles/pages/index.module.css")
 
 import PageBox from "@components/common/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
+import TestSetBtn from "@components/auth/TestSetBtn"
 
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
@@ -70,6 +71,7 @@ export default () => {
                 </div>
             </div>
             <CopyrightBottom />
+            <TestSetBtn />
         </PageBox>
     )
 }
