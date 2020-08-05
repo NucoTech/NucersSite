@@ -13,7 +13,7 @@ const LoginDisplay = dynamic(import("@components/login/LoginDisplay"), {
     ssr: false,
 })
 
-export default () => {
+export const Login = () => {
     // 要抓跳转的链接，登陆完成跳回去
     return (
         <PageBox>
@@ -36,3 +36,5 @@ export default () => {
         </PageBox>
     )
 }
+
+export default Login

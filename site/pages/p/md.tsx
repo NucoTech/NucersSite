@@ -18,7 +18,7 @@ import Comments from "@components/posts/Comments"
 import NavBarMobile from "@components/common/NavBarMobile"
 const markdownMd = require("../../docs/markdown.md")
 
-export default () => {
+const MarkdownSyntax = () => {
     return (
         <PageBox>
             <Head>
@@ -42,3 +42,5 @@ export default () => {
         </PageBox>
     )
 }
+
+export default MarkdownSyntax

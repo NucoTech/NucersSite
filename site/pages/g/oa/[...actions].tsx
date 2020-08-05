@@ -13,7 +13,7 @@ const OAMenu = dynamic(import("@components/groups/oa/OAMenu"), {
     ssr: false,
 })
 
-export default ({ gid, action }) => {
+const GroupOA = ({ gid, action }) => {
     return (
         <AuthenticatedPageBox>
             <Head>
@@ -44,3 +44,5 @@ export const getServerSideProps = async ({ query }) => {
         },
     }
 }
+
+export default GroupOA

@@ -5,6 +5,7 @@
     align-items: center;
     padding: 0 100px 30px;
     width: 100%;
+    min-height: calc(100vh - 100px);
 }
 
 .title {
@@ -14,6 +15,22 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.inputBox {
+    width: 70%;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+    margin-right: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.inputBox:focus {
+    width: 90%;
 }
 
 .selectorArea {
@@ -27,6 +44,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 .selectorBox {
     display: flex;
     flex-direction: row;
@@ -63,8 +81,17 @@
 .result {
     width: 100%;
     list-style: none;
-    margin: 0;
-    padding: 30px;
+    margin: 30px 0;
+    padding: 0;
     border: 1px solid grey;
     border-radius: 5px;
+}
+
+.result > li {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 5px 0;
+    box-shadow: 0 0 1px grey;
 }

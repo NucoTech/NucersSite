@@ -12,7 +12,7 @@ const OAMenu = dynamic(import("@components/groups/oa/OAMenu"), {
     ssr: false,
 })
 
-export default () => (
+const GroupProfile = () => (
     <AuthenticatedPageBox>
         <OAMenu />
         <OABasicBox>
@@ -20,3 +20,5 @@ export default () => (
         </OABasicBox>
     </AuthenticatedPageBox>
 )
+
+export default GroupProfile

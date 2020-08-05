@@ -24,7 +24,7 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
 })
 
-export default () => {
+const Home = () => {
     welcome2Nucers()
     return (
         <PageBox>
@@ -75,3 +75,6 @@ export default () => {
         </PageBox>
     )
 }
+
+
+export default Home

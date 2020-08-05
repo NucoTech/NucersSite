@@ -8,7 +8,7 @@ const userStyle = require("@styles/pages/user.module.css")
 import PageBox from "@components/common/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 
-export default () => {
+const UserProfile = () => {
     return (
         <PageBox>
             <Head>
@@ -39,3 +39,5 @@ export const getServerSideProps = async (context) => {
         },
     }
 }
+
+export default UserProfile

@@ -1,5 +1,5 @@
 .content {
-    list-style: none;
+    list-style: circle;
     margin: 16px;
     padding: 0;
 }
@@ -15,15 +15,8 @@
     background-color: #eaecef;
     top: 0;
     bottom: 0;
-    left: -15px;
+    left: -14px;
     width: 2px;
-}
-
-.content > li::after {
-    content: ">>";
-    position: absolute;
-    top: 2px;
-    left: -20px;
 }
 
 .title {

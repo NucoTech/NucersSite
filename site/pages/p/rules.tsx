@@ -16,7 +16,7 @@ import PageBox from "@components/common/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 const rulesMd = require("../../docs/rules.md")
 
-export default () => {
+const Rules = () => {
     return (
         <PageBox>
             <Head>
@@ -38,3 +38,5 @@ export default () => {
         </PageBox>
     )
 }
+
+export default Rules

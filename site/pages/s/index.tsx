@@ -7,7 +7,7 @@ import PageBox from "@components/common/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 import IconFont from "@components/common/IconFont"
 
-export default () => {
+const Search = () => {
     return (
         <PageBox>
             <Head>
@@ -20,18 +20,15 @@ export default () => {
                 <div
                     style={{
                         marginTop: "40px",
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
                     }}
                 >
                     <input
-                        style={{
-                            width: "500px",
-                            height: "40px",
-                            borderRadius: "10px",
-                            outline: "none",
-                            border: "1px solid grey",
-                            padding: "0 10px",
-                            marginRight: "20px",
-                        }}
+                        className={searchPageStyle.inputBox}
+                        type="search"
                         placeholder="在此开始搜索..."
                     />
                     <IconFont
@@ -42,7 +39,7 @@ export default () => {
                         }}
                     />
                 </div>
-                <div className={searchPageStyle.selectorArea}>
+                {/* <div className={searchPageStyle.selectorArea}>
                     <div className={searchPageStyle.selectorBox}>
                         <div className={searchPageStyle.selectorTitle}>
                             用户类型
@@ -85,7 +82,7 @@ export default () => {
                             <li>标签五</li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
 
                 {/* 搜索结果区 */}
                 <ul className={searchPageStyle.result}>
@@ -125,3 +122,5 @@ export const getServerSideProps = async ({ query }) => {
     console.log(query)
     return { props: {} }
 }
+
+export default Search
