@@ -29,7 +29,9 @@ module.exports = withPlugins(
             {
                 antdThemeVariables: themeVariables,
                 lessLoaderOptions: {
-                    javascriptEnabled: true,
+                    lessOptions: {
+                        javascriptEnabled: true,
+                    },
                 },
             },
         ],
