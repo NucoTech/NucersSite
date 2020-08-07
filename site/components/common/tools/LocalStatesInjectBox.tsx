@@ -24,9 +24,12 @@ export default class LocalStatesInjectBox extends React.Component<
     }
     componentDidMount() {
         const { setLocalDark } = this.props.darkThemeStore
-        setLocalDark(
-            !!parseInt(sessionStorage.getItem("darkNow")) || isNightNow()
-        )
+        if (sessionStorage.getItem("darkNow")) {
+            setLocalDark(!!parseInt(sessionStorage.getItem("darkNow")))
+        } else {
+            setLocalDark(isNightNow())
+        }
+
         const uid = sessionStorage.getItem("uid")
         if (uid) {
             const { setLocalAuthed } = this.props.authenticatedStore
