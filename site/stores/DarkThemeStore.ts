@@ -12,7 +12,7 @@ export interface OnlyDarkThemeStoreType {
 }
 
 class DarkThemeStore {
-    @observable darkNow: boolean = isNightNow()
+    @observable darkNow: boolean = false
     @action setDark = () => {
         this.darkNow = !this.darkNow
     }

@@ -228,7 +228,11 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 }}
                             />
                         )}
-                        {!authed && <a href="/login">登录/注册</a>}
+                        {!authed && (
+                            <a style={{ color: "white" }} href="/login">
+                                登录/注册
+                            </a>
+                        )}
                     </div>
 
                     {authed && utype === "user" && (

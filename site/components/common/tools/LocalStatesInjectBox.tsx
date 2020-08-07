@@ -2,6 +2,7 @@ import React from "react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
 import { AuthenticatedStoreType } from "@stores/AuthenticatedStore"
+import { isNightNow } from "@utils/utils"
 
 interface LocalStatesInjectProps
     extends OnlyDarkThemeStoreType,
@@ -23,7 +24,9 @@ export default class LocalStatesInjectBox extends React.Component<
     }
     componentDidMount() {
         const { setLocalDark } = this.props.darkThemeStore
-        setLocalDark(!!parseInt(sessionStorage.getItem("darkNow")))
+        setLocalDark(
+            !!parseInt(sessionStorage.getItem("darkNow")) || isNightNow()
+        )
         const uid = sessionStorage.getItem("uid")
         if (uid) {
             const { setLocalAuthed } = this.props.authenticatedStore
