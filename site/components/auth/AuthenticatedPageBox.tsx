@@ -23,11 +23,13 @@ export default class AuthenticatedPageBox extends React.Component<
     }
 
     componentDidMount() {
-        // const { authed, utype } = this.props.authenticatedStore
-        // if (!authed || utype !== "group") {
-        //     location.replace("/login")
-        // }
-        // 状态管理存在问题
+        // 设置宏任务避免误杀
+        setTimeout(() => {
+            const { authed, utype } = this.props.authenticatedStore
+            if (!authed || utype !== "group") {
+                location.replace("/login")
+            }
+        }, 0)
     }
 
     render() {
