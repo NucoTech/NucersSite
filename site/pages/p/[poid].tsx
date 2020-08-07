@@ -1,6 +1,8 @@
 /**
  * 通用文章展示
  */
-export default () => {
+const Posts = () => {
     return <div></div>
 }
+
+export default Posts

@@ -61,7 +61,7 @@ export default class OAMenu extends React.Component<
             isOpened: false,
         }
     }
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

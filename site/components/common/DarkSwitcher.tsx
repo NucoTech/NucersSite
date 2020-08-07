@@ -11,7 +11,7 @@ import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 export default class DarkSwitcher extends React.Component<
     OnlyDarkThemeStoreType
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return { darkThemeStore: mobxStore.darkThemeStore }
     }
 

@@ -26,7 +26,7 @@ const UserMenu: Array<IUserMenu> = [
 @inject("darkThemeStore")
 @observer
 export default class UserDisplay extends React.Component<IUserDisplayProps> {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

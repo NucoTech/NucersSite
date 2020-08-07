@@ -14,7 +14,7 @@ interface IActsTimelineProps extends OnlyDarkThemeStoreType {
 @inject("darkThemeStore")
 @observer
 export default class ActsTimeline extends React.Component<IActsTimelineProps> {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

@@ -15,7 +15,7 @@ interface LocalStatesInjectProps
 export default class LocalStatesInjectBox extends React.Component<
     LocalStatesInjectProps
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
             authenticatedStore: mobxStore.authenticatedStore,

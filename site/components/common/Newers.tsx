@@ -34,6 +34,7 @@ export default class Newers extends React.Component<INewersProps> {
                                         src={item.avatar}
                                         width="50px"
                                         height="50px"
+                                        alt="avatar"
                                     />
                                 </a>
                             </li>

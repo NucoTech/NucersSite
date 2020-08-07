@@ -30,6 +30,14 @@ const Home = () => {
         <PageBox>
             <Head>
                 <title>Nucers社区 | 技术因分享而升华</title>
+                <meta
+                    name="keywords"
+                    content="Community;BBS;Nucers;Technology;Share;"
+                />
+                <meta
+                    name="description"
+                    content="Nucers社区是一个倡导技术突破、经验共享的社区平台，以内容为核心突破传统学科束缚，致力于用户更好的进行跨学科技术交流"
+                />
             </Head>
             <NavBar />
             <NavBarMobile />
@@ -75,6 +83,5 @@ const Home = () => {
         </PageBox>
     )
 }
-
 
 export default Home

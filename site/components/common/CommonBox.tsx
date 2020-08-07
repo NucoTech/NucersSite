@@ -14,7 +14,7 @@ interface ICommonBoxProps extends OnlyDarkThemeStoreType {
 @inject("darkThemeStore")
 @observer
 export default class CommonBox extends React.Component<ICommonBoxProps> {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

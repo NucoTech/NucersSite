@@ -15,7 +15,7 @@ interface AuthedPageBoxProps
 export default class AuthenticatedPageBox extends React.Component<
     AuthedPageBoxProps
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
             authenticatedStore: mobxStore.authenticatedStore,

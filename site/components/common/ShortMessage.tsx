@@ -34,7 +34,7 @@ export default class ShortMessage extends React.Component<
             content: "",
         }
     }
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
             authenticatedStore: mobxStore.authenticatedStore,

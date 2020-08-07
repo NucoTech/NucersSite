@@ -43,7 +43,7 @@ export default class MarkdownOutline extends React.Component<
         content: "",
     }
 
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

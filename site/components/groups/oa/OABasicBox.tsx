@@ -8,7 +8,7 @@ const oaBasicStyle = require("@styles/components/groups/oa/OABasic.module.css")
 export default class OABasicBox extends React.Component<
     OnlyDarkThemeStoreType
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

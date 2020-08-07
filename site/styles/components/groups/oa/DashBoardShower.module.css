@@ -29,12 +29,28 @@
 .showerDark li {
     padding: 20px;
     cursor: pointer;
-    margin: 0 20px;
+    margin: 20px;
+    border-radius: 10px;
 }
 
-.showerLight li:hover,
+.showerLight li {
+    box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
+    background: #ffffff;
+}
+
+.showerDark li {
+    box-shadow: -20px -20px 60px #2a2a2a, 20px 20px 60px #383838;
+    background: #313131;
+}
+
+.showerLight li:hover {
+    background: linear-gradient(315deg, #e6e6e6, #ffffff);
+    box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
+}
+
 .showerDark li:hover {
-    box-shadow: 0 0 2px grey;
+    background: linear-gradient(315deg, #2c2c2c, #343434);
+    box-shadow: -20px -20px 60px #2a2a2a, 20px 20px 60px #383838;
 }
 
 .groupWelcome {

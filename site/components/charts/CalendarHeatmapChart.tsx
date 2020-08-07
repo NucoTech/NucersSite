@@ -40,7 +40,7 @@ const Data = [
 export default class CalendarHeatmapChart extends React.Component<
     OnlyDarkThemeStoreType
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

@@ -10,7 +10,7 @@ import { inject, observer } from "mobx-react"
 export default class TestSetBtn extends React.Component<
     AuthenticatedStoreType
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             authenticatedStore: mobxStore.authenticatedStore,
         }

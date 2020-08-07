@@ -25,7 +25,7 @@ export default class MarkdownEditor extends React.Component<
             vditor: null,
         }
     }
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

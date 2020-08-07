@@ -13,7 +13,7 @@ const commentsStyle = require("@styles/components/posts/Comments.module.css")
 @inject("darkThemeStore")
 @observer
 export default class Comments extends React.Component<OnlyDarkThemeStoreType> {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

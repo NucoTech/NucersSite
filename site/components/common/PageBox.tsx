@@ -11,7 +11,7 @@ const pageBoxStyle = require("@styles/components/common/PageBox.module.css")
 @inject("darkThemeStore")
 @observer
 export default class PageBox extends React.Component<OnlyDarkThemeStoreType> {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

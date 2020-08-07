@@ -135,7 +135,7 @@ export default class DashBoardShower extends React.Component<
             workorders: 0,
         }
     }
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

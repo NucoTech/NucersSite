@@ -19,7 +19,7 @@ export default class MarkdownRenderer extends React.Component<
         super(props)
     }
     private $nucersMdRenderer = React.createRef<HTMLDivElement>()
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

@@ -5,7 +5,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 5px 10px;
-    box-shadow: 0 0 1px grey;
     font-size: small;
     font-weight: 300;
     width: 100%;
@@ -13,12 +12,14 @@
 }
 
 .contentLight {
-    background-color: #f6f8fa;
+    background: #f6f8fa;
+    box-shadow: 5px 5px 10px #c5c6c8, -5px -5px 10px #ffffff;
 }
 
 .contentDark {
     color: white;
-    background-color: var(--theme-commonbox-night);
+    background: #414141;
+    box-shadow: -5px -5px 10px #343434, 5px 5px 10px #4e4e4e;
 }
 
 .contentLight > .from,

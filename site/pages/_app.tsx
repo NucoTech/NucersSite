@@ -8,7 +8,6 @@ import LocalStatesInjectBox from "@components/common/LocalStatesInjectBox"
 // 全局样式
 import "@styles/global.css"
 
-// 在此考虑引入组件解决本地夜间模式免去切换的问题
 class MyApp extends App {
     mobxStore = {}
 

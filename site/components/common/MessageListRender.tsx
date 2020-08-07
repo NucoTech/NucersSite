@@ -69,7 +69,7 @@ const ideas = [
 export default class MessageListRender extends React.Component<
     IMessageListRenderProps
 > {
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

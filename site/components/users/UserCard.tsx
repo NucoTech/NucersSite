@@ -18,7 +18,7 @@ export default class UserCard extends React.Component<IUserCardProps> {
         ["person", "#10ac84"],
         ["lab", "#feca57"],
     ])
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

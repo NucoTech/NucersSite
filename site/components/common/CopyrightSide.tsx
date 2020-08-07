@@ -21,7 +21,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
         address: "山西省太原市尖草坪区学院路三号中北大学",
         email: "herberthe@nucosc.com",
     }
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }

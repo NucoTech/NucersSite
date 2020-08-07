@@ -51,7 +51,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
         }
     }
 
-    static async getInitialProps({ mobxStore }) {
+    static async getServerSideProps({ mobxStore }) {
         return {
             authenticatedStore: mobxStore.authenticatedStore,
         }

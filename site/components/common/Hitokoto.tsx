@@ -29,7 +29,7 @@ export default class Hitokoto extends React.Component<
         }
     }
 
-    static async getInitialProps({ mobxState }) {
+    static async getServerSideProps({ mobxState }) {
         return {
             darkThemeStore: mobxState.darkThemeStore,
         }
