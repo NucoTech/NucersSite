@@ -6,6 +6,8 @@ import Support from "@components/groups/oa/Support"
 import Notices from "@components/groups/oa/Notices"
 import Head from "next/head"
 import OABasicBox from "@components/groups/oa/OABasicBox"
+import PluginsIndex from "@components/groups/oa/PluginsIndex"
+import PluginDescription from "@components/groups/oa/PluginDescription"
 const OA404Shower = dynamic(import("@components/groups/oa/OA404Shower"), {
     ssr: false,
 })
@@ -13,7 +15,7 @@ const OAMenu = dynamic(import("@components/groups/oa/OAMenu"), {
     ssr: false,
 })
 
-const GroupOA = ({ gid, action }) => {
+const GroupOA = ({ gid, action, moreActions, params }) => {
     return (
         <AuthenticatedPageBox>
             <Head>
@@ -27,7 +29,12 @@ const GroupOA = ({ gid, action }) => {
                 {action === "members"}
                 {action === "members-add"}
                 {action === "finance"}
-                {action === "plugins"}
+                {action === "plugins" && moreActions.length === 0 && (
+                    <PluginsIndex gid={gid} />
+                )}
+                {action === "plugins" && moreActions.length !== 0 && (
+                    <PluginDescription gid={gid} pluginId={moreActions[0]} />
+                )}
                 {action === "support" && <Support />}
                 {action === "security"}
                 {!ValidMenu.includes(action) && <OA404Shower />}
@@ -37,10 +44,19 @@ const GroupOA = ({ gid, action }) => {
 }
 
 export const getServerSideProps = async ({ query }) => {
+    const path = query.actions as Array<string>
+    const more: Array<string> = path.slice(2)
+    let params: Object = {}
+    for (let key in query) {
+        if (key === "actions") continue
+        params[key] = query[key]
+    }
     return {
         props: {
-            gid: query.actions[0],
-            action: query.actions[1],
+            gid: path[0],
+            action: path[1],
+            moreActions: more,
+            params,
         },
     }
 }

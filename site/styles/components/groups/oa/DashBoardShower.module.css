@@ -34,23 +34,23 @@
 }
 
 .showerLight li {
-    box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
     background: #ffffff;
+    box-shadow: -5px -5px 10px #d9d9d9, 5px 5px 10px #ffffff;
 }
 
 .showerDark li {
-    box-shadow: -20px -20px 60px #2a2a2a, 20px 20px 60px #383838;
     background: #313131;
+    box-shadow: 5px 5px 10px #2a2a2a, -5px -5px 10px #383838;
 }
 
 .showerLight li:hover {
     background: linear-gradient(315deg, #e6e6e6, #ffffff);
-    box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
+    box-shadow: -5px -5px 10px #d9d9d9, 5px 5px 10px #ffffff;
 }
 
 .showerDark li:hover {
-    background: linear-gradient(315deg, #2c2c2c, #343434);
-    box-shadow: -20px -20px 60px #2a2a2a, 20px 20px 60px #383838;
+    background: linear-gradient(145deg, #2c2c2c, #343434);
+    box-shadow: 5px 5px 10px #2a2a2a, -5px -5px 10px #383838;
 }
 
 .groupWelcome {
