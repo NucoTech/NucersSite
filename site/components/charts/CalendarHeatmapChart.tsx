@@ -1,7 +1,7 @@
 import React from "react"
 import { ResponsiveCalendar } from "@nivo/calendar"
 
-import CommonBox from "@components/common/CommonBox"
+import CommonBox from "@components/common/tools/CommonBox"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 

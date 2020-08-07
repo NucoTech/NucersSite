@@ -1,5 +1,5 @@
 import React from "react"
-import IconFont from "@components/common/IconFont"
+import IconFont from "@components/common/tools/IconFont"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
 

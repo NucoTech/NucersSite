@@ -1,5 +1,5 @@
 import React from "react"
-import CommonBox from "./CommonBox"
+import CommonBox from "./tools/CommonBox"
 const newersStyle = require("@styles/components/common/Newers.module.css")
 export interface IUser {
     name: string

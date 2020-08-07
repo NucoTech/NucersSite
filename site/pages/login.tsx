@@ -6,7 +6,7 @@ const loginStyle = require("@styles/pages/login.module.css")
 import NavBar from "@components/common/NavBar"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import LoginForm from "@components/login/LoginForm"
-import PageBox from "@components/common/PageBox"
+import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 
 const LoginDisplay = dynamic(import("@components/login/LoginDisplay"), {

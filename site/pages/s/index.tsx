@@ -3,9 +3,9 @@ import Head from "next/head"
 const searchPageStyle = require("@styles/pages/search.module.css")
 
 import NavBar from "@components/common/NavBar"
-import PageBox from "@components/common/PageBox"
+import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
-import IconFont from "@components/common/IconFont"
+import IconFont from "@components/common/tools/IconFont"
 
 const Search = () => {
     return (

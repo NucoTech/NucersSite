@@ -2,7 +2,7 @@ import React from "react"
 import Vditor from "vditor"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
-import IconFont from "./IconFont"
+import IconFont from "./tools/IconFont"
 import { injectCSSFromCDN } from "@utils/utils"
 import { AuthenticatedStoreType } from "@stores/AuthenticatedStore"
 

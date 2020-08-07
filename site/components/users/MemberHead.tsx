@@ -1,5 +1,5 @@
 import React from "react"
-import IconFont from "@components/common/IconFont"
+import IconFont from "@components/common/tools/IconFont"
 
 const memberHead = require("@styles/components/members/MemberHead.module.css")
 

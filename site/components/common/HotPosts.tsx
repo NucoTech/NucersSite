@@ -2,7 +2,7 @@ import React from "react"
 
 const commonListStyle = require("@styles/components/common/CommonList.module.css")
 
-import CommonBox from "./CommonBox"
+import CommonBox from "./tools/CommonBox"
 
 const posts = [
     { id: "po324234234", title: "测试" },

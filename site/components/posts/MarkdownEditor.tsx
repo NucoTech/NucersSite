@@ -1,6 +1,6 @@
 import React from "react"
 import Vditor from "vditor"
-import IconFont from "@components/common/IconFont"
+import IconFont from "@components/common/tools/IconFont"
 
 import { injectCSSFromCDN } from "utils/utils"
 

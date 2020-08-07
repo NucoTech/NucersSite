@@ -2,7 +2,7 @@ import React from "react"
 
 const hotTopicsStyle = require("@styles/components/common/HotTopics.module.css")
 
-import CommonBox from "./CommonBox"
+import CommonBox from "./tools/CommonBox"
 
 interface IHotTopicsProps {}
 

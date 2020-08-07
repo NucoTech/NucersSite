@@ -26,10 +26,12 @@
     "next-compose-plugins": "^2.2.0",
     "next-plugin-antd": "0.2.0",
     "node-fetch": "^2.6.0",
+    "particlesjs": "^2.2.3",
     "react": "16.13.1",
     "react-codemirror2": "^7.2.1",
     "react-dom": "16.13.1",
     "react-wordcloud": "^1.2.3",
+    "typed.js": "^2.0.11",
     "vditor": "^3.4.4"
   },
   "devDependencies": {

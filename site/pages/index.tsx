@@ -16,9 +16,17 @@ import SomeIdea from "@components/common/SomeIdea"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
-import PageBox from "@components/common/PageBox"
+import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 import TestSetBtn from "@components/auth/TestSetBtn"
+import TypedDisplay from "@components/common/effects/TypedDisplay"
+
+const ParticlesBackground = dynamic(
+    import("@components/common/effects/ParticlesBackground"),
+    {
+        ssr: false,
+    }
+)
 
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
@@ -41,6 +49,8 @@ const Home = () => {
             </Head>
             <NavBar />
             <NavBarMobile />
+            <ParticlesBackground />
+            <TypedDisplay />
             <div className={indexStyle.content}>
                 <div className={indexStyle.left}>
                     <HotTopics />

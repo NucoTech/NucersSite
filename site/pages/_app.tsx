@@ -3,7 +3,7 @@ import App from "next/app"
 // 顶层数据注入
 import { Provider } from "mobx-react"
 import initializeStore from "../stores/stores"
-import LocalStatesInjectBox from "@components/common/LocalStatesInjectBox"
+import LocalStatesInjectBox from "@components/common/tools/LocalStatesInjectBox"
 
 // 全局样式
 import "@styles/global.css"

@@ -1,7 +1,7 @@
 import React from "react"
-import IconFont from "./IconFont"
+import IconFont from "./tools/IconFont"
 import { INav, SubNav, MyNav } from "./NavBar"
-import DarkSwitcher from "./DarkSwitcher"
+import DarkSwitcher from "./tools/DarkSwitcher"
 
 const navBarMobileStyle = require("@styles/components/common/NavBarMobile.module.css")
 

@@ -1,6 +1,6 @@
 import React from "react"
 import ReactWordCloud from "react-wordcloud"
-import CommonBox from "@components/common/CommonBox"
+import CommonBox from "@components/common/tools/CommonBox"
 
 export interface IWordCloud {
     text: string

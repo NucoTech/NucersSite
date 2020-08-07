@@ -2,7 +2,7 @@ import React from "react"
 
 import marked from "marked"
 import { isNightNow } from "@utils/utils"
-import IconFont from "@components/common/IconFont"
+import IconFont from "@components/common/tools/IconFont"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
 

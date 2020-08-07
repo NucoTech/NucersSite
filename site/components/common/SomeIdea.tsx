@@ -1,6 +1,6 @@
 import React from "react"
 import dynamic from "next/dynamic"
-import CommonBox from "./CommonBox"
+import CommonBox from "./tools/CommonBox"
 
 const MessageListRender = dynamic(import("./MessageListRender"), {
     ssr: false,

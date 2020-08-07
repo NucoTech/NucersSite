@@ -5,7 +5,7 @@ import CalendarHeatmapChart from "@components/charts/CalendarHeatmapChart"
 import UserDisplay from "@components/users/UserDisplay"
 const userStyle = require("@styles/pages/user.module.css")
 
-import PageBox from "@components/common/PageBox"
+import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 
 const UserProfile = () => {

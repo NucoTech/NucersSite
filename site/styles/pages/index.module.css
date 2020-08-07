@@ -59,6 +59,21 @@
     width: 100%;
 }
 
+@media screen and (max-width: 1180px) {
+    .rightContent {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .contentLeft {
+        margin: 0;
+        width: 100%;
+    }
+    .contentRight {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .content {
         margin: 0 10px;

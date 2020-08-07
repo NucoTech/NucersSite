@@ -1,7 +1,7 @@
 import React from "react"
-import IconFont from "./IconFont"
+import IconFont from "./tools/IconFont"
 import { searchEngineLexer } from "@utils/utils"
-import DarkSwitcher from "./DarkSwitcher"
+import DarkSwitcher from "./tools/DarkSwitcher"
 import { inject, observer } from "mobx-react"
 import { AuthenticatedStoreType } from "@stores/AuthenticatedStore"
 
