@@ -93,15 +93,7 @@ export default class OAMenu extends React.Component<
     render() {
         const { darkNow, setDark } = this.props.darkThemeStore
         return (
-            <div
-                style={{
-                    width: 256,
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    zIndex: 999,
-                }}
-            >
+            <>
                 <div
                     style={{
                         backgroundColor: darkNow
@@ -114,6 +106,9 @@ export default class OAMenu extends React.Component<
                         flexDirection: "row",
                         justifyContent: "space-between",
                         alignItems: "center",
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
                     }}
                 >
                     <div>
@@ -215,7 +210,7 @@ export default class OAMenu extends React.Component<
                         <a href={backOAURL("security")}>账户安全</a>
                     </Menu.Item>
                 </Menu>
-            </div>
+            </>
         )
     }
 }
