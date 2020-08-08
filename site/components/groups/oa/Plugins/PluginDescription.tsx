@@ -7,254 +7,83 @@ interface PluginDescriptionProps {
     pluginId: string
 }
 
+interface PluginDescriptionStates {
+    name: string
+    icon: string
+    description: string
+    author: string
+    url: string
+    got: boolean
+    getting: boolean
+}
+
 export default class PluginDescription extends React.Component<
-    PluginDescriptionProps
+    PluginDescriptionProps,
+    PluginDescriptionStates
 > {
+    constructor(props: PluginDescriptionProps) {
+        super(props)
+        this.state = {
+            name: "",
+            icon: "",
+            description: "",
+            author: "",
+            url: "",
+            got: false,
+            getting: false,
+        }
+    }
+    componentDidMount() {
+        this.setState({
+            name: "Demo",
+            icon: "/excel.png",
+            description: "测试插件描述",
+            author: "Herbert He",
+            url: "https://goer.icu",
+            got: true,
+            getting: false,
+        })
+    }
     render() {
+        const {
+            name,
+            icon,
+            description,
+            author,
+            url,
+            got,
+            getting,
+        } = this.state
         return (
             <div className={pluginDescriptionStyle.content}>
                 <div className={pluginDescriptionStyle.header}>
                     <div className={pluginDescriptionStyle.headerLeft}>
-                        <img
-                            alt="icon"
-                            src="/excel.png"
-                            width="50px"
-                            height="50px"
-                        />
+                        <img alt="icon" src={icon} width="50px" height="50px" />
                         <div className={pluginDescriptionStyle.infos}>
                             <div className={pluginDescriptionStyle.name}>
-                                测试插件
+                                {name}
                             </div>
-                            <div>Author: Nuco.Tech</div>
+                            <div>Author: {author}</div>
                             <div>
-                                Website:
-                                <a href="https://nuco.tech">
-                                    https://nuco.tech
-                                </a>
+                                Website: <a href={url}>{url}</a>
                             </div>
                         </div>
                     </div>
-                    <button className={pluginDescriptionStyle.getPlugin}>获取插件</button>
+                    <button
+                        className={pluginDescriptionStyle.getPlugin}
+                        disabled={got}
+                    >
+                        {got ? "已拥有插件" : "获取插件"}
+                    </button>
                 </div>
                 <div className={pluginDescriptionStyle.description}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Ad, dolores, eaque voluptate assumenda natus fuga beatae
-                    possimus dicta expedita ut voluptatum officia modi eligendi
-                    laboriosam facere. Quasi hic dolor eos. Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Dolorum tenetur aut
-                    consectetur, eos voluptatibus repellendus ullam voluptates
-                    aspernatur architecto commodi ab laboriosam dolore quae!
-                    Placeat sint deserunt perferendis quas dolore. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Incidunt fuga
-                    voluptatibus error dolorem quo sequi, esse perspiciatis
-                    consequatur praesentium, soluta eveniet dolor eos, ratione
-                    reiciendis ducimus excepturi corrupti illum consectetur.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatibus eius sequi modi recusandae architecto, fuga
-                    saepe inventore quod vel qui quia reiciendis accusamus dolor
-                    soluta similique temporibus itaque exercitationem.
-                    Laudantium. Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Architecto animi sunt eum est ratione
-                    reprehenderit, libero maiores nemo optio molestias itaque
-                    officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod? Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Architecto animi sunt eum est
-                    ratione reprehenderit, libero maiores nemo optio molestias
-                    itaque officia, dignissimos dolorem et voluptatibus. Beatae
-                    veritatis dignissimos quod?
+                    {description}
                 </div>
+                {getting && (
+                    <div className={pluginDescriptionStyle.mask}>
+                        插件获取中...
+                    </div>
+                )}
             </div>
         )
     }
