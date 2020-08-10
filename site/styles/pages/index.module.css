@@ -40,6 +40,7 @@
 .contentLeft {
     width: 430px;
     margin-right: 40px;
+    margin-top: 40px;
 }
 
 .contentRight {
@@ -66,7 +67,7 @@
         align-items: center;
     }
     .contentLeft {
-        margin: 0;
+        margin-right: 0;
         width: 100%;
     }
     .contentRight {

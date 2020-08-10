@@ -20,6 +20,7 @@ import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 import TestSetBtn from "@components/auth/TestSetBtn"
 import TypedDisplay from "@components/common/effects/TypedDisplay"
+import Clock from "@components/common/effects/Clock"
 
 const ParticlesBackground = dynamic(
     import("@components/common/effects/ParticlesBackground"),
@@ -53,36 +54,25 @@ const Home = () => {
             <TypedDisplay />
             <div className={indexStyle.content}>
                 <div className={indexStyle.left}>
+                    <Clock />
                     <HotTopics />
-                    <div className={indexStyle.marginer}>
-                        <WordCloud words={HotTagsMocks} />
-                    </div>
-                    <div className={indexStyle.marginer}>
-                        <Newers newers={NewersMocks} />
-                    </div>
+                    <WordCloud words={HotTagsMocks} />
+                    <Newers newers={NewersMocks} />
                 </div>
                 <div className={indexStyle.right}>
                     <Hitokoto />
                     <div className={indexStyle.rightContent}>
                         <div className={indexStyle.contentLeft}>
-                            <div className={indexStyle.marginer}>
-                                <Activities acts={AdsMocks} />
-                            </div>
-                            <div className={indexStyle.marginer}>
-                                <Notices />
-                            </div>
-                            <div className={indexStyle.marginer}>
-                                <SchoolNews />
-                            </div>
+                            <Activities acts={AdsMocks} />
+                            <Notices />
                         </div>
+                        <SchoolNews />
+
                         <div className={indexStyle.contentRight}>
-                            <div className={indexStyle.marginer}>
-                                <HotPosts />
-                            </div>
+                            <HotPosts />
+
                             <div className={indexStyle.ideaAndNewer}>
-                                <div className={indexStyle.marginer}>
-                                    <SomeIdea />
-                                </div>
+                                <SomeIdea />
                             </div>
                         </div>
                     </div>
