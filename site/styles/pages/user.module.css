@@ -23,13 +23,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    position: sticky;
-    position: -webkit-sticky;
     top: 100px;
     width: 330px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1300px) {
     .content {
         flex-wrap: wrap-reverse;
         padding: 0 20px;

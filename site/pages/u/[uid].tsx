@@ -1,12 +1,14 @@
 import Head from "next/head"
-import NavBar from "@components/common/NavBar"
-import UserCard from "@components/users/UserCard"
-import CalendarHeatmapChart from "@components/charts/CalendarHeatmapChart"
-import UserDisplay from "@components/users/UserDisplay"
+
 const userStyle = require("@styles/pages/user.module.css")
 
 import PageBox from "@components/common/tools/PageBox"
+import NavBar from "@components/common/NavBar"
 import NavBarMobile from "@components/common/NavBarMobile"
+import UserCard from "@components/users/UserCard"
+import CalendarHeatmapChart from "@components/charts/CalendarHeatmapChart"
+import UserDisplay from "@components/users/UserDisplay"
+import AdsSide from "@components/common/AdsSide"
 
 const UserProfile = () => {
     return (
@@ -23,6 +25,7 @@ const UserProfile = () => {
                 </div>
                 <div className={userStyle.right}>
                     <UserCard uid="234234" />
+                    <AdsSide />
                 </div>
             </div>
         </PageBox>

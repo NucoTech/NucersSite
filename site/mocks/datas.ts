@@ -95,4 +95,29 @@ const NewersMocks: Array<IUser> = [
     },
 ]
 
-export { HeatDataMocks, ActsRadarMocks, HotTagsMocks, AdsMocks, NewersMocks }
+/**
+ * 用户社交模拟数据
+ */
+import { UserSocialType } from "@components/users/UserCard"
+const UserSocialMocks: Array<UserSocialType> = [
+    { type: "github", url: "#" },
+    { type: "gitee", url: "#" },
+    { type: "segmentfault", url: "#" },
+    { type: "npm", url: "#" },
+    { type: "leetcode", url: "#" },
+    { type: "zhihu", url: "#" },
+    { type: "stackoverflow", url: "#" },
+    { type: "gitlab", url: "#" },
+    { type: "juejin", url: "#" },
+    { type: "bilibili", url: "#" },
+    { type: "csdn", url: "#" },
+]
+
+export {
+    HeatDataMocks,
+    ActsRadarMocks,
+    HotTagsMocks,
+    AdsMocks,
+    NewersMocks,
+    UserSocialMocks,
+}

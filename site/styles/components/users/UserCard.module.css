@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 50px 20px;
+    padding: 50px 10px 30px;
     box-shadow: 0 0 1px grey;
 }
 
@@ -47,7 +47,7 @@
 .social {
     list-style: none;
     margin: 10px 0;
-    padding: 0;
+    padding: 0 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,11 +55,7 @@
 }
 
 .social > li {
-    margin: 0 10px;
-}
-
-.socialicon {
-    font-size: 20px;
+    margin: 5px;
 }
 
 .slogan {

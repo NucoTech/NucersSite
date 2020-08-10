@@ -2,29 +2,69 @@ import React from "react"
 import IconFont from "@components/common/tools/IconFont"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
+import BackSocialIcon from "@components/common/tools/BackSocialIcon"
+import { UserSocialMocks } from "@mocks/datas"
+import AdsSide from "@components/common/AdsSide"
 
 const userCardStyles = require("@styles/components/users/UserCard.module.css")
+
+export interface UserSocialType {
+    type:
+        | "github"
+        | "gitee"
+        | "segmentfault"
+        | "npm"
+        | "leetcode"
+        | "zhihu"
+        | "stackoverflow"
+        | "gitlab"
+        | "juejin"
+        | "bilibili"
+        | "csdn"
+    url: string
+}
 
 interface IUserCardProps extends OnlyDarkThemeStoreType {
     uid: string
 }
 
+interface IUserCardStates {
+    social: Array<UserSocialType>
+}
+
 @inject("darkThemeStore")
 @observer
-export default class UserCard extends React.Component<IUserCardProps> {
+export default class UserCard extends React.Component<
+    IUserCardProps,
+    IUserCardStates
+> {
     static VIPColor: Map<string, string> = new Map<string, string>([
         ["official", "#0abde3"],
         ["community", "#ff9f43"],
         ["person", "#10ac84"],
         ["lab", "#feca57"],
     ])
+
+    constructor(props: IUserCardProps) {
+        super(props)
+        this.state = {
+            social: [],
+        }
+    }
+
     static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+    componentDidMount() {
+        this.setState({
+            social: UserSocialMocks,
+        })
+    }
     render() {
         const { darkNow } = this.props.darkThemeStore
+        const { social } = this.state
         return (
             <div
                 style={{
@@ -53,20 +93,23 @@ export default class UserCard extends React.Component<IUserCardProps> {
                 <div className={userCardStyles.vipinfo}>
                     认证信息: Nucers社区联合创始人
                 </div>
-                <ul className={userCardStyles.social}>
-                    <li>
-                        <IconFont
-                            type="nucers-github"
-                            className={userCardStyles.socialicon}
-                        />
-                    </li>
-                    <li>
-                        <IconFont
-                            type="nucers-gitee"
-                            className={userCardStyles.socialicon}
-                        />
-                    </li>
-                </ul>
+                {social.length !== 0 && (
+                    <ul className={userCardStyles.social}>
+                        {social.map((item: UserSocialType) => (
+                            <li
+                                key={item.type}
+                                onClick={() => window.open(item.url, "_blank")}
+                                title={item.type}
+                                style={{
+                                    cursor: "pointer",
+                                }}
+                            >
+                                <BackSocialIcon type={item.type} />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
                 <div className={userCardStyles.slogan}>
                     这是个人签名的区域啊
                 </div>

@@ -1,5 +1,6 @@
 import React from "react"
 import { Carousel } from "antd"
+import { AdsMocks } from "@mocks/datas"
 
 const AdsStyle = require("@styles/components/common/Ads.module.css")
 
@@ -14,7 +15,9 @@ export interface IAds {
     url?: string
 }
 
-interface IAdsSideProps {
+interface IAdsSideProps {}
+
+interface IAdsSideStates {
     ads: Array<IAds>
 }
 
@@ -22,21 +25,26 @@ interface IAdsSideProps {
  * 广告轮播图组件
  * 修复中
  */
-export default class AdsSide extends React.Component<IAdsSideProps> {
+export default class AdsSide extends React.Component<
+    IAdsSideProps,
+    IAdsSideStates
+> {
     constructor(props: IAdsSideProps) {
         super(props)
+        this.state = {
+            ads: [],
+        }
     }
-    static defaultProps: IAdsSideProps = {
-        ads: [],
+    componentDidMount() {
+        this.setState({
+            ads: AdsMocks,
+        })
     }
     render() {
-        const { ads } = this.props
+        const { ads } = this.state
         return (
             <div className={AdsStyle.adsSide}>
-                <Carousel
-                    dotPosition="bottom"
-                    autoplay={true}
-                >
+                <Carousel dotPosition="bottom" autoplay={true}>
                     {ads.map((item: IAds, index: number) => (
                         <div key={`ads-side-${index}`}>
                             <img

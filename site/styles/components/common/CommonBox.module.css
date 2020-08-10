@@ -41,6 +41,10 @@
     font-weight: 500;
     position: relative;
     border-bottom: 1px solid grey;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .boxHeader::after {

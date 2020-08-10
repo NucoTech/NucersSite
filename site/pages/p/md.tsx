@@ -2,20 +2,22 @@ import Head from "next/head"
 import dynamic from "next/dynamic"
 const articleStyle = require("@styles/pages/article.module.css")
 
-const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
-    ssr: false,
-})
+import PageBox from "@components/common/tools/PageBox"
 
 import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
-import { AdsMocks } from "@mocks/datas"
-import PageBox from "@components/common/tools/PageBox"
+
 import SideTools from "@components/posts/SideTools"
 import Comments from "@components/posts/Comments"
 import NavBarMobile from "@components/common/NavBarMobile"
+
+const MarkdownRenderer = dynamic(import("@components/posts/MarkdownRenderer"), {
+    ssr: false,
+})
+
 const markdownMd = require("../../docs/markdown.md")
 
 const MarkdownSyntax = () => {
@@ -33,7 +35,7 @@ const MarkdownSyntax = () => {
                 </div>
                 <div className={articleStyle.articleRight}>
                     <MarkdownOutline content={markdownMd.default} />
-                    <AdsSide ads={AdsMocks} />
+                    <AdsSide />
                     <CopyrightSide />
                     <SideTools />
                 </div>

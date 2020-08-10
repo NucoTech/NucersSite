@@ -1,9 +1,12 @@
 import Head from "next/head"
 import dynamic from "next/dynamic"
 
+const indexStyle = require("@styles/pages/index.module.css")
+
+import PageBox from "@components/common/tools/PageBox"
 import NavBar from "@components/common/NavBar"
+import NavBarMobile from "@components/common/NavBarMobile"
 import { welcome2Nucers } from "@utils/utils"
-import { HotTagsMocks, AdsMocks, NewersMocks } from "@mocks/datas"
 import HotTopics from "@components/common/HotTopics"
 import Activities from "@components/common/Activities"
 import Hitokoto from "@components/common/Hitokoto"
@@ -14,10 +17,6 @@ import CopyrightBottom from "@components/common/CopyrightBottom"
 import SchoolNews from "@components/common/SchoolNews"
 import SomeIdea from "@components/common/SomeIdea"
 
-const indexStyle = require("@styles/pages/index.module.css")
-
-import PageBox from "@components/common/tools/PageBox"
-import NavBarMobile from "@components/common/NavBarMobile"
 import TestSetBtn from "@components/auth/TestSetBtn"
 import TypedDisplay from "@components/common/effects/TypedDisplay"
 import Clock from "@components/common/effects/Clock"
@@ -32,6 +31,8 @@ const ParticlesBackground = dynamic(
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
 })
+
+import { HotTagsMocks, AdsMocks, NewersMocks } from "@mocks/datas"
 
 const Home = () => {
     welcome2Nucers()

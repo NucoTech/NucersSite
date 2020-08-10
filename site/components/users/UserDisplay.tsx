@@ -40,6 +40,7 @@ export default class UserDisplay extends React.Component<IUserDisplayProps> {
                         ? "var(--theme-commonbox-night)"
                         : "white",
                     color: darkNow ? "white" : "black",
+                    margin: "20px 0",
                 }}
                 className={userDisplayStyle.content}
             >
