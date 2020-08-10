@@ -65,8 +65,8 @@ const Home = () => {
                         <div className={indexStyle.contentLeft}>
                             <Activities acts={AdsMocks} />
                             <Notices />
+                            <SchoolNews />
                         </div>
-                        <SchoolNews />
 
                         <div className={indexStyle.contentRight}>
                             <HotPosts />
