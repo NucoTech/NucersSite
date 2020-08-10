@@ -22,7 +22,11 @@ export default class Activities extends React.Component<IAdsSideProps> {
     render() {
         const { acts } = this.props
         return (
-            <div>
+            <div
+                style={{
+                    width: "100%",
+                }}
+            >
                 <Carousel dotPosition="right" autoplay={true}>
                     {acts.map((item: IActs, index: number) => (
                         <div key={`ads-side-${index}`}>
