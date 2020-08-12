@@ -15,104 +15,12 @@ const Search = () => {
             </Head>
             <NavBar />
             <NavBarMobile />
-            <div className={searchPageStyle.content}>
-                <div className={searchPageStyle.title}>Nucers 社区全站搜索</div>
-                <div
-                    style={{
-                        marginTop: "40px",
-                        width: "100%",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
-                    <input
-                        className={searchPageStyle.inputBox}
-                        type="search"
-                        placeholder="在此开始搜索..."
-                    />
-                    <IconFont
-                        type="nucers-fly"
-                        style={{
-                            fontSize: "20px",
-                            cursor: "pointer",
-                        }}
-                    />
+            <div className={searchPageStyle.header}>
+                <h1 className={searchPageStyle.h1}>Nucers Search</h1>
+                <div className={searchPageStyle.form_box}>
+                    <input type="text" name="keyword" id="keyword" className={searchPageStyle.search_field} placeholder="告诉我你想搜什么..."/>
+                    <button className={searchPageStyle.search_btn} type="button">Search</button>
                 </div>
-                {/* <div className={searchPageStyle.selectorArea}>
-                    <div className={searchPageStyle.selectorBox}>
-                        <div className={searchPageStyle.selectorTitle}>
-                            用户类型
-                        </div>
-                        <ul className={searchPageStyle.selectUl}>
-                            <li>标签一</li>
-                        </ul>
-                    </div>
-                    <div className={searchPageStyle.selectorBox}>
-                        <div className={searchPageStyle.selectorTitle}>
-                            内容范围
-                        </div>
-
-                        <ul className={searchPageStyle.selectUl}>
-                            <li>标签二</li>
-                        </ul>
-                    </div>
-                    <div className={searchPageStyle.selectorBox}>
-                        <div className={searchPageStyle.selectorTitle}>
-                            热门标签
-                        </div>
-
-                        <ul className={searchPageStyle.selectUl}>
-                            <li>标签三</li>
-                        </ul>
-                    </div>
-                    <div className={searchPageStyle.selectorBox}>
-                        <div className={searchPageStyle.selectorTitle}>
-                            热门话题
-                        </div>
-                        <ul className={searchPageStyle.selectUl}>
-                            <li>标签四</li>
-                        </ul>
-                    </div>
-                    <div className={searchPageStyle.selectorBox}>
-                        <div className={searchPageStyle.selectorTitle}>
-                            结果排序
-                        </div>
-                        <ul className={searchPageStyle.selectUl}>
-                            <li>标签五</li>
-                        </ul>
-                    </div>
-                </div> */}
-
-                {/* 搜索结果区 */}
-                <ul className={searchPageStyle.result}>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                    <li>结果</li>
-                </ul>
             </div>
         </PageBox>
     )
