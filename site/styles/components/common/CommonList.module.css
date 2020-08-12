@@ -50,7 +50,12 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: calc(100% - 37px);
+    width: calc(100% - 130px);
+}
+
+.ol > li > .time {
+    width: 73px;
+    margin-left: 20px;
 }
 
 .ol > li a {

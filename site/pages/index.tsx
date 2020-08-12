@@ -33,8 +33,10 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
 })
 
 import { HotTagsMocks, AdsMocks, NewersMocks } from "@mocks/datas"
+import { GetNUCCMSData } from "@utils/spider"
+import SchoolAcademicActs from "@components/common/SchoolAcademicActs"
 
-const Home = () => {
+const Home = ({ academeicActs, schoolNews }) => {
     welcome2Nucers()
     return (
         <PageBox>
@@ -66,7 +68,8 @@ const Home = () => {
                         <div className={indexStyle.contentLeft}>
                             <Activities acts={AdsMocks} />
                             <Notices />
-                            <SchoolNews />
+                            <SchoolNews news={schoolNews} />
+                            <SchoolAcademicActs acts={academeicActs} />
                         </div>
 
                         <div className={indexStyle.contentRight}>
@@ -83,6 +86,17 @@ const Home = () => {
             <TestSetBtn />
         </PageBox>
     )
+}
+
+export const getServerSideProps = async () => {
+    const academeicActs = await GetNUCCMSData("xshd", 5)
+    const schoolNews = await GetNUCCMSData("zbxw", 10)
+    return {
+        props: {
+            academeicActs,
+            schoolNews,
+        },
+    }
 }
 
 export default Home
