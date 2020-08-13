@@ -1,13 +1,9 @@
 import React from "react"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { ICopyright } from "@utils/interfaces"
 
-export interface ICopyrightSide extends OnlyDarkThemeStoreType {
-    ICP: string
-    Gongan?: string
-    address: string
-    email: string
-}
+export interface ICopyrightSide extends OnlyDarkThemeStoreType, ICopyright {}
 
 @inject("darkThemeStore")
 @observer
@@ -17,7 +13,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
     }
     static defaultProps: ICopyrightSide = {
         ICP: "晋ICP备xxxxxxxx号",
-        Gongan: "晋公网安备xxxxxxxxxxxx号",
+        GongAn: "晋公网安备xxxxxxxxxxxx号",
         address: "山西省太原市尖草坪区学院路三号中北大学",
         email: "herberthe@nucosc.com",
     }
@@ -27,7 +23,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
         }
     }
     render() {
-        const { ICP, Gongan, address, email } = this.props
+        const { ICP, GongAn, address, email } = this.props
         const { darkNow } = this.props.darkThemeStore
         return (
             <div
@@ -39,7 +35,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
                     boxShadow: "0 0 1px grey",
                     marginTop: "10px",
                     color: darkNow ? "white" : "black",
-                    width: "100%"
+                    width: "100%",
                 }}
             >
                 <div
@@ -89,7 +85,7 @@ export default class CopyrightSide extends React.Component<ICopyrightSide> {
                         width="18px"
                         alt="gongan"
                     />
-                    {Gongan}
+                    {GongAn}
                 </div>
             </div>
         )

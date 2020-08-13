@@ -1,14 +1,10 @@
 import React from "react"
 import CommonBox from "./tools/CommonBox"
+import { INewer, INewers } from "@utils/interfaces"
 const newersStyle = require("@styles/components/common/Newers.module.css")
-export interface IUser {
-    name: string
-    uid: string
-    avatar: string
-}
 
 interface INewersProps {
-    newers?: Array<IUser>
+    newers?: INewers
 }
 
 /**
@@ -24,7 +20,7 @@ export default class Newers extends React.Component<INewersProps> {
             <CommonBox header="新成员">
                 <ul className={newersStyle.gridAvatar}>
                     {newers &&
-                        newers.map((item: IUser) => (
+                        newers.map((item: INewer) => (
                             <li key={item.uid}>
                                 <a
                                     href={`http://localhost:3000/u/${item.uid}`}

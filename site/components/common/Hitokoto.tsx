@@ -1,15 +1,13 @@
 import React from "react"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
+import { IHitokoto } from "@utils/interfaces"
 
 const hitokotoStyle = require("@styles/components/common/Hitokoto.module.css")
 
 interface IHitokotoProps extends OnlyDarkThemeStoreType {}
 
-interface IHitokotoStates {
-    hitokoto: string
-    from: string
-}
+interface IHitokotoStates extends IHitokoto {}
 
 /**
  * 一言组件
@@ -36,14 +34,18 @@ export default class Hitokoto extends React.Component<
     }
 
     getHitokoto = async () => {
-        const res = await fetch(
-            "https://v1.hitokoto.cn?encode=json&chartset=utf-8&c=a&c=b&c=c&c=d&c=e&c=h&c=i&c=j"
-        )
-        const result = await res.json()
-        this.setState({
-            hitokoto: result.hitokoto,
-            from: result.from,
-        })
+        try {
+            const res = await fetch(
+                "https://v1.hitokoto.cn?encode=json&chartset=utf-8&c=a&c=b&c=c&c=d&c=e&c=h&c=i&c=j"
+            )
+            const result = await res.json()
+            this.setState({
+                hitokoto: result.hitokoto,
+                from: result.from,
+            })
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     async componentDidMount() {

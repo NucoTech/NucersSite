@@ -1,6 +1,7 @@
 import { Button, Form, Input, Select, Steps, message } from "antd"
 import React from "react"
 import { CheckOutlined } from "@ant-design/icons"
+import { IApply4Group } from "@utils/interfaces"
 const { Step } = Steps
 const { Option } = Select
 
@@ -8,18 +9,9 @@ const apply4GroupStyle = require("@styles/components/groups/Apply4Group.module.c
 
 interface IApply4GroupProps {}
 
-interface ApplyInfoType {
-    name: string
-    type: string
-    incharge: string
-    email: string
-    password: string
-    emergency: string
-}
-
 interface IApply4GroupStates {
     current: number
-    values: ApplyInfoType
+    values: IApply4Group
     loading: boolean
 }
 
@@ -126,7 +118,7 @@ export default class Apply4Group extends React.Component<
                                     type: "offical",
                                 }
                             }
-                            onFinish={(values: ApplyInfoType) => {
+                            onFinish={(values: IApply4Group) => {
                                 sessionStorage.setItem(
                                     "apply-info",
                                     JSON.stringify(values)

@@ -1,24 +1,14 @@
 import React from "react"
 import { Carousel } from "antd"
 import { AdsMocks } from "@mocks/datas"
+import { ICarousel } from "@utils/interfaces"
 
 const AdsStyle = require("@styles/components/common/Ads.module.css")
-
-/**
- * @param {string} title 广告方名称
- * @param {string} src 广告方的宣传图
- * @param {string} url 广告方链接
- */
-export interface IAds {
-    title: string
-    src: string
-    url?: string
-}
 
 interface IAdsSideProps {}
 
 interface IAdsSideStates {
-    ads: Array<IAds>
+    ads: Array<ICarousel>
 }
 
 /**
@@ -45,7 +35,7 @@ export default class AdsSide extends React.Component<
         return (
             <div className={AdsStyle.adsSide}>
                 <Carousel dotPosition="bottom" autoplay={true}>
-                    {ads.map((item: IAds, index: number) => (
+                    {ads.map((item: ICarousel, index: number) => (
                         <div key={`ads-side-${index}`}>
                             <img
                                 src={item.src}
@@ -54,8 +44,8 @@ export default class AdsSide extends React.Component<
                                 width="100%"
                                 height="200px"
                                 onClick={() => {
-                                    if (item.url) {
-                                        window.open(item.url, "_blank")
+                                    if (item.href) {
+                                        window.open(item.href, "_blank")
                                     }
                                     return
                                 }}

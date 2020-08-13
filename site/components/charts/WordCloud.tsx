@@ -1,14 +1,10 @@
 import React from "react"
 import ReactWordCloud from "react-wordcloud"
 import CommonBox from "@components/common/tools/CommonBox"
-
-export interface IWordCloud {
-    text: string
-    value: number
-}
+import { IWordClouds, IWordCloud } from "@utils/interfaces"
 
 interface IWordCloudProps {
-    words: Array<IWordCloud>
+    words: IWordClouds
 }
 
 interface IWordCloudStates {
@@ -61,10 +57,7 @@ export default class WordCloud extends React.Component<
         const dom = event.target
         dom.addEventListener("click", () => {
             if (isActive) {
-                window.open(
-                    `${location.href}s?tags=${word.text}`,
-                    "_blank"
-                )
+                window.open(`${location.href}s?tags=${word.text}`, "_blank")
             }
         })
         // 设置不同元素的大小

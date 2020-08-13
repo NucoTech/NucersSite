@@ -1,19 +1,8 @@
 import IconFont from "./IconFont"
+import { ISocialSupported } from "@utils/interfaces"
 
 interface IBackSocialProps {
-    type:
-        | "github"
-        | "gitee"
-        | "segmentfault"
-        | "npm"
-        | "leetcode"
-        | "zhihu"
-        | "stackoverflow"
-        | "gitlab"
-        | "juejin"
-        | "bilibili"
-        | "csdn"
-        | string
+    type: ISocialSupported | string
 }
 
 const BackSocialIcon = ({ type }: IBackSocialProps) => (

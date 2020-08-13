@@ -5,22 +5,12 @@ import { inject, observer } from "mobx-react"
 import BackSocialIcon from "@components/common/tools/BackSocialIcon"
 import { UserSocialMocks } from "@mocks/datas"
 import AdsSide from "@components/common/AdsSide"
+import { ISocialSupported } from "@utils/interfaces"
 
 const userCardStyles = require("@styles/components/users/UserCard.module.css")
 
 export interface UserSocialType {
-    type:
-        | "github"
-        | "gitee"
-        | "segmentfault"
-        | "npm"
-        | "leetcode"
-        | "zhihu"
-        | "stackoverflow"
-        | "gitlab"
-        | "juejin"
-        | "bilibili"
-        | "csdn"
+    type: ISocialSupported
     url: string
 }
 

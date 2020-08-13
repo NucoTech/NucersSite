@@ -1,19 +1,9 @@
 import React from "react"
 import { Carousel } from "antd"
-
-/**
- * @param {string} title 活动方名称
- * @param {string} src 活动方宣传图
- * @param {string} url 活动方链接
- */
-export interface IActs {
-    title: string
-    src: string
-    url?: string
-}
+import { ICarousel } from "@utils/interfaces"
 
 interface IAdsSideProps {
-    acts: Array<IActs>
+    acts: Array<ICarousel>
 }
 /**
  * 活动轮播图
@@ -28,7 +18,7 @@ export default class Activities extends React.Component<IAdsSideProps> {
                 }}
             >
                 <Carousel dotPosition="right" autoplay={true}>
-                    {acts.map((item: IActs, index: number) => (
+                    {acts.map((item: ICarousel, index: number) => (
                         <div key={`ads-side-${index}`}>
                             <img
                                 src={item.src}
@@ -37,8 +27,8 @@ export default class Activities extends React.Component<IAdsSideProps> {
                                 width="100%"
                                 height="200px"
                                 onClick={() => {
-                                    if (item.url) {
-                                        window.open(item.url, "_blank")
+                                    if (item.href) {
+                                        window.open(item.href, "_blank")
                                     }
                                     return
                                 }}

@@ -2,6 +2,7 @@ import React from "react"
 import Vditor from "vditor"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
+import { ICommonMsg } from "@utils/interfaces"
 
 const messageListRenderStyle = require("@styles/components/common/MessageListRender.module.css")
 
@@ -9,45 +10,45 @@ interface IMessageListRenderProps extends OnlyDarkThemeStoreType {
     msgtype: "idea" | "comment"
 }
 
-const ideas = [
+const ideas: Array<ICommonMsg> = [
     {
-        nickname: "werwerwerwe",
+        name: "werwerwerwe",
         uid: "3245345234fsddafa",
         id: "sdfsdfsdfsdfsasdadfsdf",
         content: "# 测试内容",
     },
     {
-        nickname: "werwerwerwe",
+        name: "werwerwerwe",
         uid: "3245345234fsasdfda",
         id: "asdasdasdasasdfasdfd",
         content: '`console.log("Hello World")`',
     },
     {
-        nickname: "werwerwerwe",
+        name: "werwerwerwe",
         uid: "3245345234fsda",
         id: "aasdasxsdfaasdfadsdqe",
         content: "* cease \n * sdfsdfs",
     },
     {
-        nickname: "werwerwerwe",
+        name: "werwerwerwe",
         uid: "3245345234fsda",
         id: "sdafsdafaasdfadsdfssdf",
         content: "cEshcadasdfasd",
     },
     {
-        nickname: "werwerwerwe",
+        name: "werwerwerwe",
         uid: "3245345234fsda",
         id: "sdfasdfasdfasdfadsdfasasd",
         content: "策划赛哈桑带深代售点",
     },
     {
-        nickname: "测试",
+        name: "测试",
         uid: "3gwerggw45trgqr",
         id: "efqggwedfbsdf",
         content: '```js\nconsole.log("Hello World")\n```\n',
     },
     {
-        nickname: "Ceeeeaad",
+        name: "Ceeeeaad",
         uid: "sadadadaasdfa",
         id: "5131rgqrgsdasgagas",
         content: [
@@ -103,9 +104,9 @@ export default class MessageListRender extends React.Component<
                             <div className={messageListRenderStyle.title}>
                                 <a
                                     href={`/u/${item.uid}`}
-                                    title={item.nickname}
+                                    title={item.name}
                                 >
-                                    {item.nickname}
+                                    {item.name}
                                 </a>
                                 <div>发表了想法</div>
                             </div>

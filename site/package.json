@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mock": "deno run --allow-net ./mocks/server.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",

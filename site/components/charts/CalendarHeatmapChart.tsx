@@ -4,8 +4,9 @@ import { ResponsiveCalendar } from "@nivo/calendar"
 import CommonBox from "@components/common/tools/CommonBox"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
+import { ICalendarHeatmaps } from "@utils/interfaces"
 
-const Data = [
+const Data: ICalendarHeatmaps = [
     {
         day: "2020-02-07",
         value: 83,
@@ -54,7 +55,7 @@ export default class CalendarHeatmapChart extends React.Component<
                         width: "100%",
                         overflowX: "auto",
                         height: "200px",
-                        padding: "10px"
+                        padding: "10px",
                     }}
                 >
                     <ResponsiveCalendar
@@ -83,7 +84,6 @@ export default class CalendarHeatmapChart extends React.Component<
                                         : "white",
                                 },
                             },
-
                         }}
                     />
                 </div>
