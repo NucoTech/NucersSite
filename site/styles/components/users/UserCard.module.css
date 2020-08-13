@@ -88,3 +88,16 @@
     color: #1890ff;
     font-weight: 600;
 }
+
+.uid {
+    background-color: #dbdbdb;
+    font-size: small;
+    padding: 1px 4px;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: black;
+    cursor: pointer;
+}

@@ -3,13 +3,12 @@ import { Tabs } from "antd"
 import ActsTimeline from "./ActsTimeline"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
+import { IUserDisplay } from "@utils/interfaces"
 const { TabPane } = Tabs
 
 const userDisplayStyle = require("@styles/components/users/UserDisplay.module.css")
 
-interface IUserDisplayProps extends OnlyDarkThemeStoreType {
-    uid: string
-}
+interface IUserDisplayProps extends OnlyDarkThemeStoreType, IUserDisplay {}
 
 interface IUserMenu {
     name: string
@@ -23,6 +22,12 @@ const UserMenu: Array<IUserMenu> = [
     { name: "想法", url: "", content: "" },
 ]
 
+enum TabNow {
+    "timeline" = "时间线",
+    "posts" = "帖子",
+    "ideas" = "想法",
+}
+
 @inject("darkThemeStore")
 @observer
 export default class UserDisplay extends React.Component<IUserDisplayProps> {
@@ -31,8 +36,13 @@ export default class UserDisplay extends React.Component<IUserDisplayProps> {
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+    static defaultProps: IUserDisplayProps = {
+        target: "timeline",
+        datas: [],
+    }
     render() {
         const { darkNow } = this.props.darkThemeStore
+        const { target } = this.props
         return (
             <div
                 style={{
@@ -45,7 +55,7 @@ export default class UserDisplay extends React.Component<IUserDisplayProps> {
                 className={userDisplayStyle.content}
             >
                 <Tabs
-                    defaultActiveKey="时间线"
+                    defaultActiveKey={TabNow[target]}
                     style={{
                         color: darkNow ? "white" : "",
                     }}

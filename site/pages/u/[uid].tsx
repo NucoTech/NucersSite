@@ -29,7 +29,7 @@ const UserProfile = ({ data }: UserProfileProps) => {
                         year={data.acts.year}
                         data={data.acts.data}
                     />
-                    <UserDisplay uid={data.uid} />
+                    <UserDisplay />
                 </div>
                 <div className={userStyle.right}>
                     <UserCard

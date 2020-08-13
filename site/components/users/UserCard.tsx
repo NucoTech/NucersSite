@@ -1,4 +1,5 @@
 import React from "react"
+
 import IconFont from "@components/common/tools/IconFont"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
@@ -7,18 +8,11 @@ const userCardStyles = require("@styles/components/users/UserCard.module.css")
 
 import BackSocialIcon from "@components/common/tools/BackSocialIcon"
 import AdsSide from "@components/common/AdsSide"
-import { IUserSocials, IUserSocial } from "@utils/interfaces"
+import { IUserSocial, IUserCard } from "@utils/interfaces"
 
-interface IUserCardProps extends OnlyDarkThemeStoreType {
-    uid: string
-    name: string
-    avatar: string
-    verify: any
-    following: string
-    followers: string
-    slogan: string
-    socials: IUserSocials
-}
+import ClipboardJS from "clipboard"
+
+interface IUserCardProps extends OnlyDarkThemeStoreType, IUserCard {}
 
 @inject("darkThemeStore")
 @observer
@@ -86,7 +80,9 @@ export default class UserCard extends React.Component<IUserCardProps> {
 
                 <div className={userCardStyles.nickname}>{name}</div>
 
-                <div>UID {uid}</div>
+                <div className={userCardStyles.uid}>
+                    UID <span id="uid">{uid}</span>
+                </div>
                 {verify.verified && (
                     <div className={userCardStyles.vipinfo}>
                         认证信息: {verify.info}

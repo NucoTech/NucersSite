@@ -8,6 +8,8 @@ import {
     IUserSocials,
     IUserVerify,
     ICalendarHeatmaps,
+    IUserCard,
+    IUserDisplay,
 } from "./interfaces"
 
 /**
@@ -26,15 +28,6 @@ export interface IIndexDataReq {
 /**
  * user结果的数据结构
  */
-export interface IUserDataReq {
-    uid: string
-    name: string
-    avatar: string
-    socials: IUserSocials
-    verify: IUserVerify
-    following: string
-    followers: string
-    slogan: string
+export interface IUserDataReq extends IUserCard, IUserDisplay {
     acts: ICalendarHeatmaps
-    timeline: Array<any>
 }

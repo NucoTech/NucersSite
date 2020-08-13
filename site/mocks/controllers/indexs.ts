@@ -169,6 +169,7 @@ const NoticesMocks = [
 ]
 
 export const getIndexDatas = (context: any) => {
+    console.log(`访问 mock api--> ${context.matched[0].path}`)
     context.response.status = 200
     context.response.body = {
         success: "ok",

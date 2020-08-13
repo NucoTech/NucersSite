@@ -9,7 +9,7 @@ interface IActsTimelineProps extends OnlyDarkThemeStoreType {
 }
 
 /**
- * 动态时间线，伪元素实现时间线样式
+ * 动态时间线
  */
 @inject("darkThemeStore")
 @observer
@@ -28,51 +28,6 @@ export default class ActsTimeline extends React.Component<IActsTimelineProps> {
                 }}
                 className={actsTimelineStyle.content}
             >
-                <li>
-                    <div className={actsTimelineStyle.title}>
-                        xxxx-xx-xx 认同了
-                    </div>
-                    <div className={actsTimelineStyle.card}>
-                        帖子标题
-                        <div>帖子简述xxxx</div>
-                    </div>
-                </li>
-                <li>
-                    <div className={actsTimelineStyle.title}>
-                        xxxx-xx-xx 认同了
-                    </div>
-                    <div className={actsTimelineStyle.card}>
-                        帖子标题
-                        <div>帖子简述xxxx</div>
-                    </div>
-                </li>
-                <li>
-                    <div className={actsTimelineStyle.title}>
-                        xxxx-xx-xx 认同了
-                    </div>
-                    <div className={actsTimelineStyle.card}>
-                        帖子标题
-                        <div>帖子简述xxxx</div>
-                    </div>
-                </li>
-                <li>
-                    <div className={actsTimelineStyle.title}>
-                        xxxx-xx-xx 认同了
-                    </div>
-                    <div className={actsTimelineStyle.card}>
-                        帖子标题
-                        <div>帖子简述xxxx</div>
-                    </div>
-                </li>
-                <li>
-                    <div className={actsTimelineStyle.title}>
-                        xxxx-xx-xx 认同了
-                    </div>
-                    <div className={actsTimelineStyle.card}>
-                        帖子标题
-                        <div>帖子简述xxxx</div>
-                    </div>
-                </li>
                 <li>
                     <div className={actsTimelineStyle.title}>
                         xxxx-xx-xx 认同了

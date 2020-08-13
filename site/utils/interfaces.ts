@@ -147,3 +147,22 @@ export interface IUserVerify {
     verified: boolean
     info: string
 }
+
+/**
+ * 用户卡片
+ */
+export interface IUserCard {
+    uid: string
+    name: string
+    avatar: string
+    verify: any
+    following: string
+    followers: string
+    slogan: string
+    socials: IUserSocials
+}
+
+export interface IUserDisplay {
+    target: string
+    datas: Array<any>
+}
