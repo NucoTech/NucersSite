@@ -6,48 +6,30 @@ import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { ICalendarHeatmaps } from "@utils/interfaces"
 
-const Data: ICalendarHeatmaps = [
-    {
-        day: "2020-02-07",
-        value: 83,
-    },
-    {
-        day: "2020-07-18",
-        value: 85,
-    },
-    {
-        day: "2020-11-27",
-        value: 213,
-    },
-    {
-        day: "2020-06-05",
-        value: 314,
-    },
-    {
-        day: "2020-05-22",
-        value: 43,
-    },
-    {
-        day: "2020-07-17",
-        value: 45,
-    },
-]
-
 /**
  * 基于SVG的热力日历图
  */
+
+interface ICalendarHeatmapChartProps
+    extends OnlyDarkThemeStoreType,
+        ICalendarHeatmaps {}
 @inject("darkThemeStore")
 @observer
 export default class CalendarHeatmapChart extends React.Component<
-    OnlyDarkThemeStoreType
+    ICalendarHeatmapChartProps
 > {
     static async getServerSideProps({ mobxStore }) {
         return {
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+    static defaultProps: ICalendarHeatmapChartProps = {
+        data: [],
+        year: "2020",
+    }
     render() {
         const { darkNow } = this.props.darkThemeStore
+        const { data, year } = this.props
         return (
             <CommonBox header="活跃图">
                 <div
@@ -59,9 +41,9 @@ export default class CalendarHeatmapChart extends React.Component<
                     }}
                 >
                     <ResponsiveCalendar
-                        from="2020-1-1"
-                        to="2020-12-31"
-                        data={Data}
+                        from={`${year}-01-31`}
+                        to={`${year}-12-31`}
+                        data={data}
                         emptyColor={
                             darkNow
                                 ? "var(--theme-commonbox-content-night)"

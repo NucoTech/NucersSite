@@ -1,10 +1,4 @@
 /**
- * 单独导出interface的文件，全面抽离非states和props的interface
- */
-
-import { type } from "os"
-
-/**
  * 通用新闻类型
  */
 export interface ICommonNews {
@@ -32,6 +26,8 @@ export interface ICarousel {
     href?: string
 }
 
+export type ICarousels = Array<ICarousel>
+
 /**
  * 版权声明类型
  */
@@ -51,6 +47,8 @@ export interface IPostInfo {
     time: string
 }
 
+export type IPostInfos = Array<IPostInfo>
+
 /**
  * 通用短文类型，可能会废弃
  */
@@ -60,6 +58,8 @@ export interface ICommonMsg {
     id: string
     content: string
 }
+
+export type ICommonMsgs = Array<ICommonMsg>
 
 /**
  * 新人类型
@@ -98,6 +98,13 @@ export type ISocialSupported =
     | "bilibili"
     | "csdn"
 
+export interface IUserSocial {
+    type: ISocialSupported
+    href: string
+}
+
+export type IUserSocials = Array<IUserSocial>
+
 /**
  * 日历热力图数据
  */
@@ -106,7 +113,10 @@ export interface ICalendarHeatmap {
     value: number
 }
 
-export type ICalendarHeatmaps = Array<ICalendarHeatmap>
+export interface ICalendarHeatmaps {
+    year: string
+    data: Array<ICalendarHeatmap>
+}
 
 /**
  * 词云
@@ -128,4 +138,12 @@ export interface IApply4Group {
     email: string
     password: string
     emergency: string
+}
+
+/**
+ * 用户认证的信息
+ */
+export interface IUserVerify {
+    verified: boolean
+    info: string
 }

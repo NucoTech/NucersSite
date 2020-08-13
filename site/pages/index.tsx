@@ -32,11 +32,18 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
 })
 
-import { HotTagsMocks, AdsMocks, NewersMocks } from "@mocks/datas"
 import { GetNUCCMSData } from "@utils/spider"
 import SchoolAcademicActs from "@components/common/SchoolAcademicActs"
+import { IIndexDataReq } from "@utils/requestInterfaces"
+import { ICommonNewss } from "@utils/interfaces"
 
-const Home = ({ academeicActs, schoolNews }) => {
+interface IHomeProps {
+    academeicActs: ICommonNewss
+    schoolNews: ICommonNewss
+    data: IIndexDataReq
+}
+
+const Home = ({ academeicActs, schoolNews, data }: IHomeProps) => {
     welcome2Nucers()
     return (
         <PageBox>
@@ -58,25 +65,25 @@ const Home = ({ academeicActs, schoolNews }) => {
             <div className={indexStyle.content}>
                 <div className={indexStyle.left}>
                     <Clock />
-                    <HotTopics />
-                    <WordCloud words={HotTagsMocks} />
-                    <Newers newers={NewersMocks} />
+                    <HotTopics topics={data.topics} />
+                    <WordCloud words={data.tags} />
+                    <Newers newers={data.newers} />
                 </div>
                 <div className={indexStyle.right}>
                     <Hitokoto />
                     <div className={indexStyle.rightContent}>
                         <div className={indexStyle.contentLeft}>
-                            <Activities acts={AdsMocks} />
-                            <Notices />
+                            <Activities acts={data.acts} />
+                            <Notices notices={data.notices} />
                             <SchoolNews news={schoolNews} />
                             <SchoolAcademicActs acts={academeicActs} />
                         </div>
 
                         <div className={indexStyle.contentRight}>
-                            <HotPosts />
+                            <HotPosts posts={data.posts} />
 
                             <div className={indexStyle.ideaAndNewer}>
-                                <SomeIdea />
+                                <SomeIdea ideas={data.ideas} />
                             </div>
                         </div>
                     </div>
@@ -91,10 +98,15 @@ const Home = ({ academeicActs, schoolNews }) => {
 export const getServerSideProps = async () => {
     const academeicActs = await GetNUCCMSData("xshd", 5)
     const schoolNews = await GetNUCCMSData("zbxw", 10)
+    // 访问失败情况处理
+    const res = await fetch("http://localhost:8000")
+    const result = await res.json()
+    const data = result.data
     return {
         props: {
             academeicActs,
             schoolNews,
+            data,
         },
     }
 }

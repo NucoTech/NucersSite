@@ -2,65 +2,14 @@ import React from "react"
 import Vditor from "vditor"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
-import { ICommonMsg } from "@utils/interfaces"
+import { ICommonMsg, ICommonMsgs } from "@utils/interfaces"
 
 const messageListRenderStyle = require("@styles/components/common/MessageListRender.module.css")
 
 interface IMessageListRenderProps extends OnlyDarkThemeStoreType {
     msgtype: "idea" | "comment"
+    datas: ICommonMsgs
 }
-
-const ideas: Array<ICommonMsg> = [
-    {
-        name: "werwerwerwe",
-        uid: "3245345234fsddafa",
-        id: "sdfsdfsdfsdfsasdadfsdf",
-        content: "# 测试内容",
-    },
-    {
-        name: "werwerwerwe",
-        uid: "3245345234fsasdfda",
-        id: "asdasdasdasasdfasdfd",
-        content: '`console.log("Hello World")`',
-    },
-    {
-        name: "werwerwerwe",
-        uid: "3245345234fsda",
-        id: "aasdasxsdfaasdfadsdqe",
-        content: "* cease \n * sdfsdfs",
-    },
-    {
-        name: "werwerwerwe",
-        uid: "3245345234fsda",
-        id: "sdafsdafaasdfadsdfssdf",
-        content: "cEshcadasdfasd",
-    },
-    {
-        name: "werwerwerwe",
-        uid: "3245345234fsda",
-        id: "sdfasdfasdfasdfadsdfasasd",
-        content: "策划赛哈桑带深代售点",
-    },
-    {
-        name: "测试",
-        uid: "3gwerggw45trgqr",
-        id: "efqggwedfbsdf",
-        content: '```js\nconsole.log("Hello World")\n```\n',
-    },
-    {
-        name: "Ceeeeaad",
-        uid: "sadadadaasdfa",
-        id: "5131rgqrgsdasgagas",
-        content: [
-            "$$",
-            "\\nabla \\times H = J + \\frac{\\partial D}{\\partial t} \\newline",
-            "\\nabla \\times E = - \\frac{\\partial B}{\\partial t} \\newline",
-            "\\nabla \\cdot B = 0 \\newline",
-            "\\nabla \\cdot D = \\rho",
-            "$$",
-        ].join("\n"),
-    },
-]
 
 /**
  * 评论及想法加载组件
@@ -75,9 +24,14 @@ export default class MessageListRender extends React.Component<
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+    static defaultProps: IMessageListRenderProps = {
+        msgtype: "idea",
+        datas: [],
+    }
     componentDidMount() {
         const { darkNow } = this.props.darkThemeStore
-        for (let item of ideas) {
+        const { datas } = this.props
+        for (let item of datas) {
             Vditor.preview(
                 document.getElementById(`ideas-${item.id}`) as HTMLDivElement,
                 item.content,
@@ -96,16 +50,14 @@ export default class MessageListRender extends React.Component<
         }
     }
     render() {
+        const { datas } = this.props
         return (
             <>
                 <ul className={messageListRenderStyle.content}>
-                    {ideas.map((item) => (
+                    {datas.map((item: ICommonMsg) => (
                         <li key={item.id}>
                             <div className={messageListRenderStyle.title}>
-                                <a
-                                    href={`/u/${item.uid}`}
-                                    title={item.name}
-                                >
+                                <a href={`/u/${item.uid}`} title={item.name}>
                                     {item.name}
                                 </a>
                                 <div>发表了想法</div>

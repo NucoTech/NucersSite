@@ -9,8 +9,13 @@ import UserCard from "@components/users/UserCard"
 import CalendarHeatmapChart from "@components/charts/CalendarHeatmapChart"
 import UserDisplay from "@components/users/UserDisplay"
 import AdsSide from "@components/common/AdsSide"
+import { IUserDataReq } from "@utils/requestInterfaces"
 
-const UserProfile = () => {
+interface UserProfileProps {
+    data: IUserDataReq
+}
+
+const UserProfile = ({ data }: UserProfileProps) => {
     return (
         <PageBox>
             <Head>
@@ -20,25 +25,49 @@ const UserProfile = () => {
             <NavBarMobile />
             <div className={userStyle.content}>
                 <div className={userStyle.left}>
-                    <CalendarHeatmapChart />
-                    <UserDisplay uid="23423423" />
+                    <CalendarHeatmapChart
+                        year={data.acts.year}
+                        data={data.acts.data}
+                    />
+                    <UserDisplay uid={data.uid} />
                 </div>
                 <div className={userStyle.right}>
-                    <UserCard uid="234234" />
-                    <AdsSide />
+                    <UserCard
+                        uid={data.uid}
+                        name={data.name}
+                        avatar={data.avatar}
+                        verify={data.verify}
+                        following={data.following}
+                        followers={data.followers}
+                        slogan={data.slogan}
+                        socials={data.socials}
+                    />
+                    {/* <AdsSide /> */}
                 </div>
             </div>
         </PageBox>
     )
 }
 
-export const getServerSideProps = async (context) => {
-    // console.log(context)
-    // const res = await fetch("https://api.github.com/repos/zeit/next.js")
-    // const json = await res.json()
+export const getStaticPaths = async () => {
+    const res = await fetch("http://localhost:8000/u")
+    const result = await res.json()
+    const paths = result.data.uids.map((item) => {
+        return { params: { uid: item } }
+    })
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export const getStaticProps = async ({ params }) => {
+    const res = await fetch(`http://localhost:8000/u/${params.uid}`)
+    const result = await res.json()
+    const data = result.data
     return {
         props: {
-            stars: 0,
+            data,
         },
     }
 }

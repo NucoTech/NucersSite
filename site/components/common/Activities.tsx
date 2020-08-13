@@ -1,9 +1,9 @@
 import React from "react"
 import { Carousel } from "antd"
-import { ICarousel } from "@utils/interfaces"
+import { ICarousel, ICarousels } from "@utils/interfaces"
 
 interface IAdsSideProps {
-    acts: Array<ICarousel>
+    acts: ICarousels
 }
 /**
  * 活动轮播图

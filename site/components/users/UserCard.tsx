@@ -2,32 +2,27 @@ import React from "react"
 import IconFont from "@components/common/tools/IconFont"
 import { OnlyDarkThemeStoreType } from "@stores/DarkThemeStore"
 import { inject, observer } from "mobx-react"
-import BackSocialIcon from "@components/common/tools/BackSocialIcon"
-import { UserSocialMocks } from "@mocks/datas"
-import AdsSide from "@components/common/AdsSide"
-import { ISocialSupported } from "@utils/interfaces"
 
 const userCardStyles = require("@styles/components/users/UserCard.module.css")
 
-export interface UserSocialType {
-    type: ISocialSupported
-    url: string
-}
+import BackSocialIcon from "@components/common/tools/BackSocialIcon"
+import AdsSide from "@components/common/AdsSide"
+import { IUserSocials, IUserSocial } from "@utils/interfaces"
 
 interface IUserCardProps extends OnlyDarkThemeStoreType {
     uid: string
-}
-
-interface IUserCardStates {
-    social: Array<UserSocialType>
+    name: string
+    avatar: string
+    verify: any
+    following: string
+    followers: string
+    slogan: string
+    socials: IUserSocials
 }
 
 @inject("darkThemeStore")
 @observer
-export default class UserCard extends React.Component<
-    IUserCardProps,
-    IUserCardStates
-> {
+export default class UserCard extends React.Component<IUserCardProps> {
     static VIPColor: Map<string, string> = new Map<string, string>([
         ["official", "#0abde3"],
         ["community", "#ff9f43"],
@@ -35,11 +30,18 @@ export default class UserCard extends React.Component<
         ["lab", "#feca57"],
     ])
 
-    constructor(props: IUserCardProps) {
-        super(props)
-        this.state = {
-            social: [],
-        }
+    static defaultProps: IUserCardProps = {
+        uid: "",
+        name: "",
+        avatar: "",
+        verify: {
+            verified: false,
+            info: "",
+        },
+        following: "",
+        followers: "",
+        slogan: "",
+        socials: [],
     }
 
     static async getServerSideProps({ mobxStore }) {
@@ -47,14 +49,18 @@ export default class UserCard extends React.Component<
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
-    componentDidMount() {
-        this.setState({
-            social: UserSocialMocks,
-        })
-    }
     render() {
         const { darkNow } = this.props.darkThemeStore
-        const { social } = this.state
+        const {
+            uid,
+            name,
+            avatar,
+            verify,
+            following,
+            followers,
+            slogan,
+            socials,
+        } = this.props
         return (
             <div
                 style={{
@@ -66,29 +72,33 @@ export default class UserCard extends React.Component<
                 className={userCardStyles.content}
             >
                 <div className={userCardStyles.avatar}>
-                    <img
-                        alt="avatar"
-                        src="https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg"
-                    />
-                    <IconFont
-                        className={userCardStyles.vip}
-                        type="nucers-vip"
-                        style={{
-                            color: "#10ac84",
-                        }}
-                    />
+                    <img alt="avatar" src={avatar} />
+                    {verify.verified && (
+                        <IconFont
+                            className={userCardStyles.vip}
+                            type="nucers-vip"
+                            style={{
+                                color: "#10ac84",
+                            }}
+                        />
+                    )}
                 </div>
 
-                <div className={userCardStyles.nickname}>nickname</div>
-                <div className={userCardStyles.vipinfo}>
-                    认证信息: Nucers社区联合创始人
-                </div>
-                {social.length !== 0 && (
+                <div className={userCardStyles.nickname}>{name}</div>
+
+                <div>UID {uid}</div>
+                {verify.verified && (
+                    <div className={userCardStyles.vipinfo}>
+                        认证信息: {verify.info}
+                    </div>
+                )}
+
+                {socials.length !== 0 && (
                     <ul className={userCardStyles.social}>
-                        {social.map((item: UserSocialType) => (
+                        {socials.map((item: IUserSocial) => (
                             <li
                                 key={item.type}
-                                onClick={() => window.open(item.url, "_blank")}
+                                onClick={() => window.open(item.href, "_blank")}
                                 title={item.type}
                                 style={{
                                     cursor: "pointer",
@@ -100,18 +110,20 @@ export default class UserCard extends React.Component<
                     </ul>
                 )}
 
-                <div className={userCardStyles.slogan}>
-                    这是个人签名的区域啊
-                </div>
+                <div className={userCardStyles.slogan}>{slogan}</div>
 
                 <div className={userCardStyles.follow}>
                     <div className={userCardStyles.focus}>
                         <div>Following</div>
-                        <div className={userCardStyles.followvalue}>32423</div>
+                        <div className={userCardStyles.followvalue}>
+                            {following}
+                        </div>
                     </div>
                     <div className={userCardStyles.follower}>
                         <div>Followers</div>
-                        <div className={userCardStyles.followvalue}>234234</div>
+                        <div className={userCardStyles.followvalue}>
+                            {followers}
+                        </div>
                     </div>
                 </div>
                 {/* <div>个人成就</div> */}

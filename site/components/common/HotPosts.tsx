@@ -3,29 +3,31 @@ import React from "react"
 const commonListStyle = require("@styles/components/common/CommonList.module.css")
 
 import CommonBox from "./tools/CommonBox"
+import { IPostInfos, IPostInfo } from "@utils/interfaces"
 
-const posts = [
-    { id: "po324234234", title: "测试" },
-    { id: "po2346223423t234", title: "公告" },
-    { id: "posdfadadfasdfa", title: "测试公告" },
-    { id: "poqwrwerqwrqwer", title: "啊实打实dfsdfsdfsdffffffgsdfg dsfgs dfg sdfg sdfg dsfgsdfgsdfgsdfg sdfgs fgsfg sdfg sdfg sdfg sdfg sdfg sdfg sfffffffffffffffffffffffffffsdfsdfsdfsdf大苏打锕" },
-    { id: "powerawerawera", title: "ASDFASDFASDF" },
-    { id: "podxcasdfasd", title: "GQWWEQWERQWEW" },
-    { id: "poasdfafadfadfasdf", title: "QWERQWERQWERQWE" },
-]
+interface IHotPostsProps {
+    posts: IPostInfos
+}
 
-export default class HotPosts extends React.Component {
+export default class HotPosts extends React.Component<IHotPostsProps> {
+    static defaultProps: IHotPostsProps = {
+        posts: [],
+    }
     render() {
+        const { posts } = this.props
         return (
             <CommonBox header="热门帖子">
                 <ol className={commonListStyle.ol}>
-                    {posts.map((item) => (
-                        <li key={item.id}>
+                    {posts.map((item: IPostInfo) => (
+                        <li key={item.poid}>
                             <div className={commonListStyle.ellipsis}>
-                                <a href={`/p/${item.id}`} title={item.title}>
+                                <a href={`/p/${item.poid}`} title={item.title}>
                                     {item.title}
                                 </a>
                             </div>
+                            <span className={commonListStyle.time}>
+                                {item.time}
+                            </span>
                         </li>
                     ))}
                 </ol>
