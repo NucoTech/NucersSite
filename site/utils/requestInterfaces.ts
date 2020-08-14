@@ -5,11 +5,12 @@ import {
     ICommonMsgs,
     ICarousels,
     IWordClouds,
-    IUserSocials,
-    IUserVerify,
     ICalendarHeatmaps,
     IUserCard,
     IUserDisplay,
+    IGroupCard,
+    IGroupMembers,
+    IGroupContent,
 } from "./interfaces"
 
 /**
@@ -31,3 +32,11 @@ export interface IIndexDataReq {
 export interface IUserDataReq extends IUserCard, IUserDisplay {
     acts: ICalendarHeatmaps
 }
+
+/**
+ * group结果数据结构
+ */
+export interface IGroupDataReq
+    extends IGroupContent,
+        IGroupCard,
+        IGroupMembers {}

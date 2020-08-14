@@ -17,13 +17,6 @@ interface IUserCardProps extends OnlyDarkThemeStoreType, IUserCard {}
 @inject("darkThemeStore")
 @observer
 export default class UserCard extends React.Component<IUserCardProps> {
-    static VIPColor: Map<string, string> = new Map<string, string>([
-        ["official", "#0abde3"],
-        ["community", "#ff9f43"],
-        ["person", "#10ac84"],
-        ["lab", "#feca57"],
-    ])
-
     static defaultProps: IUserCardProps = {
         uid: "",
         name: "",

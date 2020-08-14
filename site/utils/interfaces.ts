@@ -166,3 +166,38 @@ export interface IUserDisplay {
     target: string
     datas: Array<any>
 }
+
+/**
+ * 组织卡片
+ */
+export interface IGroupVerify {
+    verified: boolean
+    info: string
+    type: "official" | "community" | "lab"
+}
+
+export interface IGroupCard {
+    gid: string
+    title: string
+    avatar: string
+    verify: IGroupVerify
+    tags: Array<string>
+    email: string
+    address: string
+    description: string
+}
+
+export interface IGroupMember {
+    name: string
+    uid: string
+    avatar: string
+}
+
+export type IGroupMembers = {
+    members: Array<IGroupMember>
+}
+
+export interface IGroupContent {
+    notices: INotices
+    activities: ICarousels
+}
