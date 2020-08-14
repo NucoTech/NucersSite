@@ -11,6 +11,7 @@ import {
     getGroupProfile,
     getGroupOAProfile,
 } from "./controllers/groups.ts"
+import { postPicture, postRePicture } from "./controllers/posts.ts"
 
 const router = new Router()
 
@@ -23,5 +24,7 @@ router
     .get("/g", getGroups)
     .get("/g/:gid", getGroupProfile)
     .get("/g/oa/:gid", getGroupOAProfile)
+    .post("/p/new/picture", postPicture)
+    .post("/p/new/repicture", postRePicture)
 
 export default router

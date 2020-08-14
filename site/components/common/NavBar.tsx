@@ -63,18 +63,18 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
             { title: "广场", url: "/" },
             {
                 title: "组织",
-                url: "/groups",
+                url: "/g",
                 children: [
                     {
                         group: "社团组织",
                         children: [
                             {
                                 title: "大数据协会",
-                                url: "/groups/bigdata",
+                                url: "/g/g0",
                             },
                             {
                                 title: "信息对抗协会",
-                                url: "/groups",
+                                url: "/g/g1",
                             },
                         ],
                     },

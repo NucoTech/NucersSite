@@ -109,8 +109,7 @@ export function backOAURL(url: string): string {
 export function injectCSSFromCDN(CDNs: Array<string>): void {
     for (let cdn of CDNs) {
         let cssLink = document.createElement("link")
-        cssLink.rel = "preload"
-        cssLink.as = "style"
+        cssLink.rel = "stylesheet"
         cssLink.href = cdn
         document.head.appendChild(cssLink)
     }

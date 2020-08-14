@@ -9,6 +9,8 @@ import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
 const mdEditorStyle = require("@styles/components/posts/MdEditor.module.css")
 
+const { vditorUpload, vditorReUpload } = require("../../remote.local.json")
+
 interface IMarkdownEditorStates {
     vditor: any
 }
@@ -30,6 +32,11 @@ export default class MarkdownEditor extends React.Component<
             darkThemeStore: mobxStore.darkThemeStore,
         }
     }
+
+    uploadSuccess = (callback) => {}
+
+    uploadError = (callback) => {}
+
     componentDidMount() {
         // 引用主题
         const { darkNow } = this.props.darkThemeStore
@@ -38,10 +45,18 @@ export default class MarkdownEditor extends React.Component<
         // 可以考虑新增增图的内容插入
         const vditor = new Vditor("nucers-vditor-editor", {
             minHeight: 500,
+            height: 500,
             outline: false,
             width: "100%",
             placeholder: "写点什么吧...",
             theme: darkNow ? "dark" : "classic",
+            mode: "sv",
+            upload: {
+                url: vditorUpload,
+                linkToImgUrl: vditorReUpload,
+                success: this.uploadSuccess,
+                error: this.uploadError,
+            },
             toolbar: [
                 "emoji",
                 "headings",
@@ -131,6 +146,9 @@ export default class MarkdownEditor extends React.Component<
         const { darkNow } = this.props.darkThemeStore
         return (
             <div className={mdEditorStyle.content}>
+                <div>
+                    <input placeholder="标题" />
+                </div>
                 <div id="nucers-vditor-editor"></div>
                 <ul
                     className={mdEditorStyle.helper}
@@ -227,6 +245,9 @@ export default class MarkdownEditor extends React.Component<
                         />
                     </li>
                 </ul>
+                <div>
+                    <input placeholder="tag" />
+                </div>
             </div>
         )
     }
