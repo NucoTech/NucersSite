@@ -30,14 +30,6 @@ export default class UserAuthedPageBox extends React.Component<
     }
 
     render() {
-        return (
-            <div
-                style={{
-                    minHeight: "100vh",
-                }}
-            >
-                {this.props.children}
-            </div>
-        )
+        return <div>{this.props.children}</div>
     }
 }

@@ -28,3 +28,12 @@ export const postRePicture = (context: any) => {
         },
     }
 }
+
+export const postNewPost = async ({ matched, response, request }: any) => {
+    console.log(`访问 mock api--> ${matched[0].path}`)
+    console.log(await request.body().value)
+    response.status = 200
+    response.body = {
+        success: "ok",
+    }
+}

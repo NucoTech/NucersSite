@@ -7,9 +7,16 @@ import { injectCSSFromCDN } from "utils/utils"
 import { inject, observer } from "mobx-react"
 import { OnlyDarkThemeStoreType } from "stores/DarkThemeStore"
 
+import { message } from "antd"
+
 const mdEditorStyle = require("@styles/components/posts/MdEditor.module.css")
 
-const { vditorUpload, vditorReUpload } = require("../../remote.local.json")
+const {
+    vditorEditorTheme,
+    vditorPreviewTheme,
+    vditorUpload,
+    vditorReUpload,
+} = require("../../remote.local.json")
 
 interface IMarkdownEditorStates {
     vditor: any
@@ -40,7 +47,7 @@ export default class MarkdownEditor extends React.Component<
     componentDidMount() {
         // 引用主题
         const { darkNow } = this.props.darkThemeStore
-        injectCSSFromCDN(["https://cdn.jsdelivr.net/npm/vditor/dist/index.css"])
+        injectCSSFromCDN([vditorEditorTheme])
         // 暂时未适配图片上传和录音上传
         // 可以考虑新增增图的内容插入
         const vditor = new Vditor("nucers-vditor-editor", {
@@ -105,8 +112,7 @@ export default class MarkdownEditor extends React.Component<
             preview: {
                 delay: 500,
                 theme: {
-                    path:
-                        "https://cdn.jsdelivr.net/npm/vditor@latest/dist/css/content-theme",
+                    path: vditorPreviewTheme,
                     current: darkNow ? "dark" : "light",
                 },
             },
@@ -133,21 +139,80 @@ export default class MarkdownEditor extends React.Component<
         })
     }
 
-    componentDidUpdate() {
+    titleLexer = (title: string): Array<string> => {
+        const ReEx: RegExp = new RegExp(/^\#([\S\s]+)\#([\S\s]+)$/)
+        title = title.trim()
+        if (!ReEx.test(title)) {
+            return [title]
+        }
+        return [RegExp.$1.trim(), RegExp.$2.trim()]
+    }
+
+    tagsLexer = (tags: string): Array<string> => {
+        return tags
+            .replace(/；/g, ";")
+            .split(";")
+            .map((tag) => tag.trim())
+    }
+
+    sendPost = async () => {
         const { vditor } = this.state
-        const { darkNow } = this.props.darkThemeStore
-        vditor.setTheme(
-            darkNow ? "dark" : "classic",
-            darkNow ? "dark" : "light"
-        )
+        const title = document.getElementById(
+            "nucers-title"
+        ) as HTMLInputElement
+        const tags = document.getElementById("nucers-tags") as HTMLInputElement
+        const backTitle = this.titleLexer(title.value)
+        const backTags = this.tagsLexer(tags.value)
+        if (!backTitle[0] || (backTitle[1] && !backTitle[1])) {
+            message.warn("请输入标题")
+            return
+        }
+
+        if (backTags.length > 5) {
+            message.warn("标签不要超过五个")
+            return
+        }
+        // POST帖子
+        const data = {
+            title: backTitle.length === 1 ? backTitle[0] : backTitle[1],
+            topic: backTitle.length === 1 ? "" : backTitle[0],
+            tags: backTags,
+            content: vditor.getValue(),
+        }
+
+        try {
+            const res = await fetch("http://localhost:8000/p/new", {
+                method: "POST",
+                body: JSON.stringify(data),
+            })
+            console.log(await res.json())
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     render() {
         const { darkNow } = this.props.darkThemeStore
         return (
             <div className={mdEditorStyle.content}>
-                <div>
-                    <input placeholder="标题" />
+                <div className={mdEditorStyle.inputBox}>
+                    <input
+                        type="text"
+                        placeholder="#关联话题输入# 文章标题"
+                        id="nucers-title"
+                    />
+                    <button
+                        className={mdEditorStyle.send}
+                        onClick={() => this.sendPost()}
+                    >
+                        发布
+                        <IconFont
+                            type="nucers-fly"
+                            style={{
+                                marginLeft: "5px",
+                            }}
+                        />
+                    </button>
                 </div>
                 <div id="nucers-vditor-editor"></div>
                 <ul
@@ -156,6 +221,15 @@ export default class MarkdownEditor extends React.Component<
                         backgroundColor: darkNow ? "#1d2125" : "#f6f8fa",
                     }}
                 >
+                    <li>
+                        <b
+                            style={{
+                                color: darkNow ? "#b9b9b9" : "black",
+                            }}
+                        >
+                            教程
+                        </b>
+                    </li>
                     <li>
                         <IconFont
                             type="nucers-markdown"
@@ -245,8 +319,12 @@ export default class MarkdownEditor extends React.Component<
                         />
                     </li>
                 </ul>
-                <div>
-                    <input placeholder="tag" />
+                <div className={mdEditorStyle.inputBox1}>
+                    <input
+                        placeholder="帖子标签, 使用分号 ( ; ) 分隔, 不超过五个"
+                        type="text"
+                        id="nucers-tags"
+                    />
                 </div>
             </div>
         )

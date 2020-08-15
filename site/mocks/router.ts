@@ -11,7 +11,7 @@ import {
     getGroupProfile,
     getGroupOAProfile,
 } from "./controllers/groups.ts"
-import { postPicture, postRePicture } from "./controllers/posts.ts"
+import { postPicture, postRePicture, postNewPost } from "./controllers/posts.ts"
 
 const router = new Router()
 
@@ -24,6 +24,7 @@ router
     .get("/g", getGroups)
     .get("/g/:gid", getGroupProfile)
     .get("/g/oa/:gid", getGroupOAProfile)
+    .post("/p/new", postNewPost)
     .post("/p/new/picture", postPicture)
     .post("/p/new/repicture", postRePicture)
 
