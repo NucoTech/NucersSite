@@ -1,10 +1,7 @@
 import Head from "next/head"
 import dynamic from "next/dynamic"
 
-import AuthenticatedPageBox from "@components/auth/AuthenticatedPageBox"
-import PageBox from "@components/common/tools/PageBox"
-import NavBar from "@components/common/NavBar"
-import NavBarMobile from "@components/common/NavBarMobile"
+import UserAuthedPageBox from "@components/auth/UserAuthedPageBox"
 
 const MarkdownEditor = dynamic(import("@components/posts/MarkdownEditor"), {
     ssr: false,
@@ -14,13 +11,13 @@ const MarkdownEditor = dynamic(import("@components/posts/MarkdownEditor"), {
  * 发布帖子编辑器
  */
 const NewPost = () => (
-    <AuthenticatedPageBox>
+    <UserAuthedPageBox>
         <Head>
             <title>Nucers 新建帖子</title>
             <meta name="keywords" content="Nucers;posts;帖子;发表;" />
         </Head>
         <MarkdownEditor />
-    </AuthenticatedPageBox>
+    </UserAuthedPageBox>
 )
 
 export default NewPost

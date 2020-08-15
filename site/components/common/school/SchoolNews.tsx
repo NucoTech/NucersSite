@@ -1,25 +1,25 @@
 import React from "react"
-const commonListStyle = require("@styles/components/common/CommonList.module.css")
-import CommonBox from "./tools/CommonBox"
-import { ICommonNews, ICommonNewss } from "@utils/interfaces"
 
-interface SchoolAcademicActsProps {
-    acts: ICommonNewss
+const commonListStyle = require("@styles/components/common/CommonList.module.css")
+
+import CommonBox from "../tools/CommonBox"
+import { ICommonNewss, ICommonNews } from "@utils/interfaces"
+
+interface SchoolNewsProps {
+    news: ICommonNewss
 }
 
-export default class SchoolAcademicActs extends React.Component<
-    SchoolAcademicActsProps
-> {
-    static defaultProps: SchoolAcademicActsProps = {
-        acts: [],
+export default class SchoolNews extends React.Component<SchoolNewsProps> {
+    static defaultProps: SchoolNewsProps = {
+        news: [],
     }
     render() {
-        const { acts } = this.props
+        const { news } = this.props
         return (
-            <CommonBox header="学术活动">
-                {acts.length !== 0 && (
+            <CommonBox header="校园新闻">
+                {news.length !== 0 && (
                     <ol className={commonListStyle.ol}>
-                        {acts.map((item: ICommonNews) => (
+                        {news.map((item: ICommonNews) => (
                             <li key={item.href}>
                                 <div className={commonListStyle.ellipsis}>
                                     <a href={item.href} title={item.title}>
@@ -33,7 +33,7 @@ export default class SchoolAcademicActs extends React.Component<
                         ))}
                     </ol>
                 )}
-                {acts.length === 0 && (
+                {news.length === 0 && (
                     <div
                         style={{
                             width: "100%",

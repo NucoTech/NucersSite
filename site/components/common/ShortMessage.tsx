@@ -13,7 +13,6 @@ interface IShortMessageProps
 }
 
 interface IShortMessageStates {
-    vditor: any
     content: string
 }
 
@@ -30,7 +29,6 @@ export default class ShortMessage extends React.Component<
     constructor(props: IShortMessageProps) {
         super(props)
         this.state = {
-            vditor: null,
             content: "",
         }
     }
@@ -49,7 +47,7 @@ export default class ShortMessage extends React.Component<
             injectCSSFromCDN([
                 "https://cdn.jsdelivr.net/npm/vditor/dist/index.css",
             ])
-            const vditor = new Vditor("nucers-short-message", {
+            new Vditor("nucers-short-message", {
                 height: 200,
                 outline: false,
                 width: "100%",
@@ -78,20 +76,6 @@ export default class ShortMessage extends React.Component<
                     },
                 },
             })
-            this.setState({
-                vditor,
-            })
-        }
-    }
-    componentDidUpdate() {
-        const { vditor } = this.state
-        const { authed, utype } = this.props.authenticatedStore
-        const { darkNow } = this.props.darkThemeStore
-        if (authed && utype === "user") {
-            vditor.setTheme(
-                darkNow ? "dark" : "classic",
-                darkNow ? "dark" : "light"
-            )
         }
     }
     render() {

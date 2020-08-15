@@ -14,7 +14,7 @@ import HotPosts from "@components/common/HotPosts"
 import Notices from "@components/common/Notices"
 import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
-import SchoolNews from "@components/common/SchoolNews"
+import SchoolNews from "@components/common/school/SchoolNews"
 import SomeIdea from "@components/common/SomeIdea"
 
 import TestSetBtn from "@components/auth/TestSetBtn"
@@ -33,7 +33,7 @@ const WordCloud = dynamic(import("@components/charts/WordCloud"), {
 })
 
 import { GetNUCCMSData } from "@utils/spider"
-import SchoolAcademicActs from "@components/common/SchoolAcademicActs"
+import SchoolAcademicActs from "@components/common/school/SchoolAcademicActs"
 import { IIndexDataReq } from "@utils/requestInterfaces"
 import { ICommonNewss } from "@utils/interfaces"
 

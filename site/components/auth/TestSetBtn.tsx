@@ -32,12 +32,22 @@ export default class TestSetBtn extends React.Component<
             >
                 <button
                     onClick={() => {
-                        setLocalAuthed("g23423423423", "group")
-                        sessionStorage.setItem("uid", "g23423423423")
+                        setLocalAuthed("u0", "user")
+                        sessionStorage.setItem("uid", "u0")
+                        console.log(utype, uid, authed)
+                        location.reload()
+                    }}
+                >
+                    设置合法user账号测试
+                </button>
+                <button
+                    onClick={() => {
+                        setLocalAuthed("g0", "group")
+                        sessionStorage.setItem("uid", "g0")
                         console.log(utype, uid, authed)
                     }}
                 >
-                    设置合法账号测试
+                    设置合法group账号测试
                 </button>
             </div>
         )

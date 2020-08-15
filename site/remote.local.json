@@ -1,5 +1,5 @@
 {
-    "remoteroot": "https://www.fastmock.site/mock/57151ada57a1fe00657e419f4c95ca23/nucers",
+    "remoteroot": "http://localhost:8000",
     "vditorUpload": "http://localhost:8000/p/new/picture",
     "vditorReUpload": "http://localhost:8000/p/new/repicture"
 }

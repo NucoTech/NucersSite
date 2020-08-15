@@ -105,7 +105,12 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
 
     render() {
         const { navs } = this.props
-        const { authed, utype, uid } = this.props.authenticatedStore
+        const {
+            authed,
+            utype,
+            uid,
+            setLocalAuthed,
+        } = this.props.authenticatedStore
         const { search } = this.state
         return (
             <div className={navBarStyle.navbar}>
@@ -247,9 +252,26 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 }}
                             />
                             <ul className={navBarStyle.navbarMine}>
-                                <li>个人中心</li>
-                                <li>我的设置</li>
-                                <li>注销账号</li>
+                                <li onClick={() => window.open(`/u/${uid}`)}>
+                                    个人中心
+                                </li>
+                                <li
+                                    onClick={() =>
+                                        window.open(`/u/settings/${uid}`)
+                                    }
+                                >
+                                    我的设置
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        setLocalAuthed("uid", "user")
+                                        sessionStorage.clear()
+                                        location.reload()
+                                        console.log("注销账号...")
+                                    }}
+                                >
+                                    注销账号
+                                </li>
                             </ul>
                         </div>
                     )}

@@ -20,7 +20,7 @@ class AuthenticatedStore {
     @observable token: string = ""
     @observable utype: "user" | "group" = null
     @action setLocalAuthed = (uid: string, utype: "user" | "group") => {
-        this.authed = true
+        this.authed = Boolean(uid)
         this.uid = uid
         this.utype = utype
     }

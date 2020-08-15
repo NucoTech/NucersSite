@@ -15,6 +15,8 @@ export default class Activities extends React.Component<IAdsSideProps> {
             <div
                 style={{
                     width: "100%",
+                    borderRadius: "5px",
+                    overflow: "hidden",
                 }}
             >
                 <Carousel dotPosition="right" autoplay={true}>
