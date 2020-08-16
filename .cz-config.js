@@ -39,7 +39,7 @@ module.exports = {
 
     // override the messages, defaults are as follows
     messages: {
-        type: "选择你要commit的类型:",
+        type: "选择你要commit的类型:\n",
         subject: "输入简短精炼的更改描述\n",
         body: '对于更改的详细描述 (可选). 使用 "|" 换行:\n',
         breaking: "列出 BREAKING CHANGES (可选):\n",
