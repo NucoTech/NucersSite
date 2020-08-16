@@ -71,33 +71,33 @@
       "pre-commit": "lint-staged",
       "pre-add": "lint-staged",
       "pre-push": "lint-staged"
-    },
-    "lint-staged": {
-      "./components/**/*.{jsx,tsx,ts,js,json,css,md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ],
-      "./pages/**/*.{jsx,tsx,ts,js,json,css,md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ],
-      "./stores/**/*.{jsx,tsx,ts,js,json,css,md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ],
-      "./styles/**/*.{jsx,tsx,ts,js,json,css,md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ],
-      "./utils/**/*.{jsx,tsx,ts,js,json,css,md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ]
     }
+  },
+  "lint-staged": {
+    "./components/**/*.{jsx,tsx,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./pages/**/*.{jsx,tsx,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./stores/**/*.{jsx,tsx,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./styles/**/*.{jsx,tsx,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./utils/**/*.{jsx,tsx,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
