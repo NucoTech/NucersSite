@@ -37,6 +37,19 @@ yarn
 yarn dev
 ```
 
+commit流程
+
+```bash
+# 添加git管理
+git add .
+
+# 规范commit生成
+npm run commit
+
+# 提交更改
+git push
+```
+
 浏览器打开[http://localhost:3000](http://localhost:3000)查看结果
 
 ## TODOS
