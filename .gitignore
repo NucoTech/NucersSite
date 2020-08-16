@@ -1,4 +1,33 @@
-# 全局Git忽略规则
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# 忽略默认的mddir生成的目录树文件上传
-directoryList.md
+# 测试组件页
+/pages/demo.tsx
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
