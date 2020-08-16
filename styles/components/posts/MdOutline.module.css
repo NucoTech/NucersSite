@@ -1,0 +1,21 @@
+.outline {
+    margin: 0;
+    padding-left: 10px;
+    list-style: circle;
+    list-style-position: inside;
+    overflow-y: auto;
+    transition: height 0.2s ease-in-out;
+}
+
+.outline > li {
+    height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+    font-size: small;
+}
+
+.outline > li > a {
+    text-decoration: none;
+}

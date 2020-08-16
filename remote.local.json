@@ -1,0 +1,8 @@
+{
+    "remoteroot": "http://localhost:8000",
+    "vditorUpload": "http://localhost:8000/p/new/picture",
+    "vditorEditorTheme": "https://cdn.jsdelivr.net/npm/vditor/dist/index.css",
+    "vditorPreviewTheme": "https://cdn.jsdelivr.net/npm/vditor@latest/dist/css/content-theme",
+    "vditorReUpload": "http://localhost:8000/p/new/repicture",
+    "static": "/"
+}

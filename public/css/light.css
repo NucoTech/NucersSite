@@ -1,0 +1,245 @@
+/* 白天主题 */
+/* 样式重叠导致了渲染不一致的情况，需要继续修改 */
+.vditor-reset {
+    padding: 50px;
+    background-color: white;
+    box-shadow: 0 0 1px grey;
+    border-radius: 5px;
+}
+
+.vditor-toolbar {
+    border-radius: 5px 5px 0 0;
+}
+
+.vditor-preview > .vditor-reset {
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.vditor-preview__action {
+    display: none;
+}
+
+.vditor-reset h1,
+.vditor-reset h2,
+.vditor-reset h3,
+.vditor-reset h4,
+.vditor-reset h5,
+.vditor-reset h6 {
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.vditor-reset h1,
+.vditor-reset h2 {
+    border-bottom: 1px solid #eaecef;
+}
+
+/* 引用块 */
+.vditor-reset blockquote {
+    color: #6a737d;
+    border-left: 0.25em solid #eaecef;
+    padding: 0 1em;
+    margin: 10px 0;
+}
+
+.vditor-reset code:not(.hljs):not(.highlight-chroma) {
+    background-color: rgba(27, 31, 35, 0.05);
+    margin: 0 3px;
+    border-radius: 2px;
+    font-size: 85%;
+}
+
+/* 表格渲染 */
+.vditor-reset table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.vditor-reset table thead tr {
+    background-color: #f6f8fa;
+}
+
+.vditor-reset table tbody tr {
+    background-color: transparent;
+}
+
+.vditor-reset table tbody tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+.vditor-reset table td,
+.vditor-reset table th {
+    border: 1px solid #dfe2e5;
+    padding: 10px;
+}
+
+/* 段落渲染 */
+.vditor-reset p {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* 列表渲染 */
+.vditor-reset ul,
+.vditor-reset ol {
+    margin: 10px 0;
+    color: black;
+}
+
+.vditor-reset li {
+    margin: 3px 0;
+}
+
+.vditor-reset pre {
+    width: 100%;
+    box-shadow: 0 0 2px grey;
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;
+    margin: 1em 0;
+}
+
+.vditor-reset pre .vditor-copy span {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    display: none;
+    z-index: 1111;
+    cursor: pointer;
+}
+
+.vditor-reset .vditor-copy svg {
+    height: 14px;
+    width: 14px !important;
+}
+
+.vditor-reset pre:hover .vditor-copy span {
+    display: block;
+}
+
+.vditor-reset pre .vditor-copy textarea {
+    position: absolute;
+    opacity: 0;
+    left: -10000px;
+}
+
+.vditor-reset pre code {
+    padding: 10px;
+    background-color: #fefbec;
+    border-radius: 5px;
+    font-size: 85%;
+}
+
+/* 文字处理 */
+.vditor-reset a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.vditor-reset a:hover {
+    text-decoration: underline;
+}
+
+/* 折叠块 */
+.vditor-reset details {
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+}
+
+.vditor-reset details summary {
+    font-size: medium;
+    margin-bottom: 5px;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.vditor-task input {
+    margin: 0 0.2em 0.25em -1.6em;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+/* 视频播放器 */
+.vditor-reset video {
+    width: 100%;
+}
+
+/* 音频播放器 */
+.vditor-reset audio {
+    width: 100%;
+    outline: none;
+}
+
+/* katex */
+.vditor-reset .katex {
+    margin: 0 3px;
+    color: black;
+}
+
+.vditor-reset .katex .base {
+    margin: 5px 0;
+}
+
+/* 脚注 */
+.vditor-reset .footnotes-defs-div {
+    background-color: var(--theme-bg-color);
+}
+
+.vditor-reset .footnotes-defs-ol {
+    padding: 10px 40px;
+}
+
+/* 对于非highlight.js渲染的语言进行解析 */
+.vditor-reset code:not(.hljs):not(.highlight-chroma).language-graphviz,
+.vditor-reset code:not(.hljs):not(.highlight-chroma).language-math,
+.vditor-reset code:not(.hljs):not(.highlight-chroma).language-mermaid,
+.vditor-reset .language-abc {
+    background-color: rgba(27, 31, 35, 0.02);
+}
+
+/* canvas大小还有问题 */
+/* 移动端不考虑对图形适配 */
+.vditor-reset code:not(.hljs):not(.highlight-chroma).language-echarts,
+.vditor-reset code:not(.hljs):not(.highlight-chroma).language-mindmap {
+    background-color: transparent;
+    height: 500px;
+    width: 1000px;
+}
+
+/* nucers-short-message的预览配置 */
+#nucers-short-message .vditor-toolbar {
+    border-radius: 5px 5px 0 0;
+}
+
+#nucers-short-message .vditor-sv {
+    padding: 10px 9px 10px 10px;
+    border-radius: 0;
+    background-color: #fafbfc;
+}
+
+#nucers-short-message .vditor-copy {
+    display: none;
+}
+
+#nucers-short-message .vditor-sv .h1,
+#nucers-short-message .vditor-sv .h2,
+#nucers-short-message .vditor-sv .h3,
+#nucers-short-message .vditor-sv .h4,
+#nucers-short-message .vditor-sv .h5,
+#nucers-short-message .vditor-sv .h6 {
+    font-size: 1em;
+    line-height: 20px;
+}

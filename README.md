@@ -1,44 +1,53 @@
-# Nucers
+# Nucers前端工程
 
-Nucers 社区建设平台
+> 本项目依赖`yarn`进行包管理，可以使用`yrm`切换软件源，`yrm use taobao`可以使用淘宝源
 
-## 项目构建依赖
+## 想法记录
 
-- `mddir` --- Windows下生成目录树的工具，其他平台可以使用`tree`命令
+- [ ] 支持webGL前端渲染3D模型
+- [ ] 支持在线的代码编辑器导入导出
+- [ ] 支持tensorflow.js提供前端人工智能交互内容
+- [ ] 考虑支持前端直接执行不同语言的代码
+- [ ] 支持OA表格数据导入、导出与可视化
+- [ ] 支持插件规范化开发数据结构和DOM的插入
+- [x] 重写user的个人中心更改布局风格
+- [ ] 支持OA发起生成成员加入项目表格
+- [ ] 支持骨架屏提高部分组件的用户体验
+- [ ] 考虑支持提供在线直播发起
+- [ ] 前端bug监测系统，收集数据上报后端
 
-## 项目结构
+## 开发须知
 
-```markdown
-|-- Nucers
-    |-- .gitignore
-    |-- README.md
-    |-- config
-    |-- docs
-    |   |-- README.md
-    |-- server
-    |-- site
+- 支持别名引入模块，例如`@components/`代表`site/components`这个目录
+- 模拟数据服务使用了`deno`，请确保本地的`deno`环境可用
+
+## Getting Started
+
+Mock本地数据服务启动
+
+```bash
+yarn mock
 ```
 
-### 单文件
+开发环境启动
 
-- `.gitignore` git忽略文件控制
-- `README.md` 全局`README.md`文件
+```bash
+yarn
 
-### docs
+yarn dev
+```
 
-Nucers社区建设平台文档
+浏览器打开[http://localhost:3000](http://localhost:3000)查看结果
 
-### server
+## TODOS
 
-后端接口项目
+- [ ] 修改默认的`favicon.ico`和`zeit.svg`
 
-### site
+## 前端文档
 
-前端项目
+- [更新日志](docs/CHANGELOG.md)
 
-## 项目开发规范
+## 参考文档
 
-## 项目及合作联系
-
-- Zenith <liubingxing@nucosc.com>
-- Herbert <herberthe@nucosc.com>
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js特性和api
+- [Learn Next.js](https://nextjs.org/learn) - 交互式教程

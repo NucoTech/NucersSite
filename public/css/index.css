@@ -1,0 +1,79 @@
+.vditor-sv {
+    /* font-family:Helvetica Neue,Luxi Sans,DejaVu Sans,Hiragino Sans GB,Microsoft Yahei,sans-serif,Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,Segoe UI Symbol,Android Emoji,EmojiSymbols; */
+    margin: 0 1px 0 0;
+    overflow: auto;
+    width: 100%;
+    flex: 1;
+    min-width: 1px;
+    border: 0;
+    resize: none;
+    padding: 10px 9px 10px 10px;
+    box-sizing: border-box;
+    background-color: var(--panel-background-color);
+    outline: 0 none;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--textarea-text-color);
+    border-radius: 0 0 3px 3px;
+    font-variant-ligatures: no-common-ligatures;
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.vditor-sv[contenteditable="false"] {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.vditor-sv:empty:before {
+    content: attr(placeholder);
+    color: var(--second-color);
+}
+.vditor-sv:focus {
+    background-color: var(--textarea-background-color);
+}
+.vditor-sv:after {
+    content: "";
+    height: var(--editor-bottom);
+    display: block;
+}
+.vditor-sv .sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+.vditor-sv .strong {
+    font-weight: 700;
+}
+.vditor-sv .em {
+    font-style: italic;
+}
+.vditor-sv .s {
+    text-decoration: line-through;
+}
+
+.vditor-sv__marker {
+    color: var(--second-color);
+}
+.vditor-sv__marker--heading {
+    color: var(--ir-heading-color);
+}
+.vditor-sv__marker--bi {
+    color: var(--ir-bi-color);
+}
+.vditor-sv__marker--link {
+    color: var(--ir-link-color);
+}
+.vditor-sv__marker--title {
+    color: var(--ir-title-color);
+}
+.vditor-sv__marker--bracket {
+    color: var(--ir-bracket-color);
+}
+.vditor-sv__marker--paren {
+    color: var(--ir-paren-color);
+}
+.vditor-sv__marker--info {
+    color: var(--ir-heading-color);
+}
+.vditor-sv__marker--strong {
+    font-weight: 700;
+}

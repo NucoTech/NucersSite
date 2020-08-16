@@ -1,0 +1,26 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: calc(100% - 200px);
+    margin: 0 100px;
+    min-height: calc(100vh - 100px);
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.left {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.right {
+    width: calc(100% - 310px);
+}

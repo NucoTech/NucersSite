@@ -1,0 +1,35 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    box-shadow: 0 0 1px grey;
+}
+
+.detail {
+}
+
+.target {
+    color: var(--theme-post-add);
+}
+
+/* 各个细节的主题 */
+.item {
+    color: orange;
+}
+
+.item > span {
+    color: black;
+}
+
+.detail,
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}

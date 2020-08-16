@@ -1,0 +1,124 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    margin: 0 0 20px;
+}
+
+.avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.title {
+    margin: 20px 0 10px;
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+}
+
+.vip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.gid {
+    background-color: #dbdbdb;
+    padding: 1px 3px;
+    border-radius: 2px;
+    font-size: small;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.verify {
+    font-size: small;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: smaller;
+}
+
+.tags > li {
+    margin: 5px;
+    padding: 1px 5px;
+    border-radius: 30px;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 300;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f1f4f4;
+    border-radius: 5px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: flex-start;
+    font-size: small;
+    align-self: flex-start;
+}
+
+.members {
+    margin: 0 0 20px;
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+}
+
+.info {
+    width: 90px;
+}
+
+.membersTitle {
+    font-weight: 600;
+}
+
+.memberItem {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 10px -5px;
+    padding: 0;
+}
+
+.memberItem > li {
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}

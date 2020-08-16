@@ -1,0 +1,38 @@
+.articlePage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 100px;
+    width: 100%;
+}
+
+.articleLeft {
+    flex: 1;
+    margin-right: 80px;
+    max-width: calc(100vw - 550px);
+    margin-bottom: 20px;
+}
+
+.articleRight {
+    width: 270px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .articlePage {
+        padding: 0 5px;
+        width: calc(100vw - 10px);
+        max-width: calc(100vw - 10px);
+    }
+    .articleLeft {
+        width: calc(100vw - 10px);
+        margin-right: 0;
+        max-width: calc(100vw - 10px);
+    }
+    .articleRight {
+        display: none;
+    }
+}

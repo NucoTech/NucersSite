@@ -1,0 +1,29 @@
+.contentLight,
+.contentDark {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px 10px;
+    font-size: small;
+    font-weight: 300;
+    width: 100%;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.contentLight {
+    background: #f6f8fa;
+    box-shadow: 5px 5px 10px #c5c6c8, -5px -5px 10px #ffffff;
+}
+
+.contentDark {
+    color: white;
+    background: #414141;
+    box-shadow: -5px -5px 10px #343434, 5px 5px 10px #4e4e4e;
+}
+
+.contentLight > .from,
+.contentDark > .from {
+    align-self: flex-end;
+}

@@ -1,0 +1,67 @@
+.list {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.list > li {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1px 0;
+}
+
+.list .rate {
+    background-color: grey;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.list > li:nth-child(1) .rate {
+    background-color: #f54545;
+}
+
+.list > li:nth-child(2) .rate {
+    background-color: #ff8547;
+}
+
+.list > li:nth-child(3) .rate {
+    background-color: #ffac38;
+}
+
+.list .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 30px);
+}
+
+.list > li a {
+    color: grey;
+    font-size: small;
+    font-weight: 400;
+}
+
+.list > li a:hover {
+    text-decoration: underline;
+}
+
+.list > li:nth-child(1) a {
+    color: #f54545;
+}
+
+.list > li:nth-child(2) a {
+    color: #ff8547;
+}
+
+.list > li:nth-child(3) a {
+    color: #ffac38;
+}

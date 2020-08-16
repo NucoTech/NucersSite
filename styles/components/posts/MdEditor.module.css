@@ -1,0 +1,71 @@
+.content {
+    width: 100%;
+    padding: 70px 0 0;
+}
+
+.helper {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    box-shadow: 1px 0 1px grey;
+}
+
+.helper > li {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inputBox,
+.inputBox1 {
+    padding: 13px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inputBox1 {
+    justify-content: space-between;
+}
+
+.inputBox > input,
+.inputBox1 > input {
+    height: 35px;
+    width: 100%;
+    border: 1px solid var(--theme-nav-bg-color);
+    border-radius: 5px;
+    outline: none;
+    padding: 0 10px;
+}
+
+.inputBox1 > input {
+    width: 45%;
+}
+
+.inputBox1 > input:focus,
+.inputBox > input:focus {
+    border: 2px solid var(--theme-nav-bg-color);
+}
+
+.send {
+    margin-left: 20px;
+    height: 35px;
+    background-color: var(--theme-nav-bg-color);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    width: 80px;
+}

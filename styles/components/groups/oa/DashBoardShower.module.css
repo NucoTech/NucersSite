@@ -1,0 +1,77 @@
+.showerLight,
+.showerDark {
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.showerLight {
+    background-color: white;
+}
+
+.showerLight ul,
+.showerDark ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.showerLight li,
+.showerDark li {
+    padding: 20px;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.showerLight li {
+    background: #ffffff;
+    box-shadow: -5px -5px 10px #d9d9d9, 5px 5px 10px #ffffff;
+}
+
+.showerDark li {
+    background: #313131;
+    box-shadow: 5px 5px 10px #2a2a2a, -5px -5px 10px #383838;
+}
+
+.showerLight li:hover {
+    background: linear-gradient(315deg, #e6e6e6, #ffffff);
+    box-shadow: -5px -5px 10px #d9d9d9, 5px 5px 10px #ffffff;
+}
+
+.showerDark li:hover {
+    background: linear-gradient(145deg, #2c2c2c, #343434);
+    box-shadow: 5px 5px 10px #2a2a2a, -5px -5px 10px #383838;
+}
+
+.groupWelcome {
+    font-size: x-large;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.sameLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.infos {
+    padding: 5px 20px;
+}
+
+.infos > span {
+    color: deepskyblue;
+    margin: 0 2px;
+}

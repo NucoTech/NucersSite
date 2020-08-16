@@ -1,0 +1,106 @@
+.content {
+    width: calc(100% - 200px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 100px;
+    margin-bottom: 40px;
+}
+
+.content > .left {
+    width: 200px;
+    margin-right: 60px;
+}
+
+.content > .right {
+    width: calc(100% - 260px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.contentLeft,
+.contentRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contentLeft {
+    width: 430px;
+    margin-right: 40px;
+    margin-top: 40px;
+}
+
+.contentRight {
+    width: calc(100% - 470px);
+}
+
+.marginer {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.ideaAndNewer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+@media screen and (max-width: 1180px) {
+    .rightContent {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .contentLeft {
+        margin-right: 0;
+        width: 100%;
+    }
+    .contentRight {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        margin: 0 10px;
+        width: calc(100vw - 20px);
+        flex-wrap: wrap-reverse;
+    }
+    .content > .left {
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .content > .right {
+        width: 100%;
+    }
+    .contentLeft,
+    .contentRight {
+        width: 100%;
+    }
+    .rightContent,
+    .ideaAndNewer {
+        flex-direction: column;
+    }
+    .marginer {
+        margin-top: 20px;
+    }
+}

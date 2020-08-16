@@ -1,0 +1,16 @@
+.adsSide {
+    height: 200px;
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 1px grey;
+}
+
+.adsSide .ant-carousel .slick-slide {
+    text-align: center;
+    height: 100%;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+}

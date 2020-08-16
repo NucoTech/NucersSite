@@ -1,0 +1,17 @@
+.funcMenu {
+    height: calc(100vh - 70px);
+    visibility: visible;
+    max-width: 256px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 9999;
+}
+
+@media screen and (max-width: 1024px) {
+    .funcMenu {
+        height: 0;
+        transition: height 0.2s ease-in-out;
+        overflow: hidden;
+    }
+}
