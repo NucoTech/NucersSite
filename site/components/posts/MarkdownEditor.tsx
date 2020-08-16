@@ -40,9 +40,9 @@ export default class MarkdownEditor extends React.Component<
         }
     }
 
-    uploadSuccess = (callback) => {}
+    uploadSuccess = callback => {}
 
-    uploadError = (callback) => {}
+    uploadError = callback => {}
 
     componentDidMount() {
         // 引用主题
@@ -152,14 +152,12 @@ export default class MarkdownEditor extends React.Component<
         return tags
             .replace(/；/g, ";")
             .split(";")
-            .map((tag) => tag.trim())
+            .map(tag => tag.trim())
     }
 
     sendPost = async () => {
         const { vditor } = this.state
-        const title = document.getElementById(
-            "nucers-title"
-        ) as HTMLInputElement
+        const title = document.getElementById("nucers-title") as HTMLInputElement
         const tags = document.getElementById("nucers-tags") as HTMLInputElement
         const backTitle = this.titleLexer(title.value)
         const backTags = this.tagsLexer(tags.value)
@@ -311,10 +309,7 @@ export default class MarkdownEditor extends React.Component<
                                 color: darkNow ? "#b9b9b9" : "black",
                             }}
                             onClick={() =>
-                                window.open(
-                                    "http://www.graphviz.org/",
-                                    "_blank"
-                                )
+                                window.open("http://www.graphviz.org/", "_blank")
                             }
                         />
                     </li>
