@@ -18,8 +18,16 @@ const Search = () => {
             <div className={searchPageStyle.header}>
                 <h1 className={searchPageStyle.h1}>Nucers Search</h1>
                 <div className={searchPageStyle.form_box}>
-                    <input type="text" name="keyword" id="keyword" className={searchPageStyle.search_field} placeholder="告诉我你想搜什么..."/>
-                    <button className={searchPageStyle.search_btn} type="button">Search</button>
+                    <input
+                        type="text"
+                        name="keyword"
+                        id="keyword"
+                        className={searchPageStyle.search_field}
+                        placeholder="告诉我你想搜什么..."
+                    />
+                    <button className={searchPageStyle.search_btn} type="button">
+                        Search
+                    </button>
                 </div>
             </div>
         </PageBox>
