@@ -8,7 +8,6 @@ import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
-import AdsSide from "@components/common/AdsSide"
 
 import SideTools from "@components/posts/SideTools"
 import Comments from "@components/posts/Comments"
@@ -35,7 +34,6 @@ const MarkdownSyntax = () => {
                 </div>
                 <div className={articleStyle.articleRight}>
                     <MarkdownOutline content={markdownMd.default} />
-                    <AdsSide />
                     <CopyrightSide />
                     <SideTools />
                 </div>

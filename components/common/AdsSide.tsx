@@ -1,6 +1,5 @@
 import React from "react"
 import { Carousel } from "antd"
-import { AdsMocks } from "@mocks/datas"
 import { ICarousel } from "@utils/interfaces"
 
 const AdsStyle = require("@styles/components/common/Ads.module.css")
@@ -24,11 +23,6 @@ export default class AdsSide extends React.Component<
         this.state = {
             ads: [],
         }
-    }
-    componentDidMount() {
-        this.setState({
-            ads: AdsMocks,
-        })
     }
     render() {
         const { ads } = this.state

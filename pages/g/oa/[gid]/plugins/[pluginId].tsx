@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
     const res = await fetch("http://localhost:8000/g")
     const result = await res.json()
     const paths = result.data.gids.map(item => {
-        return { params: { gid: item } }
+        return { params: { gid: item, pluginId: "00000" } }
     })
     return {
         paths,

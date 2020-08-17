@@ -11,7 +11,7 @@ const CodeMirrorEditor = dynamic(
 /**
  * 默认的新编辑器页面
  */
-export default () => (
+const CodeEditor = () => (
     <>
         <Head>
             <title>Nucers在线代码器编辑</title>
@@ -19,3 +19,5 @@ export default () => (
         <CodeMirrorEditor />
     </>
 )
+
+export default CodeEditor

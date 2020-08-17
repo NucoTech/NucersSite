@@ -10,8 +10,6 @@ import NavBar from "@components/common/NavBar"
 import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
-import AdsSide from "@components/common/AdsSide"
-import { AdsMocks } from "@mocks/datas"
 import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 const syntaxMd = require("../../docs/syntax.md")
@@ -30,7 +28,6 @@ export default () => {
                 </div>
                 <div className={articleStyle.articleRight}>
                     <MarkdownOutline content={syntaxMd.default} />
-                    <AdsSide ads={AdsMocks} />
                     <CopyrightSide />
                 </div>
                 <MarkdownOutlineMobile content={syntaxMd.default} />

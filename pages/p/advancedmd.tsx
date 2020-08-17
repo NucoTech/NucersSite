@@ -11,7 +11,6 @@ import MarkdownOutline from "@components/posts/MarkdownOutline"
 import CopyrightSide from "@components/common/CopyrightSide"
 import MarkdownOutlineMobile from "@components/posts/MarkdownOutlineMobile"
 import AdsSide from "@components/common/AdsSide"
-import { AdsMocks } from "@mocks/datas"
 import PageBox from "@components/common/tools/PageBox"
 import NavBarMobile from "@components/common/NavBarMobile"
 const advancedMd = require("../../docs/advancedmd.md")
@@ -37,7 +36,7 @@ export default () => {
                 </div>
                 <div className={articleStyle.articleRight}>
                     <MarkdownOutline content={advancedMd.default} />
-                    <AdsSide ads={AdsMocks} />
+                    {/* <AdsSide /> */}
                     <CopyrightSide />
                 </div>
                 <MarkdownOutlineMobile content={advancedMd.default} />

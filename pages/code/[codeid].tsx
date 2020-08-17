@@ -13,7 +13,7 @@ const CodeMirrorEditor = dynamic(
 /**
  * 云端获取代码
  */
-export default ({ code, title, mode }) => {
+const CodeEditorOutside = ({ code, title, mode }) => {
     return (
         <>
             <Head>
@@ -27,7 +27,8 @@ export default ({ code, title, mode }) => {
 export const getStaticPaths = async () => {
     const res = await fetch(AllCodesRemote)
     const datas = await res.json()
-    const paths = datas.codes.map((item: any) => ({
+    console.log(datas)
+    const paths = datas.data.codes.map((item: any) => ({
         params: {
             codeid: item.id,
         },
@@ -49,3 +50,5 @@ export const getStaticProps = async ({ params }) => {
         },
     }
 }
+
+export default CodeEditorOutside
