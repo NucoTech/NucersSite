@@ -40,10 +40,7 @@ const GroupProfile = ({ data }: IGroupProfileProps) => (
                 <GroupMembers members={data.members} />
             </div>
             <div className={groupStyle.right}>
-                <GroupContent
-                    notices={data.notices}
-                    activities={data.activities}
-                />
+                <GroupContent notices={data.notices} activities={data.activities} />
             </div>
         </div>
     </PageBox>
@@ -52,7 +49,7 @@ const GroupProfile = ({ data }: IGroupProfileProps) => (
 export const getStaticPaths = async () => {
     const res = await fetch("http://localhost:8000/g")
     const result = await res.json()
-    const paths = result.data.gids.map((item) => {
+    const paths = result.data.gids.map(item => {
         return { params: { gid: item } }
     })
     return {

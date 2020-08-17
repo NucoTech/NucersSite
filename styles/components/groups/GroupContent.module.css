@@ -34,6 +34,7 @@
     padding: 0;
     list-style: inside;
     margin-top: 10px;
+    list-style-type: square;
 }
 
 .notices > li {

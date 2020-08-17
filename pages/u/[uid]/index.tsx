@@ -13,10 +13,9 @@ import { IUserDataReq } from "@utils/requestInterfaces"
 
 interface UserProfileProps {
     data: IUserDataReq
-    target: string
 }
 
-const UserProfile = ({ data, target }: UserProfileProps) => {
+const UserProfile = ({ data }: UserProfileProps) => {
     return (
         <PageBox>
             <Head>
@@ -26,11 +25,11 @@ const UserProfile = ({ data, target }: UserProfileProps) => {
             <NavBarMobile />
             <div className={userStyle.content}>
                 <div className={userStyle.left}>
-                    <CalendarHeatmapChart
+                    {/* <CalendarHeatmapChart
                         year={data.acts.year}
                         data={data.acts.data}
-                    />
-                    <UserDisplay target={target} />
+                    /> */}
+                    <UserDisplay />
                 </div>
                 <div className={userStyle.right}>
                     <UserCard
@@ -50,16 +49,25 @@ const UserProfile = ({ data, target }: UserProfileProps) => {
     )
 }
 
-export const getServerSideProps = async ({ query }) => {
-    const uid = query.uactions[0]
-    const target = query.uactions[1]
-    const res = await fetch(`http://localhost:8000/u/${uid}/${target}`)
+export const getStaticPaths = async () => {
+    const res = await fetch("http://localhost:8000/u")
+    const result = await res.json()
+    const paths = result.data.uids.map(item => {
+        return { params: { uid: item } }
+    })
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export const getStaticProps = async ({ params }) => {
+    const res = await fetch(`http://localhost:8000/u/${params.uid}`)
     const result = await res.json()
     const data = result.data
     return {
         props: {
             data,
-            target,
         },
     }
 }
