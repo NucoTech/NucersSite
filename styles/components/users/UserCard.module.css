@@ -72,12 +72,12 @@
     margin: 10px 0;
 }
 
-.focus {
+.following {
     margin-right: 22px;
 }
 
 .follower,
-.focus {
+.following {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +87,7 @@
 .followvalue {
     color: #1890ff;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .uid {

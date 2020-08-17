@@ -102,16 +102,26 @@ export default class UserCard extends React.Component<IUserCardProps> {
                 <div className={userCardStyles.slogan}>{slogan}</div>
 
                 <div className={userCardStyles.follow}>
-                    <div className={userCardStyles.focus}>
+                    <div className={userCardStyles.following}>
                         <div>Following</div>
-                        <div className={userCardStyles.followvalue}>
-                            {following}
+                        <div
+                            className={userCardStyles.followvalue}
+                            title={following}
+                        >
+                            {following.length < 4
+                                ? following
+                                : `${following.substr(0, following.length - 3)}K`}
                         </div>
                     </div>
                     <div className={userCardStyles.follower}>
                         <div>Followers</div>
-                        <div className={userCardStyles.followvalue}>
-                            {followers}
+                        <div
+                            className={userCardStyles.followvalue}
+                            title={followers}
+                        >
+                            {followers.length < 4
+                                ? followers
+                                : `${followers.substr(0, followers.length - 3)}K`}
                         </div>
                     </div>
                 </div>
