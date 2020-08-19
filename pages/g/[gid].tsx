@@ -6,11 +6,11 @@ import PageBox from "@components/common/tools/PageBox"
 
 import NavBar from "@components/common/NavBar"
 import NavBarMobile from "@components/common/NavBarMobile"
-import GroupCard from "@components/groups/GroupCard"
+import GroupCard from "@components/groups/profile/GroupCard"
 
 import { IGroupDataReq } from "@utils/requestInterfaces"
-import GroupMembers from "@components/groups/GroupMembers"
-import GroupContent from "@components/groups/GroupContent"
+import GroupMembers from "@components/groups/profile/GroupMembers"
+import GroupContent from "@components/groups/profile/GroupContent"
 
 interface IGroupProfileProps {
     data: IGroupDataReq
@@ -40,7 +40,10 @@ const GroupProfile = ({ data }: IGroupProfileProps) => (
                 <GroupMembers members={data.members} />
             </div>
             <div className={groupStyle.right}>
-                <GroupContent notices={data.notices} activities={data.activities} />
+                <GroupContent
+                    notices={data.notices}
+                    activities={data.activities}
+                />
             </div>
         </div>
     </PageBox>

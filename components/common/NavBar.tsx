@@ -193,7 +193,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                             type="search"
                             placeholder="search"
                             className={navBarStyle.navbarSearch}
-                            onChange={(e) => this.changeSearch(e)}
+                            onChange={e => this.changeSearch(e)}
                             autoComplete="off"
                         />
                         <ul className={navBarStyle.navbarSearchTips}>
@@ -257,7 +257,7 @@ export default class NavBar extends React.Component<INavProps, INavStates> {
                                 </li>
                                 <li
                                     onClick={() =>
-                                        window.open(`/u/settings/${uid}`)
+                                        window.open(`/u/${uid}/settings`)
                                     }
                                 >
                                     我的设置

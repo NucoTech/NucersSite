@@ -106,7 +106,6 @@ export const getUserPosts = ({ params, response, matched }: any) => {
     }
 }
 
-
 export const getUserIdeas = ({ params, response, matched }: any) => {
     console.log(`访问 mock api--> ${matched[0].path}`)
 

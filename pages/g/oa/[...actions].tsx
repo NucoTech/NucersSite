@@ -14,6 +14,10 @@ const OAMenu = dynamic(import("@components/groups/oa/Global/OAMenu"), {
     ssr: false,
 })
 
+/**
+ * // TODO
+ * 静态化页面
+ */
 const GroupOA = ({ gid, action, moreActions, params }) => {
     return (
         <AuthenticatedPageBox>
@@ -22,7 +26,6 @@ const GroupOA = ({ gid, action, moreActions, params }) => {
             </Head>
             <OAMenu />
             <OABasicBox>
-                {action === "acts"}
                 {action === "members"}
                 {action === "members-add"}
                 {action === "finance"}
