@@ -21,17 +21,17 @@ const UserSettings = () => (
     </UserAuthedPageBox>
 )
 
-export const getStaticPaths = async () => {
-    const res = await fetch("http://localhost:8000/u")
-    const result = await res.json()
-    const paths = result.data.uids.map(item => {
-        return { params: { uid: item } }
-    })
-    return {
-        paths,
-        fallback: false,
-    }
-}
+// export const getStaticPaths = async () => {
+//     const res = await fetch("http://localhost:8000/u")
+//     const result = await res.json()
+//     const paths = result.data.uids.map(item => {
+//         return { params: { uid: item } }
+//     })
+//     return {
+//         paths,
+//         fallback: false,
+//     }
+// }
 
 // export const getStaticProps = async ({ params }) => {
 //     const res = await fetch(`http://localhost:8000/u/${params.uid}`)
