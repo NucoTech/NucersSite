@@ -29,7 +29,6 @@ const GroupOA = ({ gid, action, moreActions, params }) => {
                 {action === "members"}
                 {action === "members-add"}
                 {action === "finance"}
-                {action === "security"}
                 {!ValidMenu.includes(action) && <OA404Shower />}
             </OABasicBox>
         </AuthenticatedPageBox>

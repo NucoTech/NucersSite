@@ -200,7 +200,7 @@ export default class DashBoardShower extends React.Component<
                     当前处理中的工单: <span>{workorders}</span>个
                 </div>
                 <ul>
-                    {items.map((item) => (
+                    {items.map(item => (
                         <li key={item.url}>
                             <DashBoardItem {...item} />
                         </li>

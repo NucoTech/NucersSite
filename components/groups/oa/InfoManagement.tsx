@@ -52,7 +52,7 @@ export default class InfoManagement extends React.Component<
                     <div className={infoManageMentStyle.label}>描述</div>
                     <TextArea
                         placeholder="在此输入网站描述"
-                        allowClear
+                        // allowClear
                         autoSize={{
                             minRows: 5,
                             maxRows: 5,

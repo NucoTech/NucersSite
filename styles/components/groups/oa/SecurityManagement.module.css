@@ -1,0 +1,58 @@
+.passwordBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 20px;
+}
+
+.passwordBox > input {
+    width: 45%;
+}
+
+.passwordBox > button {
+    background-color: #1890ff;
+    color: white;
+    border: 1px solid #1890ff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.tokenBox {
+    margin: 30px 0;
+}
+
+.tokenBox > div {
+    font-size: large;
+    font-weight: 500;
+}
+
+.tokenBox > p {
+    margin: 20px 0;
+    background-color: #f1f2f6;
+    padding: 20px;
+    border-radius: 5px;
+    color: #2f3542;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: small;
+}
+
+@media screen and (max-width: 1024px) {
+    .passwordBox {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .passwordBox > input {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .passwordBox > button {
+        margin: 20px 0;
+    }
+}
