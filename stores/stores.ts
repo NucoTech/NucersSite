@@ -1,7 +1,7 @@
-import { useStaticRendering } from "mobx-react"
+import { enableStaticRendering } from "mobx-react"
 
 const isServer: boolean = typeof window === "undefined"
-useStaticRendering(isServer)
+enableStaticRendering(isServer)
 
 let store: any = null
 

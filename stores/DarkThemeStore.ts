@@ -1,5 +1,4 @@
 import { observable, action } from "mobx"
-import { isNightNow } from "@utils/utils"
 
 interface DarkTheme {
     darkNow?: boolean

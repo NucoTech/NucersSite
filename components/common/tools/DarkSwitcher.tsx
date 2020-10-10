@@ -28,7 +28,7 @@ export default class DarkSwitcher extends React.Component<
                 onClick={() => {
                     sessionStorage.setItem(
                         "darkNow",
-                        String(!darkNow ? String(1) : String(0))
+                        !darkNow ? String(1) : String(0)
                     )
                     setDark()
                     location.reload()

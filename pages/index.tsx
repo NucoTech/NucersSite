@@ -3,10 +3,12 @@ import dynamic from "next/dynamic"
 
 const indexStyle = require("@styles/pages/index.module.css")
 
+/**
+ * 组件
+ */
 import PageBox from "@components/common/tools/PageBox"
 import NavBar from "@components/common/NavBar"
 import NavBarMobile from "@components/common/NavBarMobile"
-import { welcome2Nucers } from "@utils/utils"
 import HotTopics from "@components/common/HotTopics"
 import Activities from "@components/common/Activities"
 import Hitokoto from "@components/common/effects/Hitokoto"
@@ -16,11 +18,19 @@ import Newers from "@components/common/Newers"
 import CopyrightBottom from "@components/common/CopyrightBottom"
 import SchoolNews from "@components/common/school/SchoolNews"
 import SomeIdea from "@components/common/SomeIdea"
+import SchoolAcademicActs from "@components/common/school/SchoolAcademicActs"
 
-import TestSetBtn from "@components/auth/TestSetBtn"
 import TypedDisplay from "@components/common/effects/TypedDisplay"
 import Clock from "@components/common/effects/Clock"
 
+/**
+ * 测试按钮
+ */
+import TestSetBtn from "@components/auth/TestSetBtn"
+
+/**
+ * 粒子效果
+ */
 const ParticlesBackground = dynamic(
     import("@components/common/effects/ParticlesBackground"),
     {
@@ -28,12 +38,18 @@ const ParticlesBackground = dynamic(
     }
 )
 
+/**
+ * 词云
+ */
 const WordCloud = dynamic(import("@components/charts/WordCloud"), {
     ssr: false,
 })
 
+/**
+ * utils的工具函数
+ */
+import { welcome2Nucers } from "@utils/utils"
 import { GetNUCCMSData } from "@utils/spider"
-import SchoolAcademicActs from "@components/common/school/SchoolAcademicActs"
 import { IIndexDataReq } from "@utils/requestInterfaces"
 import { ICommonNewss } from "@utils/interfaces"
 
@@ -112,3 +128,7 @@ export const getServerSideProps = async () => {
 }
 
 export default Home
+
+/**
+ * TODO: 更新之后组件样式注入有问题
+ */
