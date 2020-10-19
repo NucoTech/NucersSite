@@ -10,7 +10,7 @@ interface IHotPostsProps {
 }
 
 export default ({ posts = [] }: IHotPostsProps) => (
-    <ContentBox>
+    <ContentBox header="热门文章">
         <ol className={style.ol}>
             {posts.map((item: IPostInfo) => (
                 <li key={item.poid}>

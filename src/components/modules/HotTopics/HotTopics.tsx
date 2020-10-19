@@ -8,7 +8,7 @@ interface IHotTopicsProps {
 }
 
 export default ({ topics = [] }: IHotTopicsProps) => (
-    <ContentBox>
+    <ContentBox header="热门话题">
         <ul className={style.list}>
             {topics.map((item: string, index: number) => (
                 <li key={`topic-${index}`}>

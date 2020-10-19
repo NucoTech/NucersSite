@@ -13,6 +13,8 @@ import { IIndexDataReq } from "@/utils/requestInterfaces"
 import { GetNUCCMSData } from "@/utils/spider"
 import { welcome2Nucers } from "@/utils/utils"
 import HotTopics from "@/components/modules/HotTopics/HotTopics"
+import WordCloud from "@/components/charts/WordCloud"
+import Newers from "@/components/modules/Newers/Newers"
 
 interface IHomeProps {
     academeicActs: ICommonNewss
@@ -60,9 +62,52 @@ const TopicsMocks = [
     "话题十五测试测试测试测试",
 ]
 
+const HotTagsMocks = [
+    { text: "测试", value: 70 },
+    { text: "前端", value: 50 },
+    { text: "开发", value: 90 },
+    { text: "Nucers", value: 90 },
+    { text: "话题", value: 90 },
+    { text: "React", value: 90 },
+    { text: "Vue", value: 90 },
+    { text: "娱乐", value: 100 },
+]
+
+const NewersMocks = [
+    {
+        name: "Zenith",
+        uid: "123123",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "1123",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "1223",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "12",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+    {
+        name: "Zenith",
+        uid: "113",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+    },
+]
+
 const Home = (props: IHomeProps) => {
     welcome2Nucers()
-    console.log(props)
     return (
         <div className={style.clientBox}>
             <Helmet>
@@ -82,6 +127,8 @@ const Home = (props: IHomeProps) => {
             <div className={style.clientContent}>
                 <div className={style.clientLeft}>
                     <HotTopics topics={TopicsMocks} />
+                    <WordCloud words={HotTagsMocks} />
+                    <Newers newers={NewersMocks} />
                 </div>
                 <div className={style.clientRight}>
                     <Hitokoto />
