@@ -215,7 +215,7 @@ const ActsMocks = [
  */
 
 export default {
-    "/": {
+    "/api": {
         topics: TopicsMocks,
         posts: PostsMocks,
         notices: NoticesMocks,
@@ -224,10 +224,10 @@ export default {
         ideas: IdeasMocks,
         acts: AdsMocks,
     },
-    "/u": {
+    "/api/u": {
         uids: ["u123123", "u321212", "u432234", "u0", "u1"],
     },
-    "/u/u0": {
+    "/api/u/u0": {
         uid: "u0",
         name: "Herbert",
         avatar:
@@ -246,27 +246,7 @@ export default {
         slogan: "测试测试测试数据",
         timeline: [],
     },
-    "/u/u0/posts": {
-        uid: "u0",
-        name: "Herbert",
-        avatar:
-            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
-        socials: UserSocialMocks,
-        acts: {
-            year: "2020",
-            data: ActsMocks,
-        },
-        verify: {
-            verified: true,
-            info: "Nucers联合创始人",
-        },
-        following: "3252234",
-        followers: "2344524",
-        slogan: "测试测试测试数据",
-        timeline: [],
-        datas: [],
-    },
-    "/u/u0/ideas": {
+    "/api/u/u0/posts": {
         uid: "u0",
         name: "Herbert",
         avatar:
@@ -286,10 +266,30 @@ export default {
         timeline: [],
         datas: [],
     },
-    "/g": {
+    "/api/u/u0/ideas": {
+        uid: "u0",
+        name: "Herbert",
+        avatar:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        socials: UserSocialMocks,
+        acts: {
+            year: "2020",
+            data: ActsMocks,
+        },
+        verify: {
+            verified: true,
+            info: "Nucers联合创始人",
+        },
+        following: "3252234",
+        followers: "2344524",
+        slogan: "测试测试测试数据",
+        timeline: [],
+        datas: [],
+    },
+    "/api/g": {
         gids: ["g0", "g1", "g2", "g3"],
     },
-    "/g/g0": {
+    "/api/g/g0": {
         gid: "g0",
         title: "进击的测试Nucers",
         avatar:
@@ -330,7 +330,7 @@ export default {
     // "POST /p/new": ,
     // "POST /p/new/picture": ,
     // "POST /p/new/repicture": ,
-    "/codes": {
+    "/api/codes": {
         codes: [
             {
                 id: "123123",
@@ -343,7 +343,7 @@ export default {
             },
         ],
     },
-    "/codes/123123": {
+    "/api/codes/123123": {
         id: "123123",
         title: "测试代码",
         mode: "text/javascript",

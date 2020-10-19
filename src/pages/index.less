@@ -1,6 +1,24 @@
-.normal {
-}
+.client-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    padding-top: 70px;
+    .client-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        z-index: 1;
 
-.title {
-    background: rgb(121, 242, 157);
+        .client-left {
+            width: 300px;
+        }
+        .client-right {
+            width: 800px;
+            margin-left: 20px;
+        }
+    }
 }
