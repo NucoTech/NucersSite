@@ -15,6 +15,11 @@ import { welcome2Nucers } from "@/utils/utils"
 import HotTopics from "@/components/modules/HotTopics/HotTopics"
 import WordCloud from "@/components/charts/WordCloud"
 import Newers from "@/components/modules/Newers/Newers"
+import Notices from "@/components/modules/Notices"
+import SchoolNews from "@/components/modules/SchoolNews"
+import SchoolAcademicActs from "@/components/modules/SchoolAcademicActs"
+import Activities from "@/components/modules/Activities"
+import AntiMarginBox from "@/components/common/AntiMarginBox"
 
 interface IHomeProps {
     academeicActs: ICommonNewss
@@ -106,6 +111,41 @@ const NewersMocks = [
     },
 ]
 
+const NoticesMocks = [
+    { noid: "324234234", title: "测试" },
+    { noid: "2346223423t234", title: "公告" },
+    { noid: "sdfadadfasdfa", title: "测试公告" },
+    {
+        noid: "qwrwerqwrqwer",
+        title:
+            "啊实dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd打实大苏打锕",
+    },
+    { noid: "werawerawera", title: "ASDFASDFASDF" },
+    { noid: "dxcasdfasd", title: "GQWWEQWERQWEW" },
+    { noid: "asdfafadfadfasdf", title: "QWERQWERQWERQWE" },
+]
+
+const AdsMocks = [
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        href: "https://www.nucosc.com",
+    },
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        href: "https://www.nucosc.com",
+    },
+    {
+        title: "NUCOSC",
+        src:
+            "https://pic1.zhimg.com/v2-3711565b5584098ca748b50be91acdf5_xl.jpg",
+        href: "https://www.nucosc.com",
+    },
+]
+
 const Home = (props: IHomeProps) => {
     welcome2Nucers()
     return (
@@ -126,13 +166,19 @@ const Home = (props: IHomeProps) => {
             <TypedDisplay />
             <div className={style.clientContent}>
                 <div className={style.clientLeft}>
+                    <Activities acts={AdsMocks} />
                     <HotTopics topics={TopicsMocks} />
                     <WordCloud words={HotTagsMocks} />
                     <Newers newers={NewersMocks} />
                 </div>
                 <div className={style.clientRight}>
-                    <Hitokoto />
-                    <HotPosts posts={PostsMocks} />
+                    <AntiMarginBox>
+                        <Hitokoto />
+                        <Notices notices={NoticesMocks} />
+                        <HotPosts posts={PostsMocks} />
+                        <SchoolNews />
+                        <SchoolAcademicActs />
+                    </AntiMarginBox>
                 </div>
             </div>
         </div>

@@ -13,6 +13,6 @@ interface ContentPropsType {
 export default ({ header = "", children }: ContentPropsType) => (
     <div className={style.contentBox}>
         {header && <div className={style.header}>{header}</div>}
-        <div>{children}</div>
+        {children}
     </div>
 )
