@@ -4,7 +4,11 @@ export default defineConfig({
     nodeModulesTransform: {
         type: "none",
     },
-    // ssr: {},
+    ssr: {
+        forceInitial: true,
+    },
+    // dynamicImport: {},
+    // dav: {},
     cssLoader: {
         localsConvention: "camelCase",
     },

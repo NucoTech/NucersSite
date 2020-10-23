@@ -7,7 +7,7 @@ export default () => {
             strings: ["Hello Nucer, ^2000", "Welcome to Nucers Community!"],
             typeSpeed: 50,
             backSpeed: 30,
-            smartBackspace: true,
+            smartBackspace: false,
         })
     })
     return (

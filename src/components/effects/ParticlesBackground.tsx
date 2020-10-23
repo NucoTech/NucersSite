@@ -1,7 +1,7 @@
 import React from "react"
 const Particles = require("particlesjs")
 
-const ParticlesBackground = () => {
+export default () => {
     React.useEffect(() => {
         Particles.init({
             selector: "#background-particles",
@@ -42,5 +42,3 @@ const ParticlesBackground = () => {
         ></canvas>
     )
 }
-
-export default ParticlesBackground
