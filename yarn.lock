@@ -8301,10 +8301,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vditor@^3.5.4:
-  version "3.5.4"
-  resolved "https://registry.npm.taobao.org/vditor/download/vditor-3.5.4.tgz#ffb6f99ead35bc05b4727515f6f9e5a5987101e8"
-  integrity sha1-/7b5nq01vAW0cnUV9vnlpZhxAeg=
+vditor@^3.8.11:
+  version "3.8.11"
+  resolved "https://registry.yarnpkg.com/vditor/-/vditor-3.8.11.tgz#cf0684446807a308eb53874a2647ba98927cd0dd"
+  integrity sha512-nwS2TLgu3DnHdfxcjnUESg/qbnYU0YR9YAvn2IKBK/F36h4k1BMqjsfEQqE4TL2RH5RGIapcQfAdJ9xF1iQNWw==
   dependencies:
     diff-match-patch "^1.0.5"
 
